@@ -46,5 +46,11 @@
     "op": "replace-all",
     "from": "href=\"#\">Donate</a>",
     "to": "href=\"/support/\">Support Us</a>"
+  },
+  {
+    "reason": "Header logo and organisation name now link to the home page instead of a dead href='#'. The anchor already wraps the org name, so it has an accessible name without needing an aria-label.",
+    "op": "replace-all",
+    "from": "<a class=\"flex items-center gap-3.5 group\" href=\"#\">",
+    "to": "<a class=\"flex items-center gap-3.5 group\" href=\"/\">"
   }
 ]

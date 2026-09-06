@@ -1,0 +1,104 @@
+---
+layout: layout.njk
+permalink: /support/
+title: Support Us — CIReN
+---
+<section class="relative w-full overflow-hidden bg-[#0B0F19]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24 text-center">
+    <div class="flex items-center justify-center gap-3 mb-6">
+      <div class="h-px w-12 bg-white/20"></div>
+      <p class="text-[11px] font-bold uppercase tracking-widest text-[#40b830]">Get Involved</p>
+      <div class="h-px w-12 bg-white/20"></div>
+    </div>
+    <h1 class="text-4xl sm:text-5xl lg:text-[52px] font-extrabold uppercase text-white tracking-tight leading-[1.15] mb-6"
+        style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-weight: 800; letter-spacing: -0.01em;">
+      {{ supportForm.heading }}
+    </h1>
+    <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto font-normal">
+      {{ supportForm.intro }}
+    </p>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 z-10 pointer-events-none overflow-hidden leading-none">
+    <svg class="relative block w-full h-8 sm:h-12 text-white" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 60">
+      <path d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z" fill="#ffffff"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="pt-20 lg:pt-24 pb-14 lg:pb-16 bg-white" id="what-you-support">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <div class="mb-10">
+      <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#0B0F19]"
+            style="font-family: &quot;Playfair Display&quot;, Georgia, serif; letter-spacing: 0.12em;">What Your Support Pays For</span>
+      <div class="h-1 w-12 bg-[#40b830] rounded-full mt-1.5"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+      {% for item in supportForm.whatYouAreSupporting %}
+      <div class="border-l-2 border-[#40b830] pl-5 py-1">
+        <h2 class="text-base sm:text-lg font-bold text-[#0B0F19] leading-snug mb-2"
+            style="font-family: &quot;Playfair Display&quot;, Georgia, serif;">{{ item.title }}</h2>
+        <p class="text-sm text-slate-600 leading-relaxed">{{ item.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pt-8 pb-20 lg:pb-24 bg-gradient-to-b from-white via-[#f8f9ff] to-white" id="support-form-section">
+  <div class="max-w-2xl mx-auto px-6 lg:px-8">
+    <div class="bg-white border border-slate-200 shadow-xl rounded-[2rem] overflow-hidden">
+      <div class="bg-[#0B0F19] px-6 py-7 sm:px-8">
+        <div class="h-1 w-12 bg-[#40b830] rounded-full mb-4"></div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight"
+            style="font-family: &quot;Playfair Display&quot;, Georgia, serif;">Tell Us How You Can Help</h2>
+        <p class="text-sm text-slate-300 font-normal mt-2 max-w-md">
+          Choose the kind of support you have in mind. We read every message and reply by email.
+        </p>
+      </div>
+
+      <form id="support-form" class="px-6 py-7 sm:px-8 space-y-5"
+            {% if supportForm.action %}action="{{ supportForm.action }}" method="post"{% endif %}>
+        {% set idPrefix = "support" %}
+
+        {# The branch: what kind of support, then either a payment choice or a
+           free-text description. #}
+        {% for f in supportForm.fields %}{% if f.group == "branch" %}{% include "partials/form-field.njk" %}{% endif %}{% endfor %}
+
+        {# Payment panels. These hold no inputs, so the shared conditional logic
+           simply shows and hides them. #}
+        {% for opt in supportForm.payment.options %}
+        <div class="hidden" data-show-when-field="payment_method" data-show-when-values="{{ opt.value }}">
+          <div class="border border-[#40b830] bg-[#E8F8E5]/40 px-5 py-5">
+            <p class="text-sm text-slate-700 leading-relaxed mb-4">{{ opt.note }}</p>
+            <a href="{{ opt.url }}" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center gap-2.5 w-full h-11 px-6 bg-[#40b830] hover:bg-[#329e24] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-none transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-[#046e00]">
+              {{ opt.label }}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 5h5v5M19 5l-8 8M19 13v6H5V5h6" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <p class="text-xs text-slate-500 mt-3 leading-relaxed">
+              Opens in a new tab. Please still send your details below so we can
+              thank you properly and keep you posted on what your support funded.
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+
+        {# Contact details, needed on both branches. #}
+        {% for f in supportForm.fields %}{% if f.group == "contact" %}{% include "partials/form-field.njk" %}{% endif %}{% endfor %}
+
+        {# Announced to screen readers when submission finishes. #}
+        <div id="support-form-status" role="status" aria-live="polite" class="hidden text-sm px-4 py-3"></div>
+
+        <button type="submit"
+                class="w-full h-11 px-6 bg-[#046e00] hover:bg-[#035800] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-none transition-colors shadow-md flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#40b830]">
+          <span>{{ supportForm.submitLabel }}</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

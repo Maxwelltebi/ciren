@@ -1,0 +1,127 @@
+{
+  "heading": "Support Us",
+  "intro": "CIReN runs on support. Every hackathon, every conference seat and every campus chapter is paid for by someone who decided this work was worth backing. Tell us how you would like to help and we will take it from there.",
+  "whatYouAreSupporting": [
+    {
+      "title": "Campus chapters",
+      "text": "Keeping a Researchers or Innovators Society running on a partner campus for a term — space, materials and coordination."
+    },
+    {
+      "title": "Hackathons and build events",
+      "text": "Venue, power, connectivity, food and prizes for a weekend that puts hundreds of students in front of a real problem."
+    },
+    {
+      "title": "Conference travel and publication",
+      "text": "Getting a student and their paper into the room where the work gets seen — travel, registration and publication fees."
+    },
+    {
+      "title": "Research infrastructure",
+      "text": "Compute, datasets and lab equipment that campus budgets do not stretch to."
+    }
+  ],
+  "action": "",
+  "_comment_action": "POST endpoint for the form. Empty = demo mode (see demoMode). Point this at a form service that emails notifyEmail: Formspree, Web3Forms or FormSubmit all work from a static site with no backend.",
+  "demoMode": true,
+  "_comment_demoMode": "DEMO ONLY. With no `action` set, submitting confirms receipt WITHOUT sending anything anywhere. Set `action` and flip this to false before launch, or supporters will believe they have reached you.",
+  "notifyEmail": "admin.cirenet@gmail.com",
+  "_comment_notifyEmail": "Where completed forms should land. Deliberately NOT rendered into the page - a plain mailto in the HTML gets scraped for spam. With Formspree the destination is set in the dashboard; with Web3Forms it is tied to the access key; with FormSubmit it is part of the endpoint URL.",
+  "submitLabel": "Send My Details",
+  "payment": {
+    "_comment_dummy": "DUMMY LINKS - replace both with your real payment pages before production.",
+    "options": [
+      {
+        "value": "Paystack",
+        "label": "Give via Paystack",
+        "url": "https://paystack.com/pay/ciren-demo",
+        "note": "Cards, bank transfer and mobile money, in local currency. Best for supporters giving from within Africa."
+      },
+      {
+        "value": "PayPal",
+        "label": "Give via PayPal",
+        "url": "https://www.paypal.com/donate/?hosted_button_id=DEMO",
+        "note": "Best for supporters giving from outside Africa."
+      }
+    ]
+  },
+  "fields": [
+    {
+      "group": "branch",
+      "name": "support_type",
+      "label": "How would you like to support CIReN?",
+      "type": "select",
+      "required": true,
+      "options": [
+        "A financial contribution",
+        "Another kind of support"
+      ]
+    },
+    {
+      "group": "branch",
+      "name": "payment_method",
+      "label": "Which would you prefer to use?",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Paystack",
+        "PayPal"
+      ],
+      "showWhen": {
+        "field": "support_type",
+        "equals": [
+          "A financial contribution"
+        ]
+      }
+    },
+    {
+      "group": "branch",
+      "name": "support_description",
+      "label": "Tell us how you would like to help",
+      "type": "textarea",
+      "required": true,
+      "rows": 5,
+      "placeholder": "Equipment, mentorship, venue space, a speaker, an internship pipeline, corporate sponsorship — whatever you have in mind.",
+      "showWhen": {
+        "field": "support_type",
+        "equals": [
+          "Another kind of support"
+        ]
+      }
+    },
+    {
+      "group": "contact",
+      "name": "full_name",
+      "label": "Your Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Your full name",
+      "autocomplete": "name"
+    },
+    {
+      "group": "contact",
+      "name": "email",
+      "label": "Email Address",
+      "type": "email",
+      "required": true,
+      "placeholder": "you@example.com",
+      "autocomplete": "email"
+    },
+    {
+      "group": "contact",
+      "name": "organisation",
+      "label": "Organisation",
+      "type": "text",
+      "required": false,
+      "placeholder": "Company, university or foundation (if applicable)",
+      "autocomplete": "organization"
+    },
+    {
+      "group": "contact",
+      "name": "phone",
+      "label": "Phone",
+      "type": "tel",
+      "required": false,
+      "placeholder": "Optional, if you would rather we call",
+      "autocomplete": "tel"
+    }
+  ]
+}

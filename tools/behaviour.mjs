@@ -23,6 +23,7 @@ const doc = window.document;
 // is a no-op. That is fine: this tests wiring, not pixel positions.
 for (const f of [
   "dist/js/modal.js",
+  "dist/js/form.js",
   "dist/js/carousel.js",
   "dist/js/testimonial-modal.js",
   "dist/js/apply-modal.js",
@@ -382,6 +383,123 @@ console.log("=== 11. papers page (real DOM) ===");
       /No papers listed yet/i.test(wdoc.body.textContent),
       "an empty list renders an explicit empty state",
     );
+}
+
+// --- support page ------------------------------------------------------------
+console.log("");
+console.log("=== 12. support page (real DOM) ===");
+{
+  const sdom = new JSDOM(readFileSync("dist/support/index.html", "utf8"), {
+    url: "http://localhost/support/",
+    runScripts: "dangerously",
+    pretendToBeVisual: true,
+  });
+  const swin = sdom.window;
+  const sdoc = swin.document;
+  for (const f of ["dist/js/modal.js", "dist/js/form.js", "dist/js/support-form.js"]) {
+    const el = sdoc.createElement("script");
+    el.textContent = readFileSync(f, "utf8");
+    sdoc.body.appendChild(el);
+  }
+  const cfg = JSON.parse(readFileSync("src/_data/supportForm.json", "utf8"));
+  const sform = sdoc.getElementById("support-form");
+  const sstatus = sdoc.getElementById("support-form-status");
+  const pick = (id, v) => {
+    const el = sdoc.getElementById(id);
+    el.value = v;
+    el.dispatchEvent(new swin.Event("change", { bubbles: true }));
+  };
+  const keys = () => [...new swin.FormData(sform).keys()];
+  const panel = (v) =>
+    sdoc.querySelector(`[data-show-when-field="payment_method"][data-show-when-values="${v}"]`);
+  const shown = (el) => !el.classList.contains("hidden");
+
+  check(sdoc.querySelector("header") !== null, "page reuses the shared header");
+  check(/All rights reserved/.test(sdoc.body.innerHTML), "page reuses the shared footer");
+  check(
+    cfg.fields.every((f) => sdoc.getElementById("support-" + f.name)),
+    "every field in supportForm.json is rendered",
+  );
+
+  // The notify address must not be scrapable from the page.
+  check(
+    !sdoc.body.innerHTML.includes(cfg.notifyEmail),
+    "notify email is not exposed in the page HTML",
+  );
+
+  // Default state: neither branch is showing.
+  check(
+    !shown(sdoc.getElementById("support-payment_method").closest("[data-show-when-field]")),
+    "payment choice hidden before a support type is picked",
+  );
+  check(
+    sdoc.getElementById("support-support_description").disabled,
+    "description disabled before a support type is picked",
+  );
+  check(!shown(panel("Paystack")) && !shown(panel("PayPal")), "no payment panel showing initially");
+
+  // Financial branch.
+  pick("support-support_type", "A financial contribution");
+  check(
+    !sdoc.getElementById("support-payment_method").disabled,
+    "'A financial contribution' reveals the payment choice",
+  );
+  check(
+    sdoc.getElementById("support-support_description").disabled,
+    "description stays out of the financial branch",
+  );
+  pick("support-payment_method", "Paystack");
+  check(shown(panel("Paystack")) && !shown(panel("PayPal")), "choosing Paystack shows only the Paystack link");
+  pick("support-payment_method", "PayPal");
+  check(shown(panel("PayPal")) && !shown(panel("Paystack")), "choosing PayPal shows only the PayPal link");
+  const cashKeys = keys();
+  check(
+    cashKeys.indexOf("payment_method") !== -1 && cashKeys.indexOf("support_description") === -1,
+    "financial submission carries the payment method, not the description",
+    `${cashKeys.length} fields`,
+  );
+
+  // Other-support branch.
+  pick("support-support_type", "Another kind of support");
+  check(
+    !sdoc.getElementById("support-support_description").disabled,
+    "'Another kind of support' reveals the description",
+  );
+  check(
+    sdoc.getElementById("support-payment_method").disabled,
+    "payment choice is withdrawn on the other branch",
+  );
+  check(!shown(panel("Paystack")) && !shown(panel("PayPal")), "payment panels hide on the other branch");
+  const otherKeys = keys();
+  check(
+    otherKeys.indexOf("support_description") !== -1 && otherKeys.indexOf("payment_method") === -1,
+    "other-support submission carries the description, not a payment method",
+    `${otherKeys.length} fields`,
+  );
+
+  // Payment links.
+  for (const opt of cfg.payment.options) {
+    const link = panel(opt.value).querySelector("a");
+    check(link && link.getAttribute("href") === opt.url, `${opt.value} link points at its configured URL`);
+    check(
+      link && link.getAttribute("target") === "_blank" &&
+        /noopener/.test(link.getAttribute("rel") || ""),
+      `${opt.value} link opens safely in a new tab`,
+    );
+  }
+
+  // Submit.
+  check(
+    Boolean(cfg.demoMode) === !cfg.action,
+    "demoMode flag agrees with whether an endpoint is configured",
+  );
+  sform.dispatchEvent(new swin.Event("submit", { bubbles: true, cancelable: true }));
+  check(!sstatus.classList.contains("hidden"), "submitting shows a status message");
+  check(
+    /thank you/i.test(sstatus.textContent),
+    "submit confirms receipt",
+    `"${sstatus.textContent.trim().slice(0, 45)}…"`,
+  );
 }
 
 process.exit(ok ? 0 : 1);

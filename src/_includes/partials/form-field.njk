@@ -1,0 +1,34 @@
+{# Renders one form field. Shared by the apply dialog and the support page, so
+   the two forms cannot drift apart in styling or behaviour.
+
+   Expects:
+     f       the field definition (see applyForm.json / supportForm.json)
+     idPrefix  string prefixed to the element id, e.g. "apply" or "support"
+
+   Conditional fields render hidden AND disabled. Disabled is the load-bearing
+   part: a hidden field that is still required blocks submission with an error
+   the visitor cannot see or fix. #}
+<div{% if f.showWhen %} data-show-when-field="{{ f.showWhen.field }}" data-show-when-values="{{ f.showWhen.equals | join('|') }}" class="hidden"{% endif %}>
+  <label for="{{ idPrefix }}-{{ f.name }}"
+         class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-[#046e00] mb-2">
+    {{ f.label }}{% if f.required %} <span class="text-slate-400 font-semibold normal-case tracking-normal">(required)</span>{% endif %}
+  </label>
+
+  {% if f.type == "select" %}
+  <select id="{{ idPrefix }}-{{ f.name }}" name="{{ f.name }}"{% if f.required %} required{% endif %}{% if f.showWhen %} disabled{% endif %}
+          class="w-full h-11 px-4 rounded-none bg-slate-50 text-slate-800 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#40b830] focus:border-transparent text-sm">
+    <option value="">Please choose…</option>
+    {% for o in f.options %}<option value="{{ o }}">{{ o }}</option>{% endfor %}
+  </select>
+
+  {% elif f.type == "textarea" %}
+  <textarea id="{{ idPrefix }}-{{ f.name }}" name="{{ f.name }}" rows="{{ f.rows or 4 }}"{% if f.required %} required{% endif %}{% if f.showWhen %} disabled{% endif %}
+            placeholder="{{ f.placeholder }}"
+            class="w-full px-4 py-3 rounded-none bg-slate-50 text-slate-800 placeholder-slate-400 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#40b830] focus:border-transparent text-sm resize-y"></textarea>
+
+  {% else %}
+  <input type="{{ f.type }}" id="{{ idPrefix }}-{{ f.name }}" name="{{ f.name }}"{% if f.required %} required{% endif %}{% if f.showWhen %} disabled{% endif %}
+         placeholder="{{ f.placeholder }}"{% if f.autocomplete %} autocomplete="{{ f.autocomplete }}"{% endif %}
+         class="w-full h-11 px-4 rounded-none bg-slate-50 text-slate-800 placeholder-slate-400 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#40b830] focus:border-transparent text-sm">
+  {% endif %}
+</div>

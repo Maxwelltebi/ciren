@@ -24,6 +24,7 @@ src/
   index.njk                    home page content
   programs.njk                 /programs/ page
   papers.njk                   /papers/ page
+  support.njk                  /support/ page
   _includes/
     layout.njk                 <head> + shared header, footer, dialogs, scripts
     sections/                  one file per band of the page
@@ -41,6 +42,7 @@ src/
       apply-modal.njk            membership application dialog
       case-study-modal.njk       the case study behind CIReN
       flip-card.njk              flipping card (societies + events)
+      form-field.njk             one form field (shared by both forms)
       stat-item.njk
       footer-column.njk
       social-icon.njk
@@ -51,12 +53,15 @@ src/
     applyForm.json             application fields + POST endpoint
     programs.json              Programs page copy, cards, case study
     papers.json                publications list
+    supportForm.json           support page copy, fields, payment links
   css/main.css                 Tailwind entry + the original keyframes
   js/modal.js                  shared dialog behaviour (focus trap, Escape)
+  js/form.js                   shared form behaviour (branching, submit)
   js/carousel.js               the testimonial carousel
   js/testimonial-modal.js      fills + opens the testimonial dialog
   js/apply-modal.js            application form submit handling
   js/programs.js               flip cards + case study dialog
+  js/support-form.js           support page form
   assets/images/               9 images, pulled local
 tools/
   verify.mjs                   static parity harness (see below)
@@ -215,6 +220,13 @@ Every placeholder notice has been removed so the site previews as finished.
 Nothing on screen now tells a visitor that this content is provisional, so the
 list below is the only record of what is still fake.
 
+- **`supportForm.json` — `demoMode: true`, no `action`.** Support enquiries go
+  nowhere. Point `action` at a form service configured to email
+  `admin.cirenet@gmail.com` (Formspree, Web3Forms and FormSubmit all work from
+  a static site), then set `demoMode` to false. The address is kept out of the
+  page HTML deliberately — a plain mailto gets scraped for spam.
+- **`supportForm.json` — `payment.options`** — both Paystack and PayPal URLs
+  are dummies.
 - **`applyForm.json` — `demoMode: true`, no `action`.** THE MOST IMPORTANT ONE.
   Submitting the application form shows "Thank you. Your application has been
   received." and sends nothing anywhere. If this ships, real applicants will
@@ -267,7 +279,6 @@ Each changes behaviour, so each is its own decision:
 - The footer copyright says 2025.
 - The newsletter form (separate from the application form) is still the
   original `alert()` stub.
-- Donate in the header is still `href="#"`.
 - The header has no mobile nav at all: the `<nav>` is `hidden md:flex`, so on
   narrow screens there is no way to reach Programs or About Us. This predates
   the restructure.

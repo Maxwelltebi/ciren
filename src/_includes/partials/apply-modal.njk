@@ -27,35 +27,8 @@
 
     <form id="apply-form" class="px-6 py-7 sm:px-8 space-y-5"
           {% if applyForm.action %}action="{{ applyForm.action }}" method="post"{% endif %}>
-      {% for f in applyForm.fields %}
-      {# Conditional fields render hidden AND disabled. Disabled is the load-
-         bearing part: a hidden field that is still required blocks submission
-         with an error the visitor cannot see or fix. #}
-      <div{% if f.showWhen %} data-show-when-field="{{ f.showWhen.field }}" data-show-when-values="{{ f.showWhen.equals | join('|') }}" class="hidden"{% endif %}>
-        <label for="apply-{{ f.name }}"
-               class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-[#046e00] mb-2">
-          {{ f.label }}{% if f.required %} <span class="text-slate-400 font-semibold normal-case tracking-normal">(required)</span>{% endif %}
-        </label>
-
-        {% if f.type == "select" %}
-        <select id="apply-{{ f.name }}" name="{{ f.name }}"{% if f.required %} required{% endif %}{% if f.showWhen %} disabled{% endif %}
-                class="w-full h-11 px-4 rounded-none bg-slate-50 text-slate-800 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#40b830] focus:border-transparent text-sm">
-          <option value="">Please choose…</option>
-          {% for o in f.options %}<option value="{{ o }}">{{ o }}</option>{% endfor %}
-        </select>
-
-        {% elif f.type == "textarea" %}
-        <textarea id="apply-{{ f.name }}" name="{{ f.name }}" rows="{{ f.rows or 4 }}"{% if f.required %} required{% endif %}{% if f.showWhen %} disabled{% endif %}
-                  placeholder="{{ f.placeholder }}"
-                  class="w-full px-4 py-3 rounded-none bg-slate-50 text-slate-800 placeholder-slate-400 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#40b830] focus:border-transparent text-sm resize-y"></textarea>
-
-        {% else %}
-        <input type="{{ f.type }}" id="apply-{{ f.name }}" name="{{ f.name }}"{% if f.required %} required{% endif %}{% if f.showWhen %} disabled{% endif %}
-               placeholder="{{ f.placeholder }}"{% if f.autocomplete %} autocomplete="{{ f.autocomplete }}"{% endif %}
-               class="w-full h-11 px-4 rounded-none bg-slate-50 text-slate-800 placeholder-slate-400 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#40b830] focus:border-transparent text-sm">
-        {% endif %}
-      </div>
-      {% endfor %}
+      {% set idPrefix = "apply" %}
+      {% for f in applyForm.fields %}{% include "partials/form-field.njk" %}{% endfor %}
 
       {# Announced to screen readers when submission finishes. #}
       <div id="apply-form-status" role="status" aria-live="polite" class="hidden text-sm px-4 py-3"></div>

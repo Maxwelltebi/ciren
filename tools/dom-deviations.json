@@ -40,5 +40,11 @@
     "op": "replace-all",
     "from": "href=\"#\">Our Papers</a>",
     "to": "href=\"/papers/\">Our Papers</a>"
+  },
+  {
+    "reason": "Header 'Donate' renamed to 'Support Us' and routed to the /support/ page. 'Donate' undersold the corporate-sponsorship path, which is where the funding actually comes from.",
+    "op": "replace-all",
+    "from": "href=\"#\">Donate</a>",
+    "to": "href=\"/support/\">Support Us</a>"
   }
 ]

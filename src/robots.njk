@@ -1,0 +1,10 @@
+---
+permalink: /robots.txt
+eleventyExcludeFromCollections: true
+---
+{% if site.noindex %}# Preview build - dummy content, forms not wired. Keep it out of search.
+User-agent: *
+Disallow: /
+{% else %}User-agent: *
+Allow: /
+{% endif %}

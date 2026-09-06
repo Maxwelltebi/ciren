@@ -1,0 +1,4 @@
+{
+  "noindex": true,
+  "_comment_noindex": "TRUE while this is a preview: emits <meta name=\"robots\" content=\"noindex, nofollow\"> and a blocking robots.txt. Set to false at launch, once the dummy content is replaced and the forms are wired. Otherwise Google indexes 'Paper title goes here' and a form that sends nothing."
+}

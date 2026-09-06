@@ -1,0 +1,8 @@
+# Build config lives in the repo so it is reproducible and the team can see it,
+# rather than being buried in a dashboard.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

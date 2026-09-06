@@ -1,0 +1,68 @@
+[
+  {
+    "rotate": "-rotate-6",
+    "featured": false,
+    "badge": "IEEE Published",
+    "image": "/assets/images/kofi-mensah.jpg",
+    "alt": "Kofi Mensah",
+    "quote": "\"CIReN connected our campus lab to compute resources and world-class mentors. Our solar-powered irrigation research was published in IEEE Access this past year!\"",
+    "initials": "KM",
+    "name": "Kofi Mensah",
+    "university": "Ashesi University"
+  },
+  {
+    "rotate": "-rotate-3",
+    "featured": false,
+    "badge": "Hackathon Champion",
+    "image": "/assets/images/amina-bello.jpg",
+    "alt": "Amina Bello",
+    "quote": "\"Winning the CIReN Pan-African Health Hackathon secured us a $15,000 seed grant to deploy AI maternal screening across 14 primary healthcare clinics.\"",
+    "initials": "AB",
+    "name": "Amina Bello",
+    "university": "University of Ibadan"
+  },
+  {
+    "rotate": "rotate-0",
+    "featured": true,
+    "badge": "AI Research Fellow",
+    "image": "/assets/images/joseph-ochieng.jpg",
+    "alt": "Joseph Ochieng",
+    "quote": "\"Being part of the CIReN campus fellowship allowed me to present our natural language NLP model for East African languages at NeurIPS in New Orleans.\"",
+    "initials": "JO",
+    "name": "Joseph Ochieng",
+    "university": "Makerere University"
+  },
+  {
+    "rotate": "rotate-2",
+    "featured": false,
+    "badge": "Fintech Lead",
+    "image": "/assets/images/faith-wanjiku.jpg",
+    "alt": "Faith Wanjiku",
+    "quote": "\"Through CIReN's campus incubator, our student team transformed a basic class project into a licensed offline micro-payment protocol for unbanked communities.\"",
+    "initials": "FW",
+    "name": "Faith Wanjiku",
+    "university": "University of Nairobi"
+  },
+  {
+    "rotate": "rotate-5",
+    "featured": false,
+    "badge": "CleanTech Pioneer",
+    "image": "/assets/images/amina-bello.jpg",
+    "alt": "Mamadou Diop",
+    "quote": "\"CIReN chapters cross national borders. Collaborating with Nigerian and Rwandan students taught me how to scale renewable micro-grids across West Africa.\"",
+    "initials": "MD",
+    "name": "Mamadou Diop",
+    "university": "Univ. Cheikh Anta Diop"
+  },
+  {
+    "rotate": "rotate-8",
+    "featured": false,
+    "badge": "Robotics Lead",
+    "image": "/assets/images/kofi-mensah.jpg",
+    "alt": "Nour El-Din",
+    "quote": "\"The academic rigor and mentorship in CIReN helped our autonomous drone navigation team place top 3 internationally. It altered my entire academic horizon.\"",
+    "initials": "NE",
+    "name": "Nour El-Din",
+    "university": "Cairo University"
+  }
+]

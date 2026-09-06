@@ -1,0 +1,74 @@
+{
+  "heading": "What We Do at CIReN",
+  "intro": "CIReN builds the structures that let African university students do serious research and serious engineering. We run societies on campus, we put on the events where that work gets tested and seen, and we connect both to the people and opportunities that can take them further.",
+  "societiesHeading": "Our Societies",
+  "societiesIntro": "Two standing communities, hosted on partner campuses.",
+  "societies": [
+    {
+      "name": "Researchers Society",
+      "teaser": "Research methodology, mentorship, and a route to global conferences.",
+      "description": "We train young researchers to understand research methodologies and connect them with the opportunities around the globe. We work on research projects that can be showcased at research conferences.",
+      "iconPaths": [
+        "M9 2v6.5L4.2 17A2 2 0 006 20h12a2 2 0 001.8-3L15 8.5V2",
+        "M8 2h8",
+        "M7.5 14h9"
+      ],
+      "image": "/assets/images/students-collaborating.jpg"
+    },
+    {
+      "name": "Innovators Society",
+      "teaser": "Build alongside strong engineers in software, AI and applied ML.",
+      "description": "An innovators club where young innovators find themselves surrounded by strong builders they can learn, collaborate and solve problems with — through software engineering, AI and applied machine learning.",
+      "iconPaths": [
+        "M9 18h6",
+        "M10 22h4",
+        "M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"
+      ],
+      "image": "/assets/images/joseph-ochieng.jpg"
+    }
+  ],
+  "eventsHeading": "Our Events",
+  "eventsIntro": "Where the work gets built, tested and presented.",
+  "events": [
+    {
+      "name": "Hackathons & Build Events",
+      "teaser": "Corporate-backed build events across campuses.",
+      "description": "We organise hackathons by sourcing corporate support to bring the spirit of innovation and problem solving across universities and college communities.",
+      "iconPaths": [
+        "M13 2L4 14h7l-1 8 9-12h-7l1-8z"
+      ],
+      "image": "/assets/images/kofi-mensah.jpg"
+    },
+    {
+      "name": "Research Conferences",
+      "teaser": "A stage for young researchers to present their work.",
+      "description": "We organise research conferences to allow young researchers present their works to faculties, industry experts, other researchers, and all those who could transform the world with the research these young researchers produce.",
+      "iconPaths": [
+        "M3 3h18",
+        "M4 3v11h16V3",
+        "M12 14v5",
+        "M8 21l4-2 4 2"
+      ],
+      "image": "/assets/images/faith-wanjiku.jpg"
+    }
+  ],
+  "inspiration": {
+    "heading": "What inspired our work?",
+    "blurb": "CIReN did not start from an idea. It started from a case study, and from the research paper that came out of it.",
+    "caseStudyButton": "Tell Me",
+    "paperButton": "The Research Paper Behind Our Work",
+    "paperUrl": "https://drive.google.com/file/d/1HFe8Ei2dq2s8aURpdWFMw2zetS507DOP/view?usp=sharing",
+    "_comment_paperUrl": "External link to the paper. While empty, the button renders disabled with a 'link coming soon' note rather than as a dead control.",
+    "caseStudy": {
+      "title": "The Case Study Behind CIReN",
+      "body": [
+        "Every organisation that lasts starts from a question somebody could not stop asking. Ours began on a campus, in a lab that had the people but not the pathway.",
+        "The students were capable. The supervision was willing. What was missing was the connective tissue between a good idea and the machinery that turns a good idea into published, cited, funded work: the methodology, the mentors who had done it before, the compute, and the rooms where the work gets shown.",
+        "We spent a year watching where projects stalled. They rarely stalled for lack of talent. They stalled at the handoffs — between an idea and a method, between a draft and a reviewer, between a finished result and an audience who could act on it.",
+        "That pattern repeated across every campus we looked at, which is what told us it was structural rather than local. A structural problem can be designed against.",
+        "CIReN is that design. The societies supply the method and the peers. The hackathons and conferences supply the deadline and the audience. The network supplies everything that a single campus cannot hold on its own."
+      ],
+      "_comment_dummy": "DUMMY CONTENT - replace every paragraph with the real case study before production."
+    }
+  }
+}

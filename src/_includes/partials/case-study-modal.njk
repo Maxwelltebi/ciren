@@ -1,0 +1,33 @@
+{# The case study that inspired CIReN. Sized for a long read: it scrolls, traps
+   focus, and closes on Escape / the close button / a click outside.
+   Copy lives in src/_data/programs.json under inspiration.caseStudy. #}
+<div id="case-study-modal"
+     class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6"
+     role="dialog" aria-modal="true" aria-labelledby="case-study-modal-title">
+  <div data-modal-backdrop class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+
+  <div class="relative z-10 w-full max-w-3xl max-h-[90vh] overflow-y-auto hide-scrollbar rounded-[2rem] bg-white shadow-2xl">
+    <button data-modal-close type="button" aria-label="Close case study"
+            class="absolute right-4 top-4 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md border border-white/20 transition-colors hover:bg-[#40b830] focus:outline-none focus:ring-2 focus:ring-[#40b830]">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
+      </svg>
+    </button>
+
+    <div class="bg-[#0B0F19] px-6 py-8 sm:px-10 sm:py-10">
+      <div class="h-1 w-12 bg-[#40b830] rounded-full mb-4"></div>
+      <p class="text-xs font-bold uppercase tracking-widest text-[#40b830] mb-2">Case Study</p>
+      <h3 id="case-study-modal-title"
+          class="text-2xl sm:text-4xl font-bold text-white leading-tight tracking-tight"
+          style="font-family: &quot;Playfair Display&quot;, Georgia, serif;">
+        {{ programs.inspiration.caseStudy.title }}
+      </h3>
+    </div>
+
+    <div class="px-6 py-8 sm:px-10">
+      <div class="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+        {% for p in programs.inspiration.caseStudy.body %}<p>{{ p }}</p>{% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en" style="">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>{% if title %}{{ title }}{% else %}CIReN Header &amp; Hero Section{% endif %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="bg-white text-[#111827] antialiased" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+{% include "sections/header.njk" %}
+{{ content | safe }}
+{% include "sections/connect.njk" %}
+{% include "partials/testimonial-modal.njk" %}
+{% include "partials/apply-modal.njk" %}
+<script src="/js/modal.js" defer></script>
+<script src="/js/carousel.js" defer></script>
+<script src="/js/testimonial-modal.js" defer></script>
+<script src="/js/apply-modal.js" defer></script>
+<script src="/js/programs.js" defer></script>
+</body></html>

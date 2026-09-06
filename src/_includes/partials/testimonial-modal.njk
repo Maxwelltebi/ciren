@@ -1,0 +1,49 @@
+{# Testimonial dialog. Lives at page level, not inside the testimonies
+   section: that section is overflow-hidden and the deck is overflow-x-auto,
+   so a dialog nested inside either would be clipped.
+   Content is populated from the clicked card by src/js/testimonial-modal.js,
+   so there is no second copy of the copy to keep in sync. #}
+<div id="testimonial-modal"
+     class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6"
+     role="dialog" aria-modal="true" aria-labelledby="testimonial-modal-name">
+  <div data-modal-backdrop class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+
+  <div class="relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto hide-scrollbar rounded-[2rem] bg-[#0B0F19] border border-white/20 shadow-2xl">
+    <button id="testimonial-modal-close" data-modal-close type="button" aria-label="Close testimonial"
+            class="absolute right-4 top-4 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-md border border-white/20 transition-colors hover:bg-[#40b830] focus:outline-none focus:ring-2 focus:ring-[#40b830]">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
+      </svg>
+    </button>
+
+    <div class="relative h-52 sm:h-64">
+      <img id="testimonial-modal-img" src="" alt=""
+           class="absolute inset-0 w-full h-full object-cover object-center">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/60 to-black/20"></div>
+      <span id="testimonial-modal-badge"
+            class="absolute left-6 top-6 inline-flex items-center px-3 py-1 text-[11px] font-bold tracking-wider uppercase bg-[#40b830] text-white shadow-sm rounded-none"></span>
+    </div>
+
+    <div class="relative px-6 pb-7 sm:px-8 sm:pb-8">
+      <div class="mb-3 text-[#68e053]">
+        <svg class="w-8 h-8 opacity-80" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
+        </svg>
+      </div>
+
+      <p id="testimonial-modal-quote"
+         class="text-sm sm:text-base font-normal leading-relaxed text-slate-100 mb-6"></p>
+
+      <div class="border-t border-white/20 pt-4 flex items-center gap-3">
+        <div id="testimonial-modal-initials"
+             class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center font-bold text-xs text-white border border-white/30"></div>
+        <div>
+          <h4 id="testimonial-modal-name"
+              class="text-sm sm:text-base font-bold text-white leading-tight"
+              style="font-family: 'Playfair Display', Georgia, serif;"></h4>
+          <p id="testimonial-modal-uni" class="text-xs text-emerald-300 font-medium"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+{
+  "title": "Join CIReN",
+  "intro": "Apply to join the Campus Innovation & Research Network, or to host a chapter on your campus. We review applications on a rolling basis and reply by email.",
+  "submitLabel": "Submit Application",
+  "action": "",
+  "_comment_action": "POST endpoint for the form. While empty, the dialog tells the visitor plainly that the application was not sent, rather than faking a success. Set this to a Formspree/Netlify/Google Forms URL to make it live.",
+  "_comment_showWhen": "A field with showWhen only appears when the named field holds one of the listed values. While hidden it is also disabled, so it is neither validated nor submitted - a hidden field that is still required blocks submission with no visible error.",
+  "fields": [
+    {
+      "name": "application_type",
+      "label": "What are you applying for?",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Join CIReN",
+        "Host a campus club"
+      ]
+    },
+    {
+      "name": "full_name",
+      "label": "Full Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Your full name",
+      "autocomplete": "name"
+    },
+    {
+      "name": "email",
+      "label": "Email Address",
+      "type": "email",
+      "required": true,
+      "placeholder": "you@university.edu",
+      "autocomplete": "email"
+    },
+    {
+      "name": "institution",
+      "label": "University / Institution",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g. University of Ibadan",
+      "autocomplete": "organization"
+    },
+    {
+      "name": "country",
+      "label": "Country",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g. Nigeria",
+      "autocomplete": "country-name"
+    },
+    {
+      "name": "role",
+      "label": "I am applying as",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Student",
+        "Faculty Advisor",
+        "Researcher",
+        "Campus Lab Lead"
+      ]
+    },
+    {
+      "name": "field_of_study",
+      "label": "Field of Study or Research",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g. Renewable Energy, Machine Learning"
+    },
+    {
+      "name": "motivation",
+      "label": "Why do you want to join CIReN?",
+      "type": "textarea",
+      "required": true,
+      "rows": 4,
+      "placeholder": "What draws you to the network, and what would you hope to get out of it?",
+      "showWhen": {
+        "field": "application_type",
+        "equals": [
+          "Join CIReN"
+        ]
+      }
+    },
+    {
+      "name": "tech_journey",
+      "label": "Tell us about your tech journey so far",
+      "type": "textarea",
+      "required": true,
+      "rows": 4,
+      "placeholder": "Where you started, what you have built or researched, and where you stand right now.",
+      "showWhen": {
+        "field": "application_type",
+        "equals": [
+          "Join CIReN"
+        ]
+      }
+    }
+  ],
+  "demoMode": true,
+  "_comment_demoMode": "DEMO ONLY. With no `action` set, submitting shows a success confirmation WITHOUT sending anything anywhere. Set `action` to a real endpoint and demoMode to false before launch, or applicants will believe they applied."
+}

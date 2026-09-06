@@ -1,0 +1,26 @@
+{
+  "heading": "Our Papers",
+  "intro": "Research produced by students across the CIReN network — work taken from a campus lab through to peer review and presentation. Each entry lists the paper, the students behind it, and the year it was published.",
+  "_comment_shape": "Each paper: title (required), authors (required, a single string - format them however you cite), year (required), url (optional; when present the title becomes an external link, when absent it renders as plain text rather than a dead link).",
+  "papers": [
+    {
+      "title": "Paper title goes here",
+      "authors": "Author One, Author Two, Author Three",
+      "year": 2025,
+      "url": "https://example.com/papers/solar-irrigation"
+    },
+    {
+      "title": "A second paper title goes here",
+      "authors": "Author One, Author Four",
+      "year": 2025,
+      "url": "https://example.com/papers/maternal-screening"
+    },
+    {
+      "title": "A third paper title goes here",
+      "authors": "Author Five, Author Six",
+      "year": 2024,
+      "url": "https://example.com/papers/offline-language-models"
+    }
+  ],
+  "_comment_dummy": "DUMMY CONTENT - titles, authors and URLs are stand-ins to be replaced before production."
+}

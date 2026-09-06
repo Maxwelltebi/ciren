@@ -1,0 +1,45 @@
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start pb-16 border-b border-white/10">
+        <!-- Left Column: Newsletter info -->
+        <div class="lg:col-span-6 space-y-4">
+          <div class="flex items-center gap-3 pt-2">
+            <div class="w-12 h-1 bg-white/90 rounded-full"></div>
+          </div>
+          <span class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-[#40b830]">
+            Newsletter
+          </span>
+          <h3 class="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-tight tracking-tight pt-1" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-weight: 700;">
+            Stay informed about the<br class="hidden sm:inline"> CIReN's Work
+          </h3>
+          <p class="text-sm sm:text-base text-slate-300 font-normal pt-1 max-w-lg">
+            Join thousands of researchers, student innovators, and faculty advisors across Africa receiving our breakthrough updates.
+          </p>
+        </div>
+
+        <!-- Right Column: Form Inputs -->
+        <div class="lg:col-span-6 w-full max-w-xl lg:ml-auto space-y-5 pt-2">
+          <form class="space-y-4" onsubmit="event.preventDefault(); alert('Thank you for subscribing to CIReN Newsletter!');">
+            <div>
+              <label class="block text-xs sm:text-sm font-semibold text-white mb-2 tracking-wide">
+                Name (Required)
+              </label>
+              <input type="text" required="" placeholder="Your full name" class="w-full h-11 px-4 rounded-none bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#40b830] border-none shadow-inner text-sm">
+            </div>
+            <div>
+              <label class="block text-xs sm:text-sm font-semibold text-white mb-2 tracking-wide">
+                Email Address (Required)
+              </label>
+              <div class="flex flex-col sm:flex-row gap-3 items-stretch">
+                <input type="email" required="" placeholder="you@university.edu" class="flex-1 h-11 px-4 rounded-none bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#40b830] border-none shadow-inner text-sm">
+                <button type="submit" class="h-11 px-6 bg-[#40b830] hover:bg-[#329e24] text-white text-xs sm:text-sm font-bold uppercase tracking-wider rounded-none transition-all shadow-md shrink-0 flex items-center justify-center gap-2">
+                  <span class="">Subscribe</span>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Main Footer Columns Grid (modeled after reference image) -->

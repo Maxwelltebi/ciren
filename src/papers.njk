@@ -1,0 +1,79 @@
+---
+layout: layout.njk
+permalink: /papers/
+title: Our Papers — CIReN
+---
+<section class="relative w-full overflow-hidden bg-[#0B0F19]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24 text-center">
+    <div class="flex items-center justify-center gap-3 mb-6">
+      <div class="h-px w-12 bg-white/20"></div>
+      <p class="text-[11px] font-bold uppercase tracking-widest text-[#40b830]">Publications</p>
+      <div class="h-px w-12 bg-white/20"></div>
+    </div>
+    <h1 class="text-4xl sm:text-5xl lg:text-[52px] font-extrabold uppercase text-white tracking-tight leading-[1.15] mb-6"
+        style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-weight: 800; letter-spacing: -0.01em;">
+      {{ papers.heading }}
+    </h1>
+    <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto font-normal">
+      {{ papers.intro }}
+    </p>
+  </div>
+  <div class="absolute bottom-0 left-0 right-0 z-10 pointer-events-none overflow-hidden leading-none">
+    <svg class="relative block w-full h-8 sm:h-12 text-white" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 60">
+      <path d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z" fill="#ffffff"></path>
+    </svg>
+  </div>
+</section>
+
+<section class="pt-20 lg:pt-24 pb-20 lg:pb-24 bg-white" id="papers">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+    {% if papers.papers.length %}
+    <div class="flex items-baseline justify-between mb-8">
+      <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#0B0F19]"
+            style="font-family: &quot;Playfair Display&quot;, Georgia, serif; letter-spacing: 0.12em;">Published Work</span>
+      <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">{{ papers.papers.length }} paper{% if papers.papers.length != 1 %}s{% endif %}</span>
+    </div>
+
+    <ul class="border-t border-slate-200">
+      {% for p in papers.papers %}
+      <li class="border-b border-slate-200 py-7 sm:py-8">
+        <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
+          <span class="shrink-0 sm:w-16 text-sm font-bold text-[#046e00] tracking-wider">{{ p.year }}</span>
+          <div class="flex-1">
+            <h2 class="text-lg sm:text-xl font-bold text-[#0B0F19] leading-snug"
+                style="font-family: &quot;Playfair Display&quot;, Georgia, serif;">
+              {% if p.url %}
+              <a href="{{ p.url }}" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-baseline gap-2 hover:text-[#046e00] transition-colors focus:outline-none focus:ring-2 focus:ring-[#40b830] focus:ring-offset-2">
+                {{ p.title }}
+                <svg class="w-3.5 h-3.5 shrink-0 self-center text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M14 5h5v5M19 5l-8 8M19 13v6H5V5h6" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </a>
+              {% else %}
+              {{ p.title }}
+              {% endif %}
+            </h2>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed">{{ p.authors }}</p>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+    {# No papers yet. Better an explicit empty state than a heading over nothing. #}
+    <div class="border border-dashed border-slate-300 rounded-[2rem] py-16 px-6 text-center">
+      <div class="h-1 w-12 bg-[#40b830] rounded-full mx-auto mb-5"></div>
+      <p class="text-base font-bold text-[#0B0F19] mb-2"
+         style="font-family: &quot;Playfair Display&quot;, Georgia, serif;">No papers listed yet</p>
+      <p class="text-sm text-slate-600 max-w-md mx-auto">
+        Work from the network is being prepared for publication. This page will
+        list it as it goes out.
+      </p>
+    </div>
+    {% endif %}
+
+  </div>
+</section>

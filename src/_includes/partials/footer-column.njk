@@ -1,0 +1,9 @@
+{# One footer nav column. Data: src/_data/footer.json #}
+<div{% if c.wrapperClass %} class="{{ c.wrapperClass }}"{% endif %}>
+<h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; letter-spacing: 0.08em;">
+{{ c.heading | safe }}
+</h4>
+<ul class="space-y-2.5 text-sm text-slate-300 font-normal">
+{% for l in c.links %}<li class=""><a href="#" class="hover:text-[#40b830] transition-colors">{{ l.label | safe }}</a></li>
+{% endfor %}</ul>
+</div>

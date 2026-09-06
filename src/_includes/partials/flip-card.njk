@@ -1,0 +1,46 @@
+{# A flipping card. Front: photo, icon, name, teaser. Back: the full
+   description. Used for both societies and events - pass `c`.
+
+   Rendered as a <button> so it is keyboard-operable and announces its state.
+   Everything inside is a <span>: a button may only contain phrasing content,
+   so block-level children would be invalid markup. The display comes from
+   Tailwind's block/flex utilities instead. (<img> is phrasing content, so it
+   is fine here.) #}
+<button type="button" aria-expanded="false"
+        class="flip-card group w-full h-80 text-left rounded-[2rem] focus:outline-none focus:ring-4 focus:ring-[#40b830]/60">
+  <span class="flip-card-inner block relative w-full h-full">
+
+    <span class="flip-face absolute inset-0 overflow-hidden rounded-[2rem] bg-[#0B0F19] border border-white/10 shadow-2xl">
+      <img src="{{ c.image }}" alt=""
+           class="absolute inset-0 w-full h-full object-cover object-center">
+      {# Dark wash so white text stays legible over any photo - the same
+         treatment the testimonial cards use. #}
+      <span class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/90 to-[#0B0F19]/70"></span>
+
+      <span class="relative z-10 flex flex-col justify-between h-full p-7">
+        <span class="block text-[#40b830]">
+          <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+            {% for d in c.iconPaths %}<path d="{{ d }}" stroke-linecap="round" stroke-linejoin="round"></path>{% endfor %}
+          </svg>
+        </span>
+        <span class="block">
+          <span class="block text-xl sm:text-2xl font-bold text-white leading-tight"
+                style="font-family: &quot;Playfair Display&quot;, Georgia, serif;">{{ c.name }}</span>
+          <span class="block h-1 w-12 bg-[#40b830] rounded-full mt-3"></span>
+          <span class="block text-sm text-slate-300 leading-relaxed mt-3">{{ c.teaser }}</span>
+        </span>
+        <span class="block text-[11px] font-bold uppercase tracking-widest text-[#40b830]">Read more →</span>
+      </span>
+    </span>
+
+    <span class="flip-face flip-back absolute inset-0 flex flex-col justify-between rounded-[2rem] bg-white border-2 border-[#40b830]/40 shadow-2xl p-7">
+      <span class="block">
+        <span class="block text-[11px] font-bold uppercase tracking-widest text-[#046e00]">{{ c.name }}</span>
+        <span class="block h-1 w-12 bg-[#40b830] rounded-full mt-2 mb-4"></span>
+        <span class="block text-sm text-slate-600 leading-relaxed">{{ c.description }}</span>
+      </span>
+      <span class="block text-[11px] font-bold uppercase tracking-widest text-slate-400">← Back</span>
+    </span>
+
+  </span>
+</button>

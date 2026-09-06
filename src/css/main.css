@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Verbatim from the original inline <style> block. */
+body {
+      font-family: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+/* Anchor navigation. The sticky header is h-20 (5rem) tall, so without this
+   an in-page jump lands with the section's top hidden behind it. */
+html {
+  scroll-padding-top: 5rem;
+}
+
+/* Smooth scrolling, but not for visitors who have asked for less motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Flip cards (Programs). Hover flips on pointer devices; click or Enter
+   toggles .is-flipped, so touch and keyboard users can reach the back face. */
+.flip-card {
+  perspective: 1200px;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.7s;
+}
+
+.flip-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+@media (hover: hover) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner {
+    transition: none;
+  }
+}

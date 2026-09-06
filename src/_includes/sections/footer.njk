@@ -1,0 +1,40 @@
+<div class="pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+        <!-- Column Left (CIReN Brand, Description & Social Icons) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="flex items-center gap-3.5">
+            <div class="w-11 h-11 flex items-center justify-center overflow-hidden flex-shrink-0 rounded-lg p-1 bg-white border border-slate-200/60 shadow-sm">
+              <img src="/assets/images/ciren-logo.jpg" alt="CIReN Logo" class="w-full h-full object-contain">
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[13px] font-bold tracking-wider uppercase text-white leading-tight">Campus Innovation &amp; Research</span>
+              <span class="text-[11px] font-semibold text-[#40b830] tracking-wide uppercase">Network (CIReN)</span>
+            </div>
+          </div>
+          <p class="text-sm text-slate-300 leading-relaxed max-w-md">
+            Empowering university students, faculty advisors, and campus labs across Africa to build breakthrough tech solutions and advance global academic research for Africa's most pressing challenges.
+          </p>
+          <!-- Social Icons Row -->
+          <div class="flex items-center gap-4 pt-2 text-slate-400">
+            {% for i in footer.social %}{% include "partials/social-icon.njk" %}{% endfor %}
+          </div>
+        </div>
+
+        <!-- Column Right: 3 Vertical Nav Columns -->
+        <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+{% for c in footer.columns %}{% include "partials/footer-column.njk" %}{% endfor %}
+
+        </div>
+      </div>
+
+      <!-- Sub-footer bar with copyright and legal links -->
+      <div class="border-t border-white/10 pt-8 mt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <p class="text-center sm:text-left">
+          © 2025 Campus Innovation &amp; Research Network (CIReN). All rights reserved.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-white transition-colors">Ethics &amp; Governance</a>
+          <a href="#" class="hover:text-white transition-colors">Campus Charter</a>
+        </div>
+      </div>

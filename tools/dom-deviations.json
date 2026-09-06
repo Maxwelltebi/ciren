@@ -1,0 +1,44 @@
+[
+  {
+    "reason": "Testimonial cards became focusable dialog triggers (tabindex/role/aria-haspopup plus a focus ring). They were previously plain divs with cursor-pointer and no keyboard access at all.",
+    "op": "replace-all",
+    "from": "<div class=\"carousel-card ",
+    "to": "<div tabindex=\"0\" role=\"button\" aria-haspopup=\"dialog\" class=\"focus:outline-none focus:ring-4 focus:ring-[#40b830]/60 carousel-card "
+  },
+  {
+    "reason": "Header 'About Us' links to the What We Do band on the home page. Root-relative (/#about-us) rather than a bare fragment, because the header is shared and that section only exists on the home page.",
+    "op": "replace-all",
+    "from": "href=\"#\">About Us</a>",
+    "to": "href=\"/#about-us\">About Us</a>"
+  },
+  {
+    "reason": "Header 'Apply' button now opens the membership application dialog (data-open-apply + aria-haspopup) instead of being a dead href='#'.",
+    "op": "replace-all",
+    "from": "href=\"#\">Apply</a>",
+    "to": "href=\"#\" data-open-apply aria-haspopup=\"dialog\">Apply</a>"
+  },
+  {
+    "reason": "Header 'Programs' now routes to the /programs/ page instead of a dead href='#'.",
+    "op": "replace-all",
+    "from": "href=\"#\">Programs</a>",
+    "to": "href=\"/programs/\">Programs</a>"
+  },
+  {
+    "reason": "Hero CTA 'Explore Our Initiatives' now routes to the /programs/ page instead of a dead href='#'.",
+    "op": "replace-all",
+    "from": "href=\"#\">Explore Our Initiatives</a>",
+    "to": "href=\"/programs/\">Explore Our Initiatives</a>"
+  },
+  {
+    "reason": "What We Do 'Read more' CTA now routes to the /programs/ page instead of a dead href='#'.",
+    "op": "replace-all",
+    "from": "hover:shadow-xl hover:-translate-y-0.5 transition-all\" href=\"#\">",
+    "to": "hover:shadow-xl hover:-translate-y-0.5 transition-all\" href=\"/programs/\">"
+  },
+  {
+    "reason": "Header 'Our Papers' now routes to the /papers/ page instead of a dead href='#'.",
+    "op": "replace-all",
+    "from": "href=\"#\">Our Papers</a>",
+    "to": "href=\"/papers/\">Our Papers</a>"
+  }
+]

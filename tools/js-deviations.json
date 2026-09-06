@@ -1,0 +1,7 @@
+[
+  {
+    "reason": "scrollIntoView() scrolled the whole page to the carousel on load and refresh; scrollLeft moves only the deck. Also runs immediately instead of on window.load, and syncs the active dot to the centred card.",
+    "from": "    // Center initially on middle card\n    window.addEventListener('load', () => {\n      if (cards[2]) {\n        cards[2].scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });\n      }\n    });",
+    "to": "    // Centre the deck on the middle card.\n    //\n    // Deliberately NOT scrollIntoView(): that scrolls every scrollable\n    // ancestor, including the page, so it dragged the whole window down to the\n    // carousel on first load and again on every refresh.\n    // scrollLeft only ever moves the deck.\n    //\n    // Runs immediately rather than on window.load - the script is deferred, so\n    // layout is already settled, and waiting for images caused a visible jump.\n    const mid = cards[2];\n    if (mid) {\n      deck.scrollLeft +=\n        mid.getBoundingClientRect().left -\n        deck.getBoundingClientRect().left -\n        (deck.clientWidth - mid.offsetWidth) / 2;\n      // Markup hardcodes dot 2 as active, but we centre card 3. Sync them.\n      updateActiveDot();\n    }"
+  }
+]

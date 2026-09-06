@@ -1,4 +1,12 @@
 {
   "noindex": true,
-  "_comment_noindex": "TRUE while this is a preview: emits <meta name=\"robots\" content=\"noindex, nofollow\"> and a blocking robots.txt. Set to false at launch, once the dummy content is replaced and the forms are wired. Otherwise Google indexes 'Paper title goes here' and a form that sends nothing."
+  "_comment_noindex": "TRUE while this is a preview: emits <meta name=\"robots\" content=\"noindex, nofollow\"> and a blocking robots.txt. Set to false at launch, once the dummy content is replaced and the forms are wired.",
+
+  "logo": "/assets/images/ciren-logo.jpg",
+  "_comment_logo": "The header and footer logo. Drop your real file in src/assets/images/ and point this at it - both places update. A transparent PNG or an SVG is better than a JPEG here: the logo sits on white in the header and on #0B0F19 in the footer, so a JPEG's opaque background will show as a box on the dark one.",
+
+  "favicon": "/assets/images/ciren-logo.jpg",
+  "faviconSvg": "",
+  "appleTouchIcon": "",
+  "_comment_favicon": "Browser tab icon. `faviconSvg` is preferred by modern browsers when set (any size, sharp everywhere); `favicon` is the raster fallback - ideally a 32x32 PNG or .ico, since a large JPEG gets squeezed into 16px and turns to mush. `appleTouchIcon` should be a 180x180 PNG for iOS home screens. Leave a value empty and its tag is simply not emitted."
 }

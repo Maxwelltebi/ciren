@@ -3,6 +3,9 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 {% if site.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+{% if site.faviconSvg %}<link rel="icon" type="image/svg+xml" href="{{ site.faviconSvg }}">{% endif %}
+{% if site.favicon %}<link rel="icon" href="{{ site.favicon }}">{% endif %}
+{% if site.appleTouchIcon %}<link rel="apple-touch-icon" href="{{ site.appleTouchIcon }}">{% endif %}
 <title>{% if title %}{{ title }}{% else %}CIReN Header &amp; Hero Section{% endif %}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

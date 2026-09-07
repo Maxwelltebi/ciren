@@ -59,6 +59,20 @@ const norm = (s) =>
     .replace(/>\s+</g, "><")
     .trim();
 
+// Text nodes only - tags and attributes removed. Used to report how far the
+// copy has drifted from the original design, which is expected once real
+// content lands and is therefore informational rather than a failure.
+const textOf = (s) =>
+  (s.match(/>[^<]+</g) || [])
+    .map((t) => t.slice(1, -1).trim())
+    .filter(Boolean);
+
+// Structure only - every text node emptied, so tags, attributes and classes
+// still have to match exactly. This is what stays worth guarding once the
+// placeholder copy starts being replaced: a layout or styling regression will
+// still fail here, while editing a heading will not.
+const structureOf = (s) => norm(s).replace(/>[^<]*</g, "><");
+
 const baseRaw = readFileSync(BASE, "utf8");
 const builtRaw = readFileSync(BUILT, "utf8");
 
@@ -113,16 +127,37 @@ for (const d of domDeviations)
   console.log(`  declared change: ${d.reason}`);
 if (built !== bodyOf(builtRaw))
   console.log(`  excluded from comparison: the testimonial dialog (new markup)`);
-if (base === built) {
-  console.log("PASS  built DOM is identical to baseline\n");
+const baseStruct = structureOf(bodyOf(baseMapped));
+const builtStruct = structureOf(builtTrimmed);
+
+if (baseStruct === builtStruct) {
+  pass(true, "structure matches the original design (tags, attributes, classes)");
 } else {
   ok = false;
   let i = 0;
-  while (i < base.length && i < built.length && base[i] === built[i]) i++;
-  console.log(`FAIL  first divergence at char ${i.toLocaleString()}`);
-  console.log(`  baseline: ...${base.slice(Math.max(0, i - 90), i + 90)}...`);
-  console.log(`  built   : ...${built.slice(Math.max(0, i - 90), i + 90)}...\n`);
+  while (
+    i < baseStruct.length &&
+    i < builtStruct.length &&
+    baseStruct[i] === builtStruct[i]
+  )
+    i++;
+  console.log(`FAIL  structural divergence at char ${i.toLocaleString()}`);
+  console.log(`  baseline: ...${baseStruct.slice(Math.max(0, i - 90), i + 90)}...`);
+  console.log(`  built   : ...${builtStruct.slice(Math.max(0, i - 90), i + 90)}...`);
 }
+
+// Copy changes are expected from here on, so they are reported, not failed.
+const baseText = textOf(base);
+const builtText = textOf(built);
+const changed = baseText.filter((t, i) => builtText[i] !== t).length;
+if (base === built) {
+  console.log("  copy is still identical to the original design");
+} else {
+  console.log(
+    `  copy has moved on from the original design in ~${changed} place(s) - expected as real content lands`,
+  );
+}
+console.log("");
 
 console.log("=== 2. extracted assets match the original inline blocks ===");
 const inlineJs = /<script>([\s\S]*?)<\/script>/.exec(baseRaw)[1].trim();

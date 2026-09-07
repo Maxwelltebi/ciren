@@ -54,7 +54,11 @@ html {
 
 .flip-card-inner {
   transform-style: preserve-3d;
-  transition: transform 0.7s;
+  /* ease-in-out is symmetric: at half the duration the card is at exactly 90
+     degrees, edge-on. The default `ease` is not - it is ~60% through by then,
+     so anything timed to the midpoint fires while the card is still visibly
+     face-on and reads as a jump cut. */
+  transition: transform 0.7s ease-in-out;
 }
 
 .flip-face {
@@ -73,14 +77,10 @@ html {
   transform: rotateY(180deg);
 }
 
-/* Belt and braces, because backface-visibility is not reliable here: the card
-   is a <button>, and browsers lay a button's children out inside an anonymous
-   box that can flatten the 3D context. When that happens the front face is
-   never culled and its text bleeds through the back.
-
-   So the away-facing side is also faded out. The switch is instant (0s) but
-   delayed to the halfway point of the 0.7s flip, so it happens while the card
-   is edge-on and is never visible as a fade. */
+/* Backup for the backface culling. The switch is instant (0s duration) but
+   delayed to exactly half the flip, which with ease-in-out above is the moment
+   the card is edge-on and both faces are zero pixels wide - so it cannot be
+   seen. Get either the easing or this delay wrong and it reads as a cut. */
 .flip-face {
   transition: opacity 0s linear 0.35s;
 }

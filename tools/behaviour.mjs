@@ -553,4 +553,30 @@ console.log("=== 13. mobile header ===");
   check(!menu.hasAttribute("open"), "Escape closes the menu");
 }
 
+// --- home page copy bindings -------------------------------------------------
+console.log("");
+console.log("=== 14. home page copy comes from home.json ===");
+{
+  const home = JSON.parse(readFileSync("src/_data/home.json", "utf8"));
+  const html = readFileSync("dist/index.html", "utf8");
+  const strings = [];
+  const walk = (v, path) => {
+    if (typeof v === "string") strings.push([path, v]);
+    else if (Array.isArray(v)) v.forEach((x, i) => walk(x, `${path}[${i}]`));
+    else if (v && typeof v === "object")
+      for (const k of Object.keys(v)) if (!k.startsWith("_")) walk(v[k], path ? `${path}.${k}` : k);
+  };
+  walk(home, "");
+
+  // A mistyped binding renders as empty, which looks like missing copy rather
+  // than an error - the exact failure the apply dialog hit once.
+  const missing = strings.filter(([, v]) => v.trim() && !html.includes(v.trim()));
+  check(
+    missing.length === 0,
+    `all ${strings.length} strings in home.json render on the page`,
+  );
+  for (const [path, v] of missing)
+    console.log(`      missing: ${path} = "${v.slice(0, 50)}…"`);
+}
+
 process.exit(ok ? 0 : 1);

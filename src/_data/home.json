@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "headline": "Bridging African Universities to Global Research &amp; Tech Breakthroughs",
+    "intro": "We empower university students, faculty advisors, and campus labs across Africa to build breakthrough tech solutions and advance global academic research for the continent's most urgent challenges.",
+    "ctaLabel": "Explore Our Initiatives"
+  },
+  "statsEyebrow": "Pan-African Academic &amp; Research Impact At A Glance",
+  "whatWeDo": {
+    "badgeLine1": "Join 4,200+ African",
+    "badgeLine2": "innovators &amp; researchers",
+    "eyebrow": "WHAT WE DO?",
+    "ctaLabel": "Read more",
+    "paragraphs": [
+      "<strong class=\"text-[#0B0F19] font-semibold\">Campus Innovation &amp; Research Network (CIReN)</strong> is an innovators and researchers community dedicated to advancing innovation and research culture across Africa's top universities.",
+      "We champion campus innovation by hosting high-impact hackathons and running student-led campus club branches. Simultaneously, we cultivate rigorous research culture by sponsoring student researchers to present at premier global conferences, teaching advanced research methodologies, and solving Africa's most pressing challenges.",
+      "From university research labs to global publication stages, CIReN empowers Africa's next generation of scientists, engineers, and tech founders to build with purpose."
+    ]
+  },
+  "testimonies": {
+    "heading": "Stories from African Campus Labs &amp; Hackathons",
+    "intro": "Hear directly from university students, hackathon champions, and peer-reviewed student researchers whose careers were ignited through CIReN's campus network."
+  },
+  "newsletter": {
+    "eyebrow": "Newsletter",
+    "heading": "Stay informed about the<br class=\"hidden sm:inline\"> CIReN's Work",
+    "body": "Join thousands of researchers, student innovators, and faculty advisors across Africa receiving our breakthrough updates.",
+    "nameLabel": "Name (Required)",
+    "emailLabel": "Email Address (Required)",
+    "namePlaceholder": "Your full name",
+    "emailPlaceholder": "you@university.edu",
+    "submitLabel": "Subscribe"
+  },
+  "_comment": "Home page copy. Edit here rather than in the section templates."
+}

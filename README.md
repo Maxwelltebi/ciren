@@ -54,6 +54,7 @@ src/
     programs.json              Programs page copy, cards, case study
     papers.json                publications list
     supportForm.json           support page copy, fields, payment links
+    home.json                  home page copy (hero, what we do, newsletter)
   css/main.css                 Tailwind entry + the original keyframes
   js/modal.js                  shared dialog behaviour (focus trap, Escape)
   js/form.js                   shared form behaviour (branching, submit)

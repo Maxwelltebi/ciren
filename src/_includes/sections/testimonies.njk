@@ -1,9 +1,7 @@
 <section class="py-20 lg:py-28 bg-gradient-to-b from-white via-[#f8f9ff] to-white overflow-hidden relative" id="testimonies">
 <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center mb-14">
-<h2 class="text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight mb-4 text-slate-800 font-bold" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-weight: 700; letter-spacing: -0.01em;">Stories from African Campus Labs &amp; Hackathons</h2>
-<p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-      Hear directly from university students, hackathon champions, and peer-reviewed student researchers whose careers were ignited through CIReN's campus network.
-    </p>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight mb-4 text-slate-800 font-bold" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-weight: 700; letter-spacing: -0.01em;">{{ home.testimonies.heading | safe }}</h2>
+<p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">{{ home.testimonies.intro | safe }}</p>
 </div>
 <!-- Carousel Viewport & Fanned Overlapping Deck -->
 <div class="relative w-full max-w-[1360px] mx-auto px-4 sm:px-6">

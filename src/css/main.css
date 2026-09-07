@@ -81,3 +81,15 @@ html {
     transition: none;
   }
 }
+
+/* The mobile menu is a <details>, so hide the default disclosure triangle.
+   list-style covers Firefox and the standards path; the webkit pseudo-element
+   covers Safari and Chrome. Written here rather than as a Tailwind arbitrary
+   variant because that class has to contain a literal "&", which does not
+   survive being written into an HTML attribute. */
+[data-mobile-menu] > summary {
+  list-style: none;
+}
+[data-mobile-menu] > summary::-webkit-details-marker {
+  display: none;
+}

@@ -22,6 +22,7 @@ const doc = window.document;
 // jsdom implements no layout, so measurements come back 0 and the scroll maths
 // is a no-op. That is fine: this tests wiring, not pixel positions.
 for (const f of [
+  "dist/js/header-menu.js",
   "dist/js/modal.js",
   "dist/js/form.js",
   "dist/js/carousel.js",
@@ -233,7 +234,8 @@ console.log("=== 10. programs page (real DOM) ===");
   });
   const pwin = pdom.window;
   const pdoc = pwin.document;
-  for (const f of ["dist/js/modal.js", "dist/js/programs.js"]) {
+  for (const f of ["dist/js/header-menu.js",
+  "dist/js/modal.js", "dist/js/programs.js"]) {
     const el = pdoc.createElement("script");
     el.textContent = readFileSync(f, "utf8");
     pdoc.body.appendChild(el);
@@ -396,7 +398,8 @@ console.log("=== 12. support page (real DOM) ===");
   });
   const swin = sdom.window;
   const sdoc = swin.document;
-  for (const f of ["dist/js/modal.js", "dist/js/form.js", "dist/js/support-form.js"]) {
+  for (const f of ["dist/js/header-menu.js",
+  "dist/js/modal.js", "dist/js/form.js", "dist/js/support-form.js"]) {
     const el = sdoc.createElement("script");
     el.textContent = readFileSync(f, "utf8");
     sdoc.body.appendChild(el);
@@ -500,6 +503,54 @@ console.log("=== 12. support page (real DOM) ===");
     "submit confirms receipt",
     `"${sstatus.textContent.trim().slice(0, 45)}…"`,
   );
+}
+
+// --- mobile header -----------------------------------------------------------
+console.log("");
+console.log("=== 13. mobile header ===");
+{
+  const menu = doc.querySelector("[data-mobile-menu]");
+  check(!!menu, "a mobile menu exists");
+  check(menu.tagName === "DETAILS", "it is a <details>, so it works without JavaScript");
+  check(!menu.hasAttribute("open"), "it starts closed");
+  check(/md:hidden/.test(menu.className), "it is hidden from md upwards");
+
+  // Desktop nav and the mobile menu must offer the same destinations.
+  const deskNav = [...doc.querySelectorAll("header nav a")].map((a) => a.getAttribute("href"));
+  const mobNav = [...menu.querySelectorAll("a")].map((a) => a.getAttribute("href"));
+  check(
+    deskNav.every((h) => mobNav.indexOf(h) !== -1),
+    "every desktop nav link is reachable from the mobile menu",
+    deskNav.join(", "),
+  );
+  check(
+    !!menu.querySelector("[data-open-apply]"),
+    "Apply is reachable on mobile",
+  );
+  check(
+    mobNav.indexOf("/support/") !== -1,
+    "Support Us is reachable on mobile",
+  );
+
+  // The desktop CTA cluster must be out of the way on a phone, or it crowds
+  // the logo off the screen - which is the bug this fixes.
+  const cta = doc.querySelector("header .items-center.gap-3");
+  check(
+    cta && /hidden/.test(cta.className) && /md:flex/.test(cta.className),
+    "desktop CTA cluster is hidden below md",
+  );
+  check(
+    /min-w-0/.test(doc.querySelector('header a[href="/"]').className),
+    "logo can shrink instead of pushing the menu button off screen",
+  );
+
+  // Enhancement: picking something closes the menu.
+  menu.setAttribute("open", "");
+  menu.querySelector("a").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  check(!menu.hasAttribute("open"), "choosing a link closes the menu");
+  menu.setAttribute("open", "");
+  doc.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+  check(!menu.hasAttribute("open"), "Escape closes the menu");
 }
 
 process.exit(ok ? 0 : 1);

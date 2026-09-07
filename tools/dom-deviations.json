@@ -52,5 +52,41 @@
     "op": "replace-all",
     "from": "<a class=\"flex items-center gap-3.5 group\" href=\"#\">",
     "to": "<a class=\"flex items-center gap-3.5 group\" href=\"/\">"
+  },
+  {
+    "reason": "Logo anchor can shrink (min-w-0) so a narrow screen truncates the name instead of pushing the menu button out of view.",
+    "op": "replace-all",
+    "from": "<a class=\"flex items-center gap-3.5 group\" href=\"/\">",
+    "to": "<a class=\"flex items-center gap-3.5 group min-w-0\" href=\"/\">"
+  },
+  {
+    "reason": "Header logo text column can shrink (min-w-0). Anchored to the header's logo markup specifically - the footer has an identical <div class=\"flex flex-col\"> that must not be touched.",
+    "op": "replace-all",
+    "from": "duration-200\" src=\"/assets/images/ciren-logo.jpg\"></div><div class=\"flex flex-col\">",
+    "to": "duration-200\" src=\"/assets/images/ciren-logo.jpg\"></div><div class=\"flex flex-col min-w-0\">"
+  },
+  {
+    "reason": "Logo line \"Campus Innovation &amp; Research\" truncates rather than overflowing on narrow screens.",
+    "op": "replace-all",
+    "from": "<span class=\"text-[12px] font-bold tracking-wider uppercase text-[#0B0F19] leading-tight\">Campus Innovation &amp; Research</span>",
+    "to": "<span class=\"text-[12px] font-bold tracking-wider uppercase text-[#0B0F19] leading-tight truncate\">Campus Innovation &amp; Research</span>"
+  },
+  {
+    "reason": "Logo line \"Network (CIReN)\" truncates rather than overflowing on narrow screens.",
+    "op": "replace-all",
+    "from": "<span class=\"text-[11px] font-semibold text-[#046e00] tracking-wide uppercase\">Network (CIReN)</span>",
+    "to": "<span class=\"text-[11px] font-semibold text-[#046e00] tracking-wide uppercase truncate\">Network (CIReN)</span>"
+  },
+  {
+    "reason": "Header CTA cluster (Apply / Support Us / search) hidden below md; those controls move into the new mobile menu, which stops them crowding the logo off a phone screen.",
+    "op": "replace-all",
+    "from": "<div class=\"flex items-center gap-3\">",
+    "to": "<div class=\"hidden md:flex items-center gap-3\">"
+  },
+  {
+    "reason": "Added a mobile menu (a <details> disclosure, so it works without JavaScript) holding the nav links plus Apply and Support Us. The original design had no mobile navigation at all - below md the links simply vanished.",
+    "op": "replace-all",
+    "from": "</div></div></header>",
+    "to": "<details class=\"md:hidden relative\" data-mobile-menu><summary aria-label=\"Open menu\" class=\"list-none cursor-pointer p-2 -mr-2 text-slate-700 hover:text-[#046e00] focus:outline-none focus:ring-2 focus:ring-[#40b830]\"><svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 7h16M4 12h16M4 17h16\" stroke-linecap=\"round\"></path></svg></summary><div class=\"absolute right-0 top-full mt-3 w-64 bg-white border border-slate-200 shadow-xl py-2\"><a href=\"/#about-us\" class=\"block px-5 py-3 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:bg-slate-50 hover:text-[#046e00] transition-colors\">About Us</a><a href=\"/programs/\" class=\"block px-5 py-3 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:bg-slate-50 hover:text-[#046e00] transition-colors\">Programs</a><a href=\"/papers/\" class=\"block px-5 py-3 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:bg-slate-50 hover:text-[#046e00] transition-colors\">Our Papers</a><div class=\"border-t border-slate-200 mt-2 pt-3 px-4 pb-1 flex flex-col gap-2\"><a class=\"inline-flex items-center justify-center px-4 py-2.5 bg-[#046e00] hover:bg-[#035800] text-white text-xs font-semibold uppercase tracking-wider rounded-none transition-all shadow-sm\" href=\"#\" data-open-apply aria-haspopup=\"dialog\">Apply</a><a class=\"inline-flex items-center justify-center px-4 py-2.5 border border-slate-300 hover:border-[#046e00] text-slate-800 hover:text-[#046e00] hover:bg-[#E8F8E5]/50 text-xs font-semibold uppercase tracking-wider rounded-none transition-all shadow-sm\" href=\"/support/\">Support Us</a></div></div></details></div></div></header>"
   }
 ]

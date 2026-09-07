@@ -1,31 +1,31 @@
 [
   {
-    "value": "24+",
+    "value": "3",
     "label": "Partner Universities",
     "colourClass": "text-[#0B0F19]"
   },
   {
-    "value": "38",
+    "value": "2",
     "label": "Hackathons Hosted",
     "colourClass": "text-[#40b830]"
   },
   {
-    "value": "4,200+",
+    "value": "15+",
     "label": "Active Researchers &amp; Students",
     "colourClass": "text-[#0B0F19]"
   },
   {
-    "value": "65+",
+    "value": "3",
     "label": "Campus Chapters",
     "colourClass": "text-[#40b830]"
   },
   {
-    "value": "$500K+",
+    "value": "$0+",
     "label": "Research &amp; Seed Grants",
     "colourClass": "text-[#0B0F19]"
   },
   {
-    "value": "150+",
+    "value": "0",
     "label": "Peer-Reviewed Publications",
     "colourClass": "text-[#40b830]"
   }

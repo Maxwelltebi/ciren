@@ -62,8 +62,49 @@ html {
   backface-visibility: hidden;
 }
 
+.flip-front {
+  /* An explicit transform puts the front in the same 3D space as the back.
+     Without one, some engines never treat it as a 3D-rendered box and skip
+     backface culling for it entirely. */
+  transform: rotateY(0deg);
+}
+
 .flip-back {
   transform: rotateY(180deg);
+}
+
+/* Belt and braces, because backface-visibility is not reliable here: the card
+   is a <button>, and browsers lay a button's children out inside an anonymous
+   box that can flatten the 3D context. When that happens the front face is
+   never culled and its text bleeds through the back.
+
+   So the away-facing side is also faded out. The switch is instant (0s) but
+   delayed to the halfway point of the 0.7s flip, so it happens while the card
+   is edge-on and is never visible as a fade. */
+.flip-face {
+  transition: opacity 0s linear 0.35s;
+}
+
+.flip-back {
+  opacity: 0;
+}
+
+.flip-card.is-flipped .flip-front {
+  opacity: 0;
+}
+
+.flip-card.is-flipped .flip-back {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .flip-card:hover .flip-front {
+    opacity: 0;
+  }
+
+  .flip-card:hover .flip-back {
+    opacity: 1;
+  }
 }
 
 .flip-card.is-flipped .flip-card-inner {
@@ -78,6 +119,10 @@ html {
 
 @media (prefers-reduced-motion: reduce) {
   .flip-card-inner {
+    transition: none;
+  }
+
+  .flip-face {
     transition: none;
   }
 }

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "CIReN - Campus Innovation & Research Network landing page",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "build:html": "eleventy",
     "build:css": "tailwindcss -i ./src/css/main.css -o ./dist/css/main.css --minify",

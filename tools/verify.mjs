@@ -255,6 +255,21 @@ console.log("\n=== 4. in-page anchors resolve ===");
     console.log(`  #${f} -> ${broken.indexOf(f) === -1 ? "resolves" : "MISSING"}`);
   pass(broken.length === 0, "every in-page anchor points at an element that exists");
   console.log(`  ${dead} link(s) still href="#" (no destination decided yet)`);
+
+  // A mistyped image path is silent: the page renders with a gap where the
+  // photo should be. Worth catching here rather than in the browser.
+  const assets = new Set();
+  for (const page of htmlPages("dist")) {
+    const html = readFileSync(page, "utf8");
+    for (const m of html.matchAll(/(?:src|href)="(\/(?:assets|css|js)\/[^"]+)"/g))
+      assets.add(m[1]);
+  }
+  const missingAssets = [...assets].filter((a) => !existsSync("dist" + a));
+  pass(
+    missingAssets.length === 0,
+    `all ${assets.size} local assets referenced actually exist in the build`,
+  );
+  for (const a of missingAssets) console.log(`      missing: ${a}`);
 }
 
 // Checks 1-4 only compare text. A syntax error in the script passes all of

@@ -2,7 +2,9 @@
   "hero": {
     "headline": "Bridging African Universities to Global Research &amp; Tech Breakthroughs",
     "intro": "We empower university students, faculty advisors, and campus labs across Africa to build breakthrough tech solutions and advance global academic research for the continent's most urgent challenges.",
-    "ctaLabel": "Explore Our Initiatives"
+    "ctaLabel": "Explore Our Initiatives",
+    "image": "/assets/images/students-collaborating.jpg",
+    "imageAlt": "African university students enthusiastically collaborating around a laptop during a campus visit"
   },
   "statsEyebrow": "Pan-African Academic &amp; Research Impact At A Glance",
   "whatWeDo": {
@@ -13,7 +15,9 @@
       "We champion campus innovation by hosting high-impact hackathons and running student-led campus club branches. Simultaneously, we cultivate rigorous research culture by sponsoring student researchers to present at premier global conferences, teaching advanced research methodologies, and solving Africa's most pressing challenges.",
       "From university research labs to global publication stages, CIReN empowers Africa's next generation of scientists, engineers, and tech founders to build with purpose."
     ],
-    "imageCredit": "CIReN Hackathon x MLH"
+    "imageCredit": "CIReN Hackathon x MLH",
+    "image": "/assets/images/students-collaborating.jpg",
+    "imageAlt": "CIReN student researchers collaborating at campus tech lab"
   },
   "testimonies": {
     "heading": "Stories from African Campus Labs &amp; Hackathons",
@@ -29,5 +33,5 @@
     "emailPlaceholder": "you@university.edu",
     "submitLabel": "Subscribe"
   },
-  "_comment": "Home page copy. Edit here rather than in the section templates."
+  "_comment": "Home page copy and imagery. Image paths point into src/assets/images/ - drop a new file there and change the path; update the matching *Alt text too."
 }

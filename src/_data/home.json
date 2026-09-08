@@ -6,15 +6,14 @@
   },
   "statsEyebrow": "Pan-African Academic &amp; Research Impact At A Glance",
   "whatWeDo": {
-    "badgeLine1": "Join 4,200+ African",
-    "badgeLine2": "innovators &amp; researchers",
     "eyebrow": "WHAT WE DO?",
     "ctaLabel": "Read more",
     "paragraphs": [
       "<strong class=\"text-[#0B0F19] font-semibold\">Campus Innovation &amp; Research Network (CIReN)</strong> is an innovators and researchers community dedicated to advancing innovation and research culture across Africa's top universities.",
       "We champion campus innovation by hosting high-impact hackathons and running student-led campus club branches. Simultaneously, we cultivate rigorous research culture by sponsoring student researchers to present at premier global conferences, teaching advanced research methodologies, and solving Africa's most pressing challenges.",
       "From university research labs to global publication stages, CIReN empowers Africa's next generation of scientists, engineers, and tech founders to build with purpose."
-    ]
+    ],
+    "imageCredit": "CIReN Hackathon x MLH"
   },
   "testimonies": {
     "heading": "Stories from African Campus Labs &amp; Hackathons",

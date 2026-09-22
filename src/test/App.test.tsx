@@ -46,16 +46,11 @@ describe("pages and navigation", () => {
     expect(document.title).toBe("Programs — CIReN");
   });
 
-  it("renders every publication and its configured link", () => {
+  it("shows Coming Soon instead of dummy publications", () => {
     renderPage("/papers/");
-    for (const paper of papers.papers) {
-      expect(screen.getByText(paper.title)).toBeInTheDocument();
-      if (paper.url)
-        expect(screen.getByRole("link", { name: paper.title })).toHaveAttribute(
-          "href",
-          paper.url,
-        );
-    }
+    expect(screen.getByText("Coming Soon...")).toBeInTheDocument();
+    expect(screen.queryByText("Published Work")).not.toBeInTheDocument();
+    expect(screen.queryByText("Paper title goes here")).not.toBeInTheDocument();
   });
 
   it("renders a not-found page for unknown routes", () => {
@@ -132,7 +127,7 @@ describe("dialogs and interactive cards", () => {
     expect(trigger).toHaveFocus();
   });
 
-  it("toggles program cards and opens the complete case study", async () => {
+  it("toggles program cards and replaces the inspiration section with the gallery", async () => {
     renderPage("/programs/");
     for (const program of [...programs.societies, ...programs.events]) {
       const card = screen.getByRole("button", {
@@ -145,15 +140,10 @@ describe("dialogs and interactive cards", () => {
       await userEvent.keyboard("{Enter}");
       expect(card).toHaveAttribute("aria-expanded", "false");
     }
-    await userEvent.click(screen.getByRole("button", { name: "Tell Me" }));
-    const dialog = screen.getByRole("dialog", {
-      name: programs.inspiration.caseStudy.title,
-    });
-    for (const paragraph of programs.inspiration.caseStudy.body)
-      expect(within(dialog).getByText(paragraph)).toBeVisible();
-    await userEvent.click(
-      within(dialog).getByRole("button", { name: "Close case study" }),
-    );
+    expect(screen.queryByText("What inspired our work?")).not.toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "View photos from CIReN Mini Hackathon x MLH" }));
+    expect(screen.getByRole("dialog", { name: "CIReN Mini Hackathon x MLH" })).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "Close event gallery" }));
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 

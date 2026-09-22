@@ -1,12 +1,9 @@
 import programs from "../data/programs.json";
 import { Fragment } from "react";
-import { useCallback, useState } from "react";
 import FlipCard from "../components/FlipCard";
-import CaseStudyModal from "../components/CaseStudyModal";
+import EventGallery from "../components/EventGallery";
 
 export default function ProgramsPage() {
-  const [caseStudyOpen, setCaseStudyOpen] = useState(false);
-  const closeCaseStudy = useCallback(() => setCaseStudyOpen(false), []);
   return (
     <>
       <section className="relative w-full overflow-hidden bg-[#0B0F19]">
@@ -107,95 +104,7 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-24 bg-white" id="inspiration">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight mb-4 text-slate-800 font-bold"
-            style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
-              fontWeight: "700",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            {programs.inspiration.heading}
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-10">
-            {programs.inspiration.blurb}
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={() => setCaseStudyOpen(true)}
-              data-open-case-study
-              aria-haspopup="dialog"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-12 py-5 bg-[#40b830] hover:bg-[#329e24] text-white text-sm sm:text-base font-bold uppercase tracking-widest rounded-none shadow-lg shadow-[#046e00]/25 transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[#046e00]/40"
-            >
-              {programs.inspiration.caseStudyButton}
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></path>
-              </svg>
-            </button>
-
-            {programs.inspiration.paperUrl ? (
-              <>
-                <a
-                  href={`${programs.inspiration.paperUrl}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-12 py-5 border-2 border-[#046e00] text-[#046e00] hover:bg-[#046e00] hover:text-white text-sm sm:text-base font-bold uppercase tracking-widest rounded-none transition-all focus:outline-none focus:ring-4 focus:ring-[#40b830]/40"
-                >
-                  {programs.inspiration.paperButton}
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M14 5h5v5M19 5l-8 8M19 13v6H5V5h6"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    ></path>
-                  </svg>
-                </a>
-              </>
-            ) : (
-              <>
-                <span
-                  aria-disabled="true"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-12 py-5 border-2 border-slate-300 text-slate-400 text-sm sm:text-base font-bold uppercase tracking-widest rounded-none cursor-not-allowed select-none"
-                >
-                  {programs.inspiration.paperButton}
-                </span>
-              </>
-            )}
-          </div>
-
-          {!programs.inspiration.paperUrl ? (
-            <>
-              <p className="text-xs text-slate-500 mt-4">
-                The paper link has not been added yet.
-              </p>
-            </>
-          ) : null}
-        </div>
-      </section>
-
-      <CaseStudyModal open={caseStudyOpen} onClose={closeCaseStudy} />
+      <EventGallery />
     </>
   );
 }

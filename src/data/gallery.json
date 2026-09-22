@@ -1,0 +1,11 @@
+{
+  "heading": "Event Gallery",
+  "intro": "Moments from the events we organise, one photo at a time.",
+  "events": [
+    {
+      "id": "ciren-mini-hackathon-mlh",
+      "name": "CIReN Mini Hackathon x MLH",
+      "photos": []
+    }
+  ]
+}

@@ -1,5 +1,4 @@
 import papers from "../data/papers.json";
-import { Fragment } from "react";
 
 export default function PapersPage() {
   return (
@@ -44,95 +43,12 @@ export default function PapersPage() {
 
       <section className="pt-20 lg:pt-24 pb-20 lg:pb-24 bg-white" id="papers">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          {papers.papers.length ? (
-            <>
-              <div className="flex items-baseline justify-between mb-8">
-                <span
-                  className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#0B0F19]"
-                  style={{
-                    fontFamily: '"Playfair Display", Georgia, serif',
-                    letterSpacing: "0.12em",
-                  }}
-                >
-                  Published Work
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                  {papers.papers.length} paper
-                  {papers.papers.length !== 1 ? <>s</> : null}
-                </span>
-              </div>
-
-              <ul className="border-t border-slate-200">
-                {papers.papers.map((p, index) => (
-                  <Fragment key={index}>
-                    <li className="border-b border-slate-200 py-7 sm:py-8">
-                      <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
-                        <span className="shrink-0 sm:w-16 text-sm font-bold text-[#046e00] tracking-wider">
-                          {p.year}
-                        </span>
-                        <div className="flex-1">
-                          <h2
-                            className="text-lg sm:text-xl font-bold text-[#0B0F19] leading-snug"
-                            style={{
-                              fontFamily: '"Playfair Display", Georgia, serif',
-                            }}
-                          >
-                            {p.url ? (
-                              <>
-                                <a
-                                  href={`${p.url}`}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-baseline gap-2 hover:text-[#046e00] transition-colors focus:outline-none focus:ring-2 focus:ring-[#40b830] focus:ring-offset-2"
-                                >
-                                  {p.title}
-                                  <svg
-                                    className="w-3.5 h-3.5 shrink-0 self-center text-slate-400"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                  >
-                                    <path
-                                      d="M14 5h5v5M19 5l-8 8M19 13v6H5V5h6"
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                    ></path>
-                                  </svg>
-                                </a>
-                              </>
-                            ) : (
-                              <>{p.title}</>
-                            )}
-                          </h2>
-                          <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-                            {p.authors}
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                  </Fragment>
-                ))}
-              </ul>
-            </>
-          ) : (
-            <>
-              <div className="border border-dashed border-slate-300 rounded-[2rem] py-16 px-6 text-center">
-                <div className="h-1 w-12 bg-[#40b830] rounded-full mx-auto mb-5"></div>
-                <p
-                  className="text-base font-bold text-[#0B0F19] mb-2"
-                  style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
-                >
-                  No papers listed yet
-                </p>
-                <p className="text-sm text-slate-600 max-w-md mx-auto">
-                  Work from the network is being prepared for publication. This
-                  page will list it as it goes out.
-                </p>
-              </div>
-            </>
-          )}
+          <div className="border border-dashed border-slate-300 rounded-[2rem] py-16 px-6 text-center">
+            <div className="h-1 w-12 bg-[#40b830] rounded-full mx-auto mb-5"></div>
+            <p className="text-2xl font-bold text-[#0B0F19] font-display">
+              {papers.comingSoonMessage}
+            </p>
+          </div>
         </div>
       </section>
     </>

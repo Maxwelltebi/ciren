@@ -206,7 +206,6 @@ export default function EventPhotoStack({
                 {index === event.photos.length - 1
                   ? "Finish viewing"
                   : "Next photo"}{" "}
-                <span aria-hidden="true">→</span>
               </button>
             </div>
           </>

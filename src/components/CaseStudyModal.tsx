@@ -18,7 +18,6 @@ export default function CaseStudyModal({
       className="max-w-3xl bg-white"
     >
       <div className="bg-[#0B0F19] px-6 py-8 sm:px-10 sm:py-10">
-        <div className="h-1 w-12 bg-[#40b830] rounded-full mb-4" />
         <p className="text-xs font-bold uppercase tracking-widest text-[#40b830] mb-2">
           Case Study
         </p>

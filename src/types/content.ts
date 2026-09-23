@@ -42,6 +42,5 @@ export interface Program {
   name: string;
   teaser: string;
   description: string;
-  iconPaths: string[];
   image: string;
 }

@@ -8,22 +8,12 @@
       "name": "Researchers Society",
       "teaser": "Research methodology, mentorship, and a route to global conferences.",
       "description": "We train young researchers to understand research methodologies and connect them with the opportunities around the globe. We work on research projects that can be showcased at research conferences.",
-      "iconPaths": [
-        "M9 2v6.5L4.2 17A2 2 0 006 20h12a2 2 0 001.8-3L15 8.5V2",
-        "M8 2h8",
-        "M7.5 14h9"
-      ],
       "image": "/assets/images/students-collaborating.jpg"
     },
     {
       "name": "Innovators Society",
       "teaser": "Build alongside strong engineers in software, AI and applied ML.",
       "description": "An innovators club where young innovators find themselves surrounded by strong builders they can learn, collaborate and solve problems with — through software engineering, AI and applied machine learning.",
-      "iconPaths": [
-        "M9 18h6",
-        "M10 22h4",
-        "M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"
-      ],
       "image": "/assets/images/joseph-ochieng.jpg"
     }
   ],
@@ -34,21 +24,12 @@
       "name": "Hackathons & Build Events",
       "teaser": "Corporate-backed build events across campuses.",
       "description": "We organise hackathons by sourcing corporate support to bring the spirit of innovation and problem solving across universities and college communities.",
-      "iconPaths": [
-        "M13 2L4 14h7l-1 8 9-12h-7l1-8z"
-      ],
       "image": "/assets/images/kofi-mensah.jpg"
     },
     {
       "name": "Research Conferences",
       "teaser": "A stage for young researchers to present their work.",
       "description": "We organise research conferences to allow young researchers present their works to faculties, industry experts, other researchers, and all those who could transform the world with the research these young researchers produce.",
-      "iconPaths": [
-        "M3 3h18",
-        "M4 3v11h16V3",
-        "M12 14v5",
-        "M8 21l4-2 4 2"
-      ],
       "image": "/assets/images/faith-wanjiku.jpg"
     }
   ],

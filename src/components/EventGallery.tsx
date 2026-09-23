@@ -15,7 +15,6 @@ export default function EventGallery() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight mb-4 text-slate-800 font-bold font-display">
             {gallery.heading}
           </h2>
-          <div className="h-1 w-12 bg-[#40b830] rounded-full mx-auto mb-5" />
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
             {gallery.intro}
           </p>
@@ -65,7 +64,7 @@ export default function EventGallery() {
                 {event.name}
               </span>
               <span className="text-sm font-semibold text-[#046e00]">
-                View gallery <span aria-hidden="true">↗</span>
+                View gallery
               </span>
             </button>
           ))}

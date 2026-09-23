@@ -44,7 +44,6 @@ export default function PapersPage() {
       <section className="pt-20 lg:pt-24 pb-20 lg:pb-24 bg-white" id="papers">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <div className="border border-dashed border-slate-300 rounded-[2rem] py-16 px-6 text-center">
-            <div className="h-1 w-12 bg-[#40b830] rounded-full mx-auto mb-5"></div>
             <p className="text-2xl font-bold text-[#0B0F19] font-display">
               {papers.comingSoonMessage}
             </p>

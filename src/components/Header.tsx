@@ -47,19 +47,19 @@ export default function Header({ onApply }: { onApply: () => void }) {
             </Link>
             <nav className="hidden md:flex items-center gap-8 ml-auto mr-8">
               <Link
-                className="text-xs font-semibold tracking-wider uppercase text-slate-700 hover:text-[#046e00] transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#046e00] hover:after:w-full after:transition-all"
+                className="text-xs font-semibold tracking-wider uppercase text-slate-700 hover:text-[#046e00] transition-colors py-2"
                 to="/#about-us"
               >
                 About Us
               </Link>
               <Link
-                className="text-xs font-semibold tracking-wider uppercase text-slate-700 hover:text-[#046e00] transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#046e00] hover:after:w-full after:transition-all"
+                className="text-xs font-semibold tracking-wider uppercase text-slate-700 hover:text-[#046e00] transition-colors py-2"
                 to="/programs/"
               >
                 Programs
               </Link>
               <Link
-                className="text-xs font-semibold tracking-wider uppercase text-slate-700 hover:text-[#046e00] transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#046e00] hover:after:w-full after:transition-all"
+                className="text-xs font-semibold tracking-wider uppercase text-slate-700 hover:text-[#046e00] transition-colors py-2"
                 to="/papers/"
               >
                 Our Papers

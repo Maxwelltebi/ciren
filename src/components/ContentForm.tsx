@@ -146,7 +146,7 @@ export default function ContentForm({
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2.5 w-full h-11 px-6 bg-[#40b830] hover:bg-[#329e24] text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-colors shadow-md"
                     >
-                      {option.label} ↗
+                      {option.label}
                     </a>
                     <p className="text-xs text-slate-500 mt-3 leading-relaxed">
                       Opens in a new tab. Please still send your details below
@@ -172,7 +172,6 @@ export default function ContentForm({
         className={`w-full h-11 px-6 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-colors shadow-md flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#40b830] disabled:opacity-60 ${submitClassName}`}
       >
         {sending ? "Sending…" : definition.submitLabel}
-        <span aria-hidden="true">→</span>
       </button>
     </form>
   );

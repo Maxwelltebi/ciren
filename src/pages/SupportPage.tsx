@@ -57,12 +57,11 @@ export default function SupportPage() {
             >
               What Your Support Pays For
             </span>
-            <div className="h-1 w-12 bg-[#40b830] rounded-full mt-1.5"></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
             {supportForm.whatYouAreSupporting.map((item, index) => (
               <Fragment key={index}>
-                <div className="border-l-2 border-[#40b830] pl-5 py-1">
+                <div className="py-1">
                   <h2
                     className="text-base sm:text-lg font-bold text-[#0B0F19] leading-snug mb-2"
                     style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
@@ -86,7 +85,6 @@ export default function SupportPage() {
         <div className="max-w-2xl mx-auto px-6 lg:px-8">
           <div className="bg-white border border-slate-200 shadow-xl rounded-[2rem] overflow-hidden">
             <div className="bg-[#0B0F19] px-6 py-7 sm:px-8">
-              <div className="h-1 w-12 bg-[#40b830] rounded-full mb-4"></div>
               <h2
                 className="text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight"
                 style={{ fontFamily: '"Playfair Display", Georgia, serif' }}

@@ -21,7 +21,7 @@ export default function TestimonialCard({
         }}
         role="button"
         aria-haspopup="dialog"
-        className={`focus:outline-none focus:ring-4 focus:ring-[#40b830]/60 carousel-card flex-shrink-0 w-[270px] sm:w-[310px] md:w-[330px] ${t.featured ? `h-[500px] sm:h-[550px]` : `h-[480px] sm:h-[530px]`} rounded-[2rem] overflow-hidden relative shadow-2xl transition-all duration-500 transform ${t.rotate}${t.rotate !== "rotate-0" ? ` hover:rotate-0` : ``} hover:-translate-y-6 hover:scale-105 hover:z-30 cursor-pointer snap-center group ${t.featured ? `border-2 border-[#40b830]/40 ` : `border border-white/20 `}`}
+        className={`focus:outline-none focus:ring-4 focus:ring-[#40b830]/60 carousel-card flex-shrink-0 w-[270px] sm:w-[310px] md:w-[330px] ${t.featured ? `h-[500px] sm:h-[550px]` : `h-[480px] sm:h-[530px]`} rounded-[2rem] overflow-hidden relative shadow-2xl transition-all duration-500 transform ${t.rotate}${t.rotate !== "rotate-0" ? ` hover:rotate-0` : ``} hover:-translate-y-6 hover:scale-105 hover:z-30 cursor-pointer snap-center group ${t.featured ? `border-2 border-white/40 ` : `border border-white/20 `}`}
       >
         <img
           alt={`${t.alt}`}
@@ -38,15 +38,6 @@ export default function TestimonialCard({
             </span>
           </div>
           <div>
-            <div className="mb-3 text-[#68e053]">
-              <svg
-                className="w-8 h-8 opacity-80"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path>
-              </svg>
-            </div>
             <p className="text-sm sm:text-base font-normal leading-relaxed text-slate-100 mb-5 line-clamp-4">
               <RichText html={t.quote} />
             </p>

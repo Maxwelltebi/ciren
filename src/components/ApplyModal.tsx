@@ -17,7 +17,6 @@ export default function ApplyModal({
       closeLabel="Close application form"
     >
       <div className="bg-[#0B0F19] px-6 py-7 sm:px-8">
-        <div className="h-1 w-12 bg-[#40b830] rounded-full mb-4" />
         <h3
           id="apply-title"
           className="text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight font-display"

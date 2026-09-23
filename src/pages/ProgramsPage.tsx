@@ -59,7 +59,6 @@ export default function ProgramsPage() {
             >
               {programs.societiesHeading}
             </span>
-            <div className="h-1 w-12 bg-[#40b830] rounded-full mt-1.5"></div>
             <p className="text-sm sm:text-base text-slate-600 mt-4 max-w-2xl">
               {programs.societiesIntro}
             </p>
@@ -89,7 +88,6 @@ export default function ProgramsPage() {
             >
               {programs.eventsHeading}
             </span>
-            <div className="h-1 w-12 bg-[#40b830] rounded-full mt-1.5"></div>
             <p className="text-sm sm:text-base text-slate-600 mt-4 max-w-2xl">
               {programs.eventsIntro}
             </p>

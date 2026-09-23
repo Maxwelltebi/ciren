@@ -147,6 +147,32 @@ html {
   font-family: "Playfair Display", Georgia, serif;
 }
 
+.partners-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-shrink: 0;
+  width: max(54rem, min(calc(100vw - 3rem), 76rem));
+  padding: 0 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners-track {
+    width: 100%;
+  }
+  .partners-group {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .partners-duplicate,
+  .partners-fade {
+    display: none;
+  }
+}
+
 /* Horizontal gestures move only the active photo; vertical scrolling remains native. */
 .photo-stack-top {
   touch-action: pan-y pinch-zoom;

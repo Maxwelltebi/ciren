@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import RichText from "./RichText";
 import home from "../data/home.json";
-import StatsMarquee from "./StatsMarquee";
+import PartnersMarquee from "./PartnersMarquee";
 
 export default function Hero() {
   return (
@@ -68,7 +68,7 @@ export default function Hero() {
             </svg>
           </div>
         </div>
-        <StatsMarquee />
+        <PartnersMarquee />
       </section>
     </>
   );

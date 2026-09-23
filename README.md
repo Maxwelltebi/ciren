@@ -59,7 +59,7 @@ The migration plan and architectural tradeoffs are recorded in `MIGRATION.md`.
 | --- | --- |
 | Logo, favicon, search indexing | `src/data/site.json` |
 | Homepage copy and images | `src/data/home.json` |
-| Statistics | `src/data/stats.json` |
+| Partner names and logos | `src/data/partners.json` |
 | Testimonials | `src/data/testimonials.json` |
 | Programs and case study | `src/data/programs.json` |
 | Event galleries and photo captions | `src/data/gallery.json` |
@@ -84,12 +84,14 @@ it without sanitizing it first.
 ### Event gallery photos
 
 The Programs page gallery currently contains **CIReN Mini Hackathon x MLH**.
-Its four clearly labelled dummy images are in
-`public/assets/images/events/ciren-mini-hackathon-mlh/` (`photo-01.jpg` through
-`photo-04.jpg`). Replace those files with your own JPG photos to reuse their URLs.
-If you use different names or formats, update the `src` paths in
-`src/data/gallery.json`. Replace each placeholder `alt` and `caption` there too;
-captions are optional. The first image is the event's cover.
+Its seven event photos are in
+`public/assets/images/events/ciren-mini-hackathon-mlh/` (`mlh-hack1.jpg` through
+`mlh-hack7.jpg`). Update photo paths, alt text, and optional captions in
+`src/data/gallery.json`. The first image is the event cover.
+
+The homepage Partners strip uses `src/data/partners.json` and the supplied
+logos in `public/assets/`. It scrolls continuously, pauses on hover, and displays
+a static wrapping list when reduced motion is enabled.
 
 Add or remove entries in an event's `photos` array to change its stack. To add
 another event, add an object with a unique `id`, `name`, and `photos` array.

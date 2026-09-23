@@ -7,27 +7,35 @@
       "name": "CIReN Mini Hackathon x MLH",
       "photos": [
         {
-          "src": "/assets/images/events/ciren-mini-hackathon-mlh/photo-01.jpg",
-          "alt": "Placeholder photo 1",
-          "caption": "Placeholder photo 1 ? event photos coming soon."
+          "src": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.jpg",
+          "alt": "Participants posing together at CIReN Mini Hackathon x MLH"
         },
         {
-          "src": "/assets/images/events/ciren-mini-hackathon-mlh/photo-02.jpg",
-          "alt": "Placeholder photo 2",
-          "caption": "Placeholder photo 2 ? event photos coming soon."
+          "src": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack2.jpg",
+          "alt": "A participant coding on a laptop in a Central University shirt"
         },
         {
-          "src": "/assets/images/events/ciren-mini-hackathon-mlh/photo-03.jpg",
-          "alt": "Placeholder photo 3",
-          "caption": "Placeholder photo 3 ? event photos coming soon."
+          "src": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3.jpg",
+          "alt": "Three participants collaborating around a laptop"
         },
         {
-          "src": "/assets/images/events/ciren-mini-hackathon-mlh/photo-04.jpg",
-          "alt": "Placeholder photo 4",
-          "caption": "Placeholder photo 4 ? event photos coming soon."
+          "src": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack4.jpg",
+          "alt": "Two participants discussing their work at a laptop"
+        },
+        {
+          "src": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack5.jpg",
+          "alt": "Two participants working together on their hackathon project"
+        },
+        {
+          "src": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6.jpg",
+          "alt": "A participant discussing an idea beside a laptop"
+        },
+        {
+          "src": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack7.jpg",
+          "alt": "A participant working on a laptop at the hackathon"
         }
       ]
     }
   ],
-  "_comment": "Replace the placeholder files in public/assets/images/events/ciren-mini-hackathon-mlh/ with event photos, then update alt text and captions. Add more photos or events to the arrays below."
+  "_comment": "Photos are listed in viewing order; the first photo is the event cover. Add more photos or events to these arrays."
 }

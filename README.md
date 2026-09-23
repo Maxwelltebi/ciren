@@ -62,6 +62,7 @@ The migration plan and architectural tradeoffs are recorded in `MIGRATION.md`.
 | Statistics | `src/data/stats.json` |
 | Testimonials | `src/data/testimonials.json` |
 | Programs and case study | `src/data/programs.json` |
+| Event galleries and photo captions | `src/data/gallery.json` |
 | Publications | `src/data/papers.json` |
 | Application fields and endpoint | `src/data/applyForm.json` |
 | Support fields and payment links | `src/data/supportForm.json` |
@@ -79,6 +80,29 @@ that repository-authored content. Do not pass user input or external API data to
 it without sanitizing it first.
 
 ## Editing React
+
+### Event gallery photos
+
+The Programs page gallery currently contains **CIReN Mini Hackathon x MLH**.
+Its four clearly labelled dummy images are in
+`public/assets/images/events/ciren-mini-hackathon-mlh/` (`photo-01.jpg` through
+`photo-04.jpg`). Replace those files with your own JPG photos to reuse their URLs.
+If you use different names or formats, update the `src` paths in
+`src/data/gallery.json`. Replace each placeholder `alt` and `caption` there too;
+captions are optional. The first image is the event's cover.
+
+Add or remove entries in an event's `photos` array to change its stack. To add
+another event, add an object with a unique `id`, `name`, and `photos` array.
+Each photo uses `{ "src": "/assets/images/events/your-event/photo.jpg", "alt":
+"Describe the photo", "caption": "Optional caption" }`. No component edits are
+needed. Empty events display “Photos coming soon”.
+
+Opening a card starts at its first photo. Swipe horizontally, use the arrow
+keys while the photo stack is focused, or select Next photo. After the last
+photo the viewer stops and offers View again. Escape and the backdrop close it.
+The former inspiration/case-study section is no longer displayed.
+
+### Components and routes
 
 A component returns JSX: use `className` for CSS classes, `{value}` for dynamic
 text, and event props such as `onClick` for behavior. Styles use the existing

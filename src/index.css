@@ -147,6 +147,30 @@ html {
   font-family: "Playfair Display", Georgia, serif;
 }
 
+/* Horizontal gestures move only the active photo; vertical scrolling remains native. */
+.photo-stack-top {
+  touch-action: pan-y pinch-zoom;
+  cursor: grab;
+  user-select: none;
+}
+
+.photo-stack-top:active {
+  cursor: grabbing;
+}
+
+.photo-stack-image {
+  transition:
+    transform 240ms ease-out,
+    opacity 240ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-stack-image,
+  .event-gallery-card span {
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-marquee {
     animation: none;

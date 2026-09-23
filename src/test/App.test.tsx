@@ -140,10 +140,20 @@ describe("dialogs and interactive cards", () => {
       await userEvent.keyboard("{Enter}");
       expect(card).toHaveAttribute("aria-expanded", "false");
     }
-    expect(screen.queryByText("What inspired our work?")).not.toBeInTheDocument();
-    await userEvent.click(screen.getByRole("button", { name: "View photos from CIReN Mini Hackathon x MLH" }));
-    expect(screen.getByRole("dialog", { name: "CIReN Mini Hackathon x MLH" })).toBeInTheDocument();
-    await userEvent.click(screen.getByRole("button", { name: "Close event gallery" }));
+    expect(
+      screen.queryByText("What inspired our work?"),
+    ).not.toBeInTheDocument();
+    await userEvent.click(
+      screen.getByRole("button", {
+        name: "View photos from CIReN Mini Hackathon x MLH",
+      }),
+    );
+    expect(
+      screen.getByRole("dialog", { name: "CIReN Mini Hackathon x MLH" }),
+    ).toBeInTheDocument();
+    await userEvent.click(
+      screen.getByRole("button", { name: "Close event gallery" }),
+    );
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 

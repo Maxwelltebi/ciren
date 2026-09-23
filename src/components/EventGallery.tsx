@@ -30,14 +30,32 @@ export default function EventGallery() {
               className="event-gallery-card group text-left rounded-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#40b830]/60 focus-visible:ring-offset-8"
             >
               <span className="relative block aspect-[4/3] mx-3 mb-7">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 rounded-2xl bg-[#E8F8E5] border border-[#40b830]/25 rotate-6 translate-y-2 transition-transform group-hover:rotate-[8deg]"
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 rounded-2xl bg-slate-100 border border-slate-200 -rotate-3 translate-y-1"
-                />
+                {event.photos[2] && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 overflow-hidden rounded-2xl bg-white border border-slate-200 rotate-6 translate-y-2 transition-transform group-hover:rotate-[8deg]"
+                  >
+                    <img
+                      src={event.photos[2].src}
+                      alt=""
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  </span>
+                )}
+                {event.photos[1] && (
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 overflow-hidden rounded-2xl bg-white border border-slate-200 -rotate-3 translate-y-1"
+                  >
+                    <img
+                      src={event.photos[1].src}
+                      alt=""
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  </span>
+                )}
                 <span className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0B0F19] shadow-xl border border-white/20">
                   {event.photos[0] ? (
                     <img

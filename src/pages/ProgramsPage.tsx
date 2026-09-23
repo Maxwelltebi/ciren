@@ -1,108 +1,138 @@
+﻿import { Link } from "react-router-dom";
 import programs from "../data/programs.json";
-import { Fragment } from "react";
+import editorial from "../data/editorial.json";
 import FlipCard from "../components/FlipCard";
 import EventGallery from "../components/EventGallery";
+import PageIntro from "../components/PageIntro";
+import SectionNav from "../components/SectionNav";
+import SectionHeading from "../components/SectionHeading";
+import Questions from "../components/Questions";
+import JoinBanner from "../components/JoinBanner";
 
-export default function ProgramsPage() {
+export default function ProgramsPage({ onApply }: { onApply: () => void }) {
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-[#0B0F19]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24 text-center">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-white/20"></div>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[#40b830]">
-              Programs
-            </p>
-            <div className="h-px w-12 bg-white/20"></div>
+      <PageIntro
+        eyebrow="Learn together. Build with purpose."
+        title={programs.heading}
+        intro={programs.intro}
+        image="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack4.jpg"
+        imageAlt="Hackathon participants discussing their project at a laptop"
+        caption="Learning alongside one another at CIReN Mini Hackathon x MLH"
+      >
+        <button
+          type="button"
+          className="site-button"
+          onClick={onApply}
+          aria-haspopup="dialog"
+        >
+          Join a campus community
+        </button>
+        <Link
+          to="/programs/#societies"
+          className="site-button site-button-outline"
+        >
+          Find your society
+        </Link>
+      </PageIntro>
+      <SectionNav
+        label="Programs sections"
+        items={[
+          { label: "Societies", href: "/programs/#societies" },
+          { label: "Getting involved", href: "/programs/#getting-involved" },
+          { label: "Events", href: "/programs/#events" },
+          { label: "Gallery", href: "/programs/#gallery" },
+          { label: "Questions", href: "/programs/#questions" },
+        ]}
+      />
+      <section className="editorial-section" id="societies">
+        <div className="site-container">
+          <SectionHeading
+            eyebrow="Our campus societies"
+            title="Two ways into the same community."
+            intro="Follow your interests in research or engineering. Both societies are built around people learning from one another and putting their ideas into practice."
+          />
+          {programs.societies.map((society, index) => (
+            <article
+              className="society-detail"
+              id={index === 0 ? "researchers" : "innovators"}
+              key={society.name}
+            >
+              <FlipCard c={society} />
+              <div>
+                <p className="eyebrow">
+                  {index === 0
+                    ? "Ask better questions"
+                    : "Make something useful"}
+                </p>
+                <h3>{society.name}</h3>
+                <p>{society.description}</p>
+                <ul className="topic-list">
+                  {(index === 0
+                    ? editorial.programs.researchActivities
+                    : editorial.programs.innovationActivities
+                  ).map((topic) => (
+                    <li key={topic}>{topic}</li>
+                  ))}
+                </ul>
+                <button
+                  type="button"
+                  className="text-link"
+                  onClick={onApply}
+                  aria-haspopup="dialog"
+                >
+                  Apply to join the network
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section
+        className="editorial-section editorial-dark"
+        id="getting-involved"
+      >
+        <div className="site-container">
+          <SectionHeading
+            eyebrow="Getting involved"
+            title="Start with your interests. Grow from there."
+            intro="Tell us where you are and what you want to work on. You can apply to join the network or explore hosting a club on your campus."
+          />
+          <div className="editorial-grid-three">
+            {editorial.programs.pathway.map((step, index) => (
+              <article className="editorial-step" key={step.title}>
+                <span className="step-number">0{index + 1}</span>
+                <h3>{step.title}</h3>
+                <p className="step-copy">{step.text}</p>
+              </article>
+            ))}
           </div>
-          <h1
-            className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold uppercase text-white tracking-tight leading-[1.15] mb-6"
-            style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
-              fontWeight: "800",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            {programs.heading}
-          </h1>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto font-normal">
-            {programs.intro}
+        </div>
+      </section>
+      <section className="editorial-section editorial-soft" id="events">
+        <div className="site-container">
+          <SectionHeading
+            eyebrow="Our events"
+            title="A reason to come together. A place to share the work."
+            intro="Events bring people out of their individual projects and into a wider conversation. These are the formats at the heart of our work."
+          />
+          <div className="editorial-grid-two">
+            {programs.events.map((event) => (
+              <div key={event.name}>
+                <FlipCard c={event} />
+              </div>
+            ))}
+          </div>
+          <p className="section-description max-w-3xl mt-8">
+            Our CIReN Mini Hackathon x MLH brought students together to work on
+            ideas, exchange perspectives, and build. Take a look at the event in
+            the gallery below.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none overflow-hidden leading-none">
-          <svg
-            className="relative block w-full h-8 sm:h-12 text-white"
-            fill="none"
-            preserveAspectRatio="none"
-            viewBox="0 0 1440 60"
-          >
-            <path
-              d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z"
-              fill="#ffffff"
-            ></path>
-          </svg>
-        </div>
       </section>
-
-      <section
-        className="pt-20 lg:pt-24 pb-14 lg:pb-16 bg-white"
-        id="societies"
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <span
-              className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#0B0F19]"
-              style={{
-                fontFamily: '"Playfair Display", Georgia, serif',
-                letterSpacing: "0.12em",
-              }}
-            >
-              {programs.societiesHeading}
-            </span>
-            <p className="text-sm sm:text-base text-slate-600 mt-4 max-w-2xl">
-              {programs.societiesIntro}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-            {programs.societies.map((c, index) => (
-              <Fragment key={index}>
-                <FlipCard c={c} />
-              </Fragment>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="pt-14 lg:pt-16 pb-20 lg:pb-24 bg-gradient-to-b from-white via-[#f8f9ff] to-white"
-        id="events"
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="mb-12">
-            <span
-              className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#0B0F19]"
-              style={{
-                fontFamily: '"Playfair Display", Georgia, serif',
-                letterSpacing: "0.12em",
-              }}
-            >
-              {programs.eventsHeading}
-            </span>
-            <p className="text-sm sm:text-base text-slate-600 mt-4 max-w-2xl">
-              {programs.eventsIntro}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-            {programs.events.map((c, index) => (
-              <Fragment key={index}>
-                <FlipCard c={c} />
-              </Fragment>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <EventGallery />
+      <Questions items={editorial.programs.questions} />
+      <JoinBanner onApply={onApply} />
     </>
   );
 }

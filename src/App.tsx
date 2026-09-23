@@ -38,15 +38,19 @@ function RouteEffects() {
 
 export default function App() {
   const [applyOpen, setApplyOpen] = useState(false);
+  const openApply = useCallback(() => setApplyOpen(true), []);
   const closeApply = useCallback(() => setApplyOpen(false), []);
   return (
     <>
       <RouteEffects />
-      <Header onApply={() => setApplyOpen(true)} />
+      <Header onApply={openApply} />
       <main>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/programs" element={<ProgramsPage />} />
+          <Route path="/" element={<HomePage onApply={openApply} />} />
+          <Route
+            path="/programs"
+            element={<ProgramsPage onApply={openApply} />}
+          />
           <Route path="/papers" element={<PapersPage />} />
           <Route path="/support" element={<SupportPage />} />
           <Route

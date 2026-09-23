@@ -16,23 +16,23 @@ export default function Testimonials() {
   return (
     <>
       <section
-        className="py-20 lg:py-28 bg-gradient-to-b from-white via-[#f8f9ff] to-white overflow-hidden relative"
+        className="editorial-section bg-white overflow-hidden relative"
         id="testimonies"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight mb-4 text-slate-800 font-bold font-display">
+        <div className="site-container mb-8">
+          <h2 className="text-3xl sm:text-4xl tracking-tight mb-4 text-slate-800 font-bold font-display">
             <RichText html={home.testimonies.heading} />
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
+          <p className="text-base text-slate-600 max-w-2xl font-normal leading-relaxed">
             <RichText html={home.testimonies.intro} />
           </p>
         </div>
-        <div className="relative w-full max-w-[1360px] mx-auto px-4 sm:px-6">
+        <div className="site-container">
           <div
             ref={deck}
             onScroll={sync}
             id="carousel-deck"
-            className="hide-scrollbar flex items-center overflow-x-auto py-12 px-8 sm:px-16 scroll-smooth snap-x snap-mandatory -space-x-8 sm:-space-x-12 md:-space-x-14 select-none"
+            className="hide-scrollbar flex items-stretch overflow-x-auto py-3 gap-5 scroll-smooth snap-x snap-mandatory select-none"
           >
             {testimonials.map((t) => (
               <TestimonialCard key={t.name} t={t} onOpen={setSelected} />

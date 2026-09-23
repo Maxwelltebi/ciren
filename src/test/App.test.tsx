@@ -18,7 +18,7 @@ function renderPage(path = "/") {
 
 describe("pages and navigation", () => {
   it.each([
-    ["/", /Bridging African Universities/],
+    ["/", /From campus ideas to global impact/],
     ["/programs/", /What We Do at CIReN/],
     ["/papers/", new RegExp(papers.heading)],
     ["/support/", /^Support Us$/],

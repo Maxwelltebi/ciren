@@ -32,12 +32,12 @@ export default function PartnersMarquee() {
                 {partners.map((partner) => (
                   <li
                     key={partner.name}
-                    className="flex items-center justify-center w-56 sm:w-64 h-24 shrink-0"
+                    className="flex items-center justify-center w-40 sm:w-48 h-20 shrink-0"
                   >
                     <img
                       src={partner.logo}
                       alt={duplicate ? "" : partner.name}
-                      className="w-full h-20 object-contain"
+                      className="w-full h-14 object-contain"
                       decoding="async"
                     />
                   </li>

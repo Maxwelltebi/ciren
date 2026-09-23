@@ -1,10 +1,10 @@
 {
   "hero": {
-    "headline": "Bridging African Universities to Global Research &amp; Tech Breakthroughs",
-    "intro": "We empower university students, faculty advisors, and campus labs across Africa to build breakthrough tech solutions and advance global academic research for the continent's most urgent challenges.",
-    "ctaLabel": "Explore Our Initiatives",
-    "image": "/assets/images/students-collaborating.jpg",
-    "imageAlt": "African university students enthusiastically collaborating around a laptop during a campus visit"
+    "headline": "From campus ideas to global impact.",
+    "intro": "A community for African students who want to investigate, build, and make a difference. Find your people through campus societies, hands-on projects, and events that bring ideas to life.",
+    "ctaLabel": "Explore our programs",
+    "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3.jpg",
+    "imageAlt": "CIReN Mini Hackathon participants collaborating around a laptop"
   },
   "whatWeDo": {
     "eyebrow": "WHAT WE DO?",
@@ -19,13 +19,13 @@
     "imageAlt": "CIReN student researchers collaborating at campus tech lab"
   },
   "testimonies": {
-    "heading": "Stories from African Campus Labs &amp; Hackathons",
+    "heading": "People at the heart of the network.",
     "intro": "Hear directly from university students, hackathon champions, and peer-reviewed student researchers whose careers were ignited through CIReN's campus network."
   },
   "newsletter": {
     "eyebrow": "Newsletter",
-    "heading": "Stay informed about the<br class=\"hidden sm:inline\"> CIReN's Work",
-    "body": "Join thousands of researchers, student innovators, and faculty advisors across Africa receiving our breakthrough updates.",
+    "heading": "Keep up with campus life.",
+    "body": "Get updates on CIReN programs, campus activities, research, and upcoming events.",
     "nameLabel": "Name (Required)",
     "emailLabel": "Email Address (Required)",
     "namePlaceholder": "Your full name",

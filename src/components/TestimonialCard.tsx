@@ -21,7 +21,7 @@ export default function TestimonialCard({
         }}
         role="button"
         aria-haspopup="dialog"
-        className={`focus:outline-none focus:ring-4 focus:ring-[#40b830]/60 carousel-card flex-shrink-0 w-[270px] sm:w-[310px] md:w-[330px] ${t.featured ? `h-[500px] sm:h-[550px]` : `h-[480px] sm:h-[530px]`} rounded-[2rem] overflow-hidden relative shadow-2xl transition-all duration-500 transform ${t.rotate}${t.rotate !== "rotate-0" ? ` hover:rotate-0` : ``} hover:-translate-y-6 hover:scale-105 hover:z-30 cursor-pointer snap-center group ${t.featured ? `border-2 border-white/40 ` : `border border-white/20 `}`}
+        className="focus:outline-none focus:ring-2 focus:ring-[#046e00] carousel-card flex-shrink-0 w-[280px] sm:w-[340px] h-[420px] overflow-hidden relative transition-shadow cursor-pointer snap-start group"
       >
         <img
           alt={`${t.alt}`}

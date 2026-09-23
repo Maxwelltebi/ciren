@@ -1,70 +1,46 @@
-import { Link } from "react-router-dom";
-import { Fragment } from "react";
-import RichText from "./RichText";
-import home from "../data/home.json";
+﻿import { Link } from "react-router-dom";
+import SectionHeading from "./SectionHeading";
 
 export default function About() {
   return (
-    <>
-      <section
-        className="py-20 lg:py-28 bg-white relative overflow-hidden"
-        id="about-us"
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-6 relative">
-              <div className="relative overflow-hidden shadow-2xl bg-slate-100 aspect-[4/3] sm:aspect-[16/11] rounded-[2rem]">
-                <img
-                  alt={`${home.whatWeDo.imageAlt}`}
-                  className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
-                  src={`${home.whatWeDo.image}`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
-
-                <div className="absolute bottom-5 left-5 sm:bottom-7 sm:left-7 bg-white/95 backdrop-blur-md px-4 py-2.5 shadow-xl border border-white/60 z-10 max-w-[90%] rounded-none">
-                  <p className="text-[11px] sm:text-xs font-semibold text-slate-600 leading-tight">
-                    <span className="font-bold text-[#046e00]">Source:</span>{" "}
-                    <RichText html={home.whatWeDo.imageCredit} />
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6 flex flex-col items-start justify-center">
-              <div className="mb-6 inline-block">
-                <span
-                  className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#0B0F19]"
-                  style={{
-                    fontFamily: '"Playfair Display", Georgia, serif',
-                    letterSpacing: "0.12em",
-                  }}
-                >
-                  <RichText html={home.whatWeDo.eyebrow} />
-                </span>
-              </div>
-
-              <div className="space-y-4 text-slate-600 font-normal leading-relaxed text-sm sm:text-base mb-8">
-                {home.whatWeDo.paragraphs.map((p, index) => (
-                  <Fragment key={index}>
-                    <p className="">
-                      <RichText html={p} />
-                    </p>
-                  </Fragment>
-                ))}
-              </div>
-
-              <Link
-                className="inline-flex items-center gap-2.5 px-8 py-3.5 bg-[#40b830] hover:bg-[#329e24] text-white font-semibold text-sm rounded-none shadow-lg shadow-[#046e00]/20 hover:shadow-xl hover:-translate-y-0.5 transition-all"
-                to="/programs/"
-              >
-                <span className="">
-                  <RichText html={home.whatWeDo.ctaLabel} />
-                </span>
-              </Link>
-            </div>
-          </div>
+    <section className="editorial-section" id="about-us">
+      <div className="site-container editorial-split">
+        <figure className="editorial-photo">
+          <img
+            src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3.jpg"
+            alt="Participants collaborating around a laptop at CIReN Mini Hackathon x MLH"
+            loading="lazy"
+          />
+          <figcaption>
+            Ideas take shape when people work on them together.
+          </figcaption>
+        </figure>
+        <div className="editorial-copy">
+          <SectionHeading
+            eyebrow="Why we exist"
+            title="Talent is everywhere. A community makes the difference."
+          />
+          <p>
+            Campus Innovation &amp; Research Network brings African university
+            students, researchers, faculty advisors, and campus labs together
+            around a shared ambition: to build and investigate things that
+            matter.
+          </p>
+          <p>
+            We connect the curiosity of a research lab with the energy of a
+            build event. Through campus societies, hackathons, and research
+            activities, we create space for students to learn from one another
+            and move their ideas forward.
+          </p>
+          <p>
+            Our story starts on campus, with people willing to ask better
+            questions and work on the answers together.
+          </p>
+          <Link to="/programs/" className="text-link">
+            Get to know our programs
+          </Link>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

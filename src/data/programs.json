@@ -8,13 +8,13 @@
       "name": "Researchers Society",
       "teaser": "Research methodology, mentorship, and a route to global conferences.",
       "description": "We train young researchers to understand research methodologies and connect them with the opportunities around the globe. We work on research projects that can be showcased at research conferences.",
-      "image": "/assets/images/students-collaborating.jpg"
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6.jpg"
     },
     {
       "name": "Innovators Society",
       "teaser": "Build alongside strong engineers in software, AI and applied ML.",
       "description": "An innovators club where young innovators find themselves surrounded by strong builders they can learn, collaborate and solve problems with — through software engineering, AI and applied machine learning.",
-      "image": "/assets/images/joseph-ochieng.jpg"
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack2.jpg"
     }
   ],
   "eventsHeading": "Our Events",
@@ -24,13 +24,13 @@
       "name": "Hackathons & Build Events",
       "teaser": "Corporate-backed build events across campuses.",
       "description": "We organise hackathons by sourcing corporate support to bring the spirit of innovation and problem solving across universities and college communities.",
-      "image": "/assets/images/kofi-mensah.jpg"
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.jpg"
     },
     {
       "name": "Research Conferences",
       "teaser": "A stage for young researchers to present their work.",
       "description": "We organise research conferences to allow young researchers present their works to faculties, industry experts, other researchers, and all those who could transform the world with the research these young researchers produce.",
-      "image": "/assets/images/faith-wanjiku.jpg"
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3.jpg"
     }
   ],
   "inspiration": {

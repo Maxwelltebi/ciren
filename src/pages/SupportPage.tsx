@@ -1,102 +1,113 @@
-import { Fragment } from "react";
-import supportForm from "../data/supportForm.json";
+﻿import supportForm from "../data/supportForm.json";
+import editorial from "../data/editorial.json";
 import ContentForm from "../components/ContentForm";
+import PageIntro from "../components/PageIntro";
+import SectionNav from "../components/SectionNav";
+import SectionHeading from "../components/SectionHeading";
+import PartnersMarquee from "../components/PartnersMarquee";
+import Questions from "../components/Questions";
+
 export default function SupportPage() {
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-[#0B0F19]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24 text-center">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="h-px w-12 bg-white/20"></div>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[#40b830]">
-              Get Involved
-            </p>
-            <div className="h-px w-12 bg-white/20"></div>
-          </div>
-          <h1
-            className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold uppercase text-white tracking-tight leading-[1.15] mb-6"
-            style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
-              fontWeight: "800",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            {supportForm.heading}
-          </h1>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto font-normal">
-            {supportForm.intro}
-          </p>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 z-10 pointer-events-none overflow-hidden leading-none">
-          <svg
-            className="relative block w-full h-8 sm:h-12 text-white"
-            fill="none"
-            preserveAspectRatio="none"
-            viewBox="0 0 1440 60"
-          >
-            <path
-              d="M0,60 C480,0 960,0 1440,60 L1440,60 L0,60 Z"
-              fill="#ffffff"
-            ></path>
-          </svg>
-        </div>
-      </section>
-
-      <section
-        className="pt-20 lg:pt-24 pb-14 lg:pb-16 bg-white"
-        id="what-you-support"
+      <PageIntro
+        eyebrow="Help the next idea take shape"
+        title={supportForm.heading}
+        intro="A place to meet. A connection to a mentor. The equipment to try an idea. Your support helps make the practical parts of campus innovation and research possible."
+        image="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.jpg"
+        imageAlt="Students gathered for CIReN Mini Hackathon x MLH"
+        caption="The people at the heart of CIReN Mini Hackathon x MLH"
       >
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <div className="mb-10">
-            <span
-              className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#0B0F19]"
-              style={{
-                fontFamily: '"Playfair Display", Georgia, serif',
-                letterSpacing: "0.12em",
-              }}
-            >
-              What Your Support Pays For
-            </span>
+        <a className="site-button" href="/support/#support-form-section">
+          Tell us how you can help
+        </a>
+        <a
+          className="site-button site-button-outline"
+          href="/support/#what-you-support"
+        >
+          Explore our priorities
+        </a>
+      </PageIntro>
+      <SectionNav
+        label="Support sections"
+        items={[
+          { label: "What you support", href: "/support/#what-you-support" },
+          { label: "Ways to help", href: "/support/#ways-to-help" },
+          { label: "Get in touch", href: "/support/#support-form-section" },
+          { label: "Questions", href: "/support/#questions" },
+        ]}
+      />
+      <section className="editorial-section" id="what-you-support">
+        <div className="site-container editorial-split">
+          <div>
+            <SectionHeading
+              eyebrow="What your support makes possible"
+              title="Small practical things. Meaningful possibilities."
+              intro="Campus communities need more than good ideas. These are the areas where support can help students develop, build, and share their work."
+            />
+            <figure className="editorial-photo">
+              <img
+                src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack7.jpg"
+                alt="A participant concentrating on their project at the hackathon"
+                loading="lazy"
+              />
+            </figure>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-            {supportForm.whatYouAreSupporting.map((item, index) => (
-              <Fragment key={index}>
-                <div className="py-1">
-                  <h2
-                    className="text-base sm:text-lg font-bold text-[#0B0F19] leading-snug mb-2"
-                    style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
-                  >
-                    {item.title}
-                  </h2>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    {item.text}
-                  </p>
-                </div>
-              </Fragment>
+          <div className="benefit-grid">
+            {supportForm.whatYouAreSupporting.map((item) => (
+              <article className="benefit-item" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
-
+      <section className="editorial-section editorial-soft" id="ways-to-help">
+        <div className="site-container">
+          <SectionHeading
+            eyebrow="Ways to help"
+            title="Bring what you can. Help move the work forward."
+            intro="Financial contributions are one route. Time, experience, equipment, and connections can make a difference too."
+          />
+          <div className="editorial-grid-three">
+            {editorial.support.ways.map((item, index) => (
+              <article className="editorial-step" key={item.title}>
+                <span className="step-number">0{index + 1}</span>
+                <h3>{item.title}</h3>
+                <p className="step-copy">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <PartnersMarquee />
       <section
-        className="pt-8 pb-20 lg:pb-24 bg-gradient-to-b from-white via-[#f8f9ff] to-white"
+        className="editorial-section editorial-soft"
         id="support-form-section"
       >
-        <div className="max-w-2xl mx-auto px-6 lg:px-8">
-          <div className="bg-white border border-slate-200 shadow-xl rounded-[2rem] overflow-hidden">
-            <div className="bg-[#0B0F19] px-6 py-7 sm:px-8">
-              <h2
-                className="text-2xl sm:text-3xl font-bold text-white leading-tight tracking-tight"
-                style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
-              >
-                Tell Us How You Can Help
-              </h2>
-              <p className="text-sm text-slate-300 font-normal mt-2 max-w-md">
-                Choose the kind of support you have in mind. We read every
-                message and reply by email.
-              </p>
+        <div className="site-container support-form-layout">
+          <div className="editorial-copy">
+            <SectionHeading
+              eyebrow="Start a conversation"
+              title="Let’s find the right way to work together."
+              intro="Tell us who you are and what you have in mind. You can share an idea for an event, offer a resource, or explore supporting a campus community."
+            />
+            <p>
+              Use the form to choose a financial contribution or another kind of
+              support. If you are contacting us on behalf of an organisation,
+              include its name so we have the context.
+            </p>
+            <p>
+              Interested in mentorship, equipment, or a venue? Choose “Another
+              kind of support” and describe what you could offer.
+            </p>
+          </div>
+          <div className="support-form-card">
+            <div className="support-form-heading">
+              <h3>Tell us how you can help</h3>
+              <p>Choose the type of support and leave your contact details.</p>
             </div>
-
             <ContentForm
               id="support"
               definition={supportForm}
@@ -105,6 +116,7 @@ export default function SupportPage() {
           </div>
         </div>
       </section>
+      <Questions items={editorial.support.questions} />
     </>
   );
 }

@@ -4,16 +4,13 @@ import home from "../data/home.json";
 export default function Newsletter() {
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start pb-16 border-b border-white/10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start pb-12 border-b border-white/10">
         <div className="lg:col-span-6 space-y-4">
-          <div className="flex items-center gap-3 pt-2">
-            <div className="w-12 h-1 bg-white/90 rounded-full"></div>
-          </div>
-          <span className="block text-xs sm:text-sm font-bold uppercase tracking-wider text-[#40b830]">
+          <span className="block text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-300">
             <RichText html={home.newsletter.eyebrow} />
           </span>
           <h3
-            className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-tight tracking-tight pt-1"
+            className="text-3xl sm:text-4xl font-bold text-white leading-tight tracking-tight pt-1"
             style={{
               fontFamily: '"Playfair Display", Georgia, serif',
               fontWeight: "700",

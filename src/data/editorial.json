@@ -1,0 +1,42 @@
+{
+  "home": {
+    "overview": [
+      { "title": "Find your community", "text": "Meet students who ask good questions, care about what they build, and want to learn alongside you. Our campus societies connect research and engineering." },
+      { "title": "Put ideas to work", "text": "Explore a research question or build a working prototype. Develop your approach through project work, shared learning, and conversations with your peers." },
+      { "title": "Take the next step", "text": "Bring your work to hackathons and research discussions. Learn to explain it, invite feedback, and connect it to the challenges you want to solve." }
+    ],
+    "benefits": [
+      { "title": "A place to begin", "text": "You do not have to figure out every step alone. Start with a question or an area you want to explore, and find a community around it." },
+      { "title": "Learning through doing", "text": "Research and engineering become more useful when you put them into practice. Our focus is on the work you investigate, build, and share." },
+      { "title": "A wider perspective", "text": "Connect campus learning to problems beyond the classroom, with Africa’s needs and possibilities at the centre of the conversation." },
+      { "title": "Room for both paths", "text": "Some ideas call for a research paper. Others need a prototype. CIReN brings researchers and innovators into the same network." }
+    ]
+  },
+  "programs": {
+    "researchActivities": ["Research methodology and framing a question", "Project discussions and peer learning", "Preparing work for presentation and publication"],
+    "innovationActivities": ["Software engineering and practical problem solving", "Exploring AI and applied machine learning", "Collaborative projects and working prototypes"],
+    "pathway": [
+      { "title": "Introduce yourself", "text": "Use the application form to share your institution, field of study, and interests. Students, researchers, faculty advisors, and campus lab leads can apply." },
+      { "title": "Find your direction", "text": "Explore the Researchers Society and Innovators Society. Choose the community that fits the kind of work you want to do." },
+      { "title": "Get involved", "text": "Build relationships around projects, campus activities, and events. Bring what you know, and stay curious about what you can learn from others." }
+    ],
+    "questions": [
+      { "question": "Who is CIReN for?", "answer": "CIReN connects university students, researchers, faculty advisors, and campus lab leads across Africa. The application form lets you tell us your background and what you want to explore." },
+      { "question": "How are the two societies different?", "answer": "The Researchers Society focuses on research methods, projects, and communicating findings. The Innovators Society focuses on building practical solutions through software engineering, AI, and applied machine learning." },
+      { "question": "Can we host a club on our campus?", "answer": "Yes. Choose “Host a campus club” in the application form and share your institution and contact details so we can discuss a campus community." },
+      { "question": "Where can I see past events?", "answer": "The gallery below contains photos from CIReN Mini Hackathon x MLH. Open the event card to browse the full photo stack." }
+    ]
+  },
+  "support": {
+    "ways": [
+      { "title": "Back an event", "text": "Help with venues, connectivity, equipment, food, or the practical costs that make a campus build event possible." },
+      { "title": "Share your experience", "text": "Offer mentorship, a project discussion, technical guidance, or a perspective from your field." },
+      { "title": "Open a door", "text": "Connect the network to a campus, a lab, a potential partner, or an opportunity that could help students take their work further." }
+    ],
+    "questions": [
+      { "question": "Can I help without making a financial contribution?", "answer": "Yes. Mentorship, equipment, venue space, speakers, and introductions can all be useful. Choose “Another kind of support” in the form and tell us what you have in mind." },
+      { "question": "Can an organisation support CIReN?", "answer": "Yes. Include your organisation in the form and describe the type of collaboration you are interested in, whether that is an event, a campus community, or research support." },
+      { "question": "Can I suggest a specific area to support?", "answer": "Use the support form to tell us which area interests you and what you would like to contribute. The priorities on this page are a starting point for that conversation." }
+    ]
+  }
+}

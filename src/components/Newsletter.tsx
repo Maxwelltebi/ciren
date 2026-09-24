@@ -12,7 +12,7 @@ export default function Newsletter() {
           <h3
             className="text-3xl sm:text-4xl font-bold text-white leading-tight tracking-tight pt-1"
             style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
+              fontFamily: '"Nichrome", "Inter Tight", "Inter", Arial, sans-serif',
               fontWeight: "700",
             }}
           >

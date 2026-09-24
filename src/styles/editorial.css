@@ -28,7 +28,7 @@
   color: #b8e3b0;
 }
 .page-intro h1 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Nichrome", "Inter Tight", "Inter", Arial, sans-serif;
   font-size: clamp(2.75rem, 4.8vw, 4.75rem);
   line-height: 1.08;
   letter-spacing: -0.045em;
@@ -167,7 +167,7 @@
 }
 .section-heading h2,
 .join-banner h2 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Nichrome", "Inter Tight", "Inter", Arial, sans-serif;
   font-size: clamp(2rem, 3.2vw, 3rem);
   font-weight: 600;
   letter-spacing: -0.035em;
@@ -272,7 +272,7 @@
   padding: 2rem;
 }
 .program-feature-copy h3 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Nichrome", "Inter Tight", "Inter", Arial, sans-serif;
   font-size: 1.8rem;
   font-weight: 600;
   line-height: 1.2;
@@ -375,7 +375,7 @@
   border-top: 1px solid #dbe2db;
 }
 .society-detail h3 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Nichrome", "Inter Tight", "Inter", Arial, sans-serif;
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -423,7 +423,7 @@
   padding: clamp(2rem, 5vw, 4.5rem);
 }
 .publication-status h2 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Nichrome", "Inter Tight", "Inter", Arial, sans-serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   margin-bottom: 1.5rem;
 }

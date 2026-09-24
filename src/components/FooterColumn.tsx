@@ -12,7 +12,7 @@ export default function FooterColumn({
         <h4
           className="text-sm font-bold uppercase tracking-wider text-white mb-4"
           style={{
-            fontFamily: '"Playfair Display", Georgia, serif',
+            fontFamily: '"Nichrome", "Inter Tight", "Inter", Arial, sans-serif',
             letterSpacing: "0.08em",
           }}
         >

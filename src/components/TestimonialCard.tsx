@@ -48,7 +48,7 @@ export default function TestimonialCard({
               <div>
                 <h4
                   className="text-sm sm:text-base font-bold text-white leading-tight"
-                  style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                  style={{ fontFamily: "'Nichrome', 'Inter Tight', 'Inter', Arial, sans-serif" }}
                 >
                   <RichText html={t.name} />
                 </h4>

@@ -2,12 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Verbatim from the original inline <style> block. */
+/* Forge (joinforge.co) uses Inter for body/UI and Nichrome (a condensed
+   bold sans) for display headings. Nichrome is commercial and not on
+   Google Fonts, so Inter Tight is used here as the free stand-in:
+   same grotesk family, condensed, tight tracking. "Nichrome" stays
+   first in the stack so a licensed copy picks up automatically. */
 body {
   font-family:
-    "Plus Jakarta Sans",
+    "Inter",
     -apple-system,
     BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   margin: 0;
   padding: 0;
@@ -144,7 +149,8 @@ html {
 }
 
 .font-display {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Nichrome", "Inter Tight", "Inter", Arial, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .partners-group {

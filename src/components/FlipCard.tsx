@@ -27,7 +27,7 @@ export default function FlipCard({ c }: { c: Program }) {
               <span className="block">
                 <span
                   className="block text-xl sm:text-2xl font-bold text-white leading-tight"
-                  style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+                  style={{ fontFamily: '"Nichrome", "Inter Tight", "Inter", Arial, sans-serif' }}
                 >
                   {c.name}
                 </span>

@@ -100,6 +100,8 @@
   position: relative;
   min-height: 32rem;
   margin-block: 2.5rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
 }
 .page-intro-photo img {
   width: 100%;
@@ -238,6 +240,7 @@
   width: 100%;
   aspect-ratio: 5 / 4;
   object-fit: cover;
+  border-radius: 1.5rem;
 }
 .editorial-photo figcaption {
   font-size: 0.75rem;

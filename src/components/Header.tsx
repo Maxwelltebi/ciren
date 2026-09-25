@@ -1,5 +1,5 @@
 ﻿import { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import site from "../data/site.json";
 
 export default function Header({ onApply }: { onApply: () => void }) {
@@ -28,8 +28,23 @@ export default function Header({ onApply }: { onApply: () => void }) {
     setMenuOpen(false);
     onApply();
   };
+  const { pathname, hash } = useLocation();
+  const normalizedPath = pathname.replace(/\/+$/, "") || "/";
+  const isHomeActive =
+    normalizedPath === "/" && (hash === "" || hash === "#");
+  const isAboutActive =
+    normalizedPath === "/" && hash === "#about-us";
+  const linkClass = (active: boolean) =>
+    `text-sm font-semibold py-3 ${
+      active ? "text-[#046e00]" : "text-slate-700 hover:text-[#046e00]"
+    }`;
+  const mobileLinkClass = (active: boolean) =>
+    `block p-3 text-sm font-semibold hover:bg-slate-50 ${
+      active ? "text-[#046e00]" : "text-slate-800"
+    }`;
   const navigation = [
-    { to: "/#about-us", label: "About Us" },
+    { to: "/", label: "Home", active: isHomeActive },
+    { to: "/#about-us", label: "About Us", active: isAboutActive },
     { to: "/programs/", label: "Programs" },
     { to: "/papers/", label: "Our Papers" },
   ];
@@ -55,23 +70,34 @@ export default function Header({ onApply }: { onApply: () => void }) {
           aria-label="Main navigation"
           className="hidden lg:flex items-center gap-7 ml-auto"
         >
-          {navigation.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className="text-sm font-semibold text-slate-700 hover:text-[#046e00] py-3 aria-[current=page]:text-[#046e00]"
-            >
-              {item.label}
-            </NavLink>
-          ))}
+          {navigation.map((item) =>
+            "active" in item ? (
+              <Link
+                key={item.to}
+                to={item.to}
+                aria-current={item.active ? "page" : undefined}
+                className={linkClass(!!item.active)}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) => linkClass(isActive)}
+              >
+                {item.label}
+              </NavLink>
+            ),
+          )}
         </nav>
         <div className="hidden lg:flex items-center gap-3">
-          <Link
+          <NavLink
             to="/support/"
-            className="text-sm font-semibold text-[#0b2416] px-4 py-3"
+            className={({ isActive }) => `${linkClass(isActive)} px-4`}
           >
             Support Us
-          </Link>
+          </NavLink>
           <a
             href="#"
             onClick={apply}
@@ -106,21 +132,32 @@ export default function Header({ onApply }: { onApply: () => void }) {
             aria-label="Mobile navigation"
             className="absolute right-0 top-full mt-4 w-64 bg-white border border-slate-200 shadow-lg p-3"
           >
-            {navigation.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                className="block p-3 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
+            {navigation.map((item) =>
+              "active" in item ? (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  aria-current={item.active ? "page" : undefined}
+                  className={mobileLinkClass(!!item.active)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) => mobileLinkClass(isActive)}
+                >
+                  {item.label}
+                </NavLink>
+              ),
+            )}
+            <NavLink
               to="/support/"
-              className="block p-3 text-sm font-semibold text-slate-800"
+              className={({ isActive }) => mobileLinkClass(isActive)}
             >
               Support Us
-            </Link>
+            </NavLink>
             <a
               href="#"
               onClick={apply}

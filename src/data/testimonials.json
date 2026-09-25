@@ -1,68 +1,68 @@
 [
   {
     "rotate": "-rotate-6",
-    "featured": false,
-    "badge": "IEEE Published",
-    "image": "/assets/images/kofi-mensah.jpg",
-    "alt": "Kofi Mensah",
-    "quote": "\"CIReN connected our campus lab to compute resources and world-class mentors. Our solar-powered irrigation research was published in IEEE Access this past year!\"",
-    "initials": "KM",
-    "name": "Kofi Mensah",
-    "university": "Ashesi University"
+    "featured": true,
+    "badge": "CIReN Member",
+    "image": "/assets/images/img1.png",
+    "alt": "David Houde",
+    "quote": "\"Testimony coming soon — this space will share David's experience with CIReN in his own words.\"",
+    "initials": "DH",
+    "name": "David Houde",
+    "university": "Central University"
   },
   {
     "rotate": "-rotate-3",
     "featured": false,
-    "badge": "Hackathon Champion",
-    "image": "/assets/images/amina-bello.jpg",
-    "alt": "Amina Bello",
-    "quote": "\"Winning the CIReN Pan-African Health Hackathon secured us a $15,000 seed grant to deploy AI maternal screening across 14 primary healthcare clinics.\"",
-    "initials": "AB",
-    "name": "Amina Bello",
-    "university": "University of Ibadan"
+    "badge": "CIReN Member",
+    "image": "/assets/images/img2.png",
+    "alt": "Priscilla Azure",
+    "quote": "\"Testimony coming soon — this space will share Priscilla's experience with CIReN in her own words.\"",
+    "initials": "PA",
+    "name": "Priscilla Azure",
+    "university": "Central University"
   },
   {
     "rotate": "rotate-0",
-    "featured": true,
-    "badge": "AI Research Fellow",
-    "image": "/assets/images/joseph-ochieng.jpg",
-    "alt": "Joseph Ochieng",
-    "quote": "\"Being part of the CIReN campus fellowship allowed me to present our natural language NLP model for East African languages at NeurIPS in New Orleans.\"",
-    "initials": "JO",
-    "name": "Joseph Ochieng",
-    "university": "Makerere University"
+    "featured": false,
+    "badge": "CIReN Member",
+    "image": "/assets/images/img3.png",
+    "alt": "Joel Jaydn",
+    "quote": "\"Testimony coming soon — this space will share Joel's experience with CIReN in his own words.\"",
+    "initials": "JJ",
+    "name": "Joel Jaydn",
+    "university": "University of Ghana"
   },
   {
     "rotate": "rotate-2",
     "featured": false,
-    "badge": "Fintech Lead",
-    "image": "/assets/images/faith-wanjiku.jpg",
-    "alt": "Faith Wanjiku",
-    "quote": "\"Through CIReN's campus incubator, our student team transformed a basic class project into a licensed offline micro-payment protocol for unbanked communities.\"",
-    "initials": "FW",
-    "name": "Faith Wanjiku",
-    "university": "University of Nairobi"
+    "badge": "CIReN Member",
+    "image": "/assets/images/img4.png",
+    "alt": "Courage Inkoom",
+    "quote": "\"Testimony coming soon — this space will share Courage's experience with CIReN in his own words.\"",
+    "initials": "CI",
+    "name": "Courage Inkoom",
+    "university": "KNUST"
   },
   {
     "rotate": "rotate-5",
     "featured": false,
-    "badge": "CleanTech Pioneer",
-    "image": "/assets/images/amina-bello.jpg",
-    "alt": "Mamadou Diop",
-    "quote": "\"CIReN chapters cross national borders. Collaborating with Nigerian and Rwandan students taught me how to scale renewable micro-grids across West Africa.\"",
-    "initials": "MD",
-    "name": "Mamadou Diop",
-    "university": "Univ. Cheikh Anta Diop"
+    "badge": "CIReN Member",
+    "image": "/assets/images/img5.png",
+    "alt": "Lilian Awin",
+    "quote": "\"Testimony coming soon — this space will share Lilian's experience with CIReN in her own words.\"",
+    "initials": "LA",
+    "name": "Lilian Awin",
+    "university": "Ashesi University"
   },
   {
     "rotate": "rotate-8",
     "featured": false,
-    "badge": "Robotics Lead",
-    "image": "/assets/images/kofi-mensah.jpg",
-    "alt": "Nour El-Din",
-    "quote": "\"The academic rigor and mentorship in CIReN helped our autonomous drone navigation team place top 3 internationally. It altered my entire academic horizon.\"",
-    "initials": "NE",
-    "name": "Nour El-Din",
-    "university": "Cairo University"
+    "badge": "CIReN Member",
+    "image": "/assets/images/img6.png",
+    "alt": "Jessica Opoku",
+    "quote": "\"Testimony coming soon — this space will share Jessica's experience with CIReN in her own words.\"",
+    "initials": "JO",
+    "name": "Jessica Opoku",
+    "university": "Academic City University"
   }
 ]

@@ -1,4 +1,4 @@
-﻿<h1 align="center">CIReN — Campus Innovation & Research Network</h1>
+<h1 align="center">CIReN — Campus Innovation & Research Network</h1>
 
 <h3 align="center">A campus research and innovation website built with React and TypeScript</h3>
 
@@ -50,6 +50,34 @@ Versions below reflect `package-lock.json`.
 | Quality | ESLint, TypeScript, Prettier | Linting, type checking, and formatting. |
 
 ## Project Structure
+#Campus Innovation & Research Network (CIReN)
+
+A Vite + React + TypeScript website. The four pages and their existing design
+have been migrated from Eleventy to React components.
+
+## Get started
+
+Use Node 22.12+ (the repo's `.nvmrc` selects Node 22), or Node 24+.
+
+```sh
+npm install
+npm run dev
+```
+
+Open the local URL Vite prints, normally http://localhost:5173.
+Edits update automatically. On Windows PowerShell, use `npm.cmd` instead of
+`npm` if your execution policy blocks `npm.ps1`.
+
+```sh
+npm run build       # TypeScript check and production output in dist/
+npm run preview     # Serve the production build locally
+npm run lint        # ESLint, TypeScript and React rules
+npm test            # React interaction tests in jsdom
+npm run test:watch  # Keep tests running while editing
+npm run verify      # Lint, tests, production build, and output checks
+```
+
+## Where to edit
 
 ```text
 index.html                    HTML entry, default metadata, and fonts

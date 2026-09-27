@@ -1,169 +1,200 @@
-﻿# CIReN — Campus Innovation & Research Network
+﻿<h1 align="center">CIReN — Campus Innovation & Research Network</h1>
 
-A Vite + React + TypeScript website. The four pages and their existing design
-have been migrated from Eleventy to React components.
+<h3 align="center">A campus research and innovation website built with React and TypeScript</h3>
 
-## Get started
+<p align="center">
+  Explore CIReN's societies, browse event photos, and discover ways to join or support student research and innovation.
+</p>
 
-Use Node 22.12+ (the repo's `.nvmrc` selects Node 22), or Node 24+.
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-5.9.3-3178C6?style=flat&amp;logo=typescript&amp;logoColor=white" alt="TypeScript 5.9.3" />
+  <img src="https://img.shields.io/badge/React-19.3.0-149ECA?style=flat&amp;logo=react&amp;logoColor=white" alt="React 19.3.0" />
+  <img src="https://img.shields.io/badge/Vite-7.3.6-646CFF?style=flat&amp;logo=vite&amp;logoColor=white" alt="Vite 7.3.6" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-3.4.19-06B6D4?style=flat&amp;logo=tailwindcss&amp;logoColor=white" alt="Tailwind CSS 3.4.19" />
+</p>
 
-```sh
-npm install
-npm run dev
-```
+---
 
-Open the local URL Vite prints, normally http://localhost:5173.
-Edits update automatically. On Windows PowerShell, use `npm.cmd` instead of
-`npm` if your execution policy blocks `npm.ps1`.
+## Overview
 
-```sh
-npm run build       # TypeScript check and production output in dist/
-npm run preview     # Serve the production build locally
-npm run lint        # ESLint, TypeScript and React rules
-npm test            # React interaction tests in jsdom
-npm run test:watch  # Keep tests running while editing
-npm run verify      # Lint, tests, production build, and output checks
-```
+**CIReN** is the public-facing website for the Campus Innovation & Research Network. Built with **React and TypeScript**, it introduces students and supporters to the network's societies, activities, and opportunities, bringing **program information, event photography, and participation forms** into one place.
 
-## Where to edit
+The implementation uses **page components and editable JSON content** within a standard Vite application. React Router connects four pages, shared components provide navigation and interactive dialogs, and files in `public/assets/` supply the photographs and partner logos. Vite produces a static bundle for deployment.
+
+## Features
+
+| Area | Implemented behavior |
+| --- | --- |
+| Home | Network introduction, societies, partner logos, event recap, and member story cards. |
+| Programs | Society details, participation pathway, activities, FAQs, and event gallery. |
+| Event gallery | Layered photo cards open a dialog; horizontal swipes, arrow keys, or buttons advance through an event. The final image leads to a replay option. |
+| Papers | A research introduction and **Coming Soon...** publication status. |
+| Support | Funding priorities, ways to contribute, and a conditional support form. |
+| Applications | A shared application dialog with fields that change according to the application type. |
+| Interaction | Responsive navigation, focus-managed dialogs, carousel controls, and reduced-motion behavior for the partner strip and photo viewer. |
+
+The gallery currently contains seven photographs from **CIReN Mini Hackathon x MLH**. The partner strip displays Major League Hacking, AmaliTech, and Central University.
+
+## Tech Stack
+
+Versions below reflect `package-lock.json`.
+
+| Concern | Technology | Purpose |
+| --- | --- | --- |
+| Language | TypeScript 5.9.3 | Typed components, content definitions, and form logic. |
+| Interface | React 19.3.0 | Pages, state, and reusable components. |
+| Routing | React Router | Client-side routes and section navigation. |
+| Tooling | Vite 7.3.6 | Development server and production bundling. |
+| Styling | Tailwind CSS 3.4.19 and CSS | Utilities, responsive layouts, and editorial styling. |
+| Tests | Vitest 4.1.11, Testing Library, jsdom | Component and interaction checks. |
+| Quality | ESLint, TypeScript, Prettier | Linting, type checking, and formatting. |
+
+## Project Structure
 
 ```text
-index.html                 Vite's HTML entry, fonts and default metadata
-vite.config.ts             React plugin and site metadata/robots generation
+index.html                    HTML entry, default metadata, and fonts
+vite.config.ts                React integration and robots/favicon generation
 src/
-  main.tsx                 Mount React and BrowserRouter
-  App.tsx                  Routes, shared layout and application dialog
-  index.css                Tailwind entry and shared animations/styles
-  components/              Header, footer, home sections, cards, forms, dialogs
-  pages/
-    HomePage.tsx           /
-    ProgramsPage.tsx       /programs/
-    PapersPage.tsx         /papers/
-    SupportPage.tsx        /support/
-  hooks/useCarousel.ts     Carousel measurements and scroll controls
-  lib/forms.ts             Conditional-field dependency resolution
-  types/content.ts         Shared content/form interfaces
-  data/                    Editable JSON copy and settings
-  test/                    Page and interaction tests
-public/
-  assets/images/           Logos and photographs; served at /assets/images/...
-scripts/check-build.mjs    Check built metadata, assets and hosting fallbacks
+  main.tsx                    React entry and BrowserRouter
+  App.tsx                     Routes, shared layout, and application dialog
+  pages/                      Home, Programs, Papers, and Support
+  components/                 Sections, navigation, forms, cards, and dialogs
+  data/                       Editable JSON content and configuration
+  hooks/                      Carousel behavior
+  lib/forms.ts                Conditional-field dependency logic
+  types/                      Content, form, and gallery interfaces
+  index.css                   Tailwind entry and shared styles
+  styles/editorial.css        Page layout and editorial styles
+  test/                       Component and interaction tests
+public/assets/                Partner logos and other public assets
+  images/                     Site photographs and branding
+    events/                   Event gallery photographs
+scripts/check-build.mjs       Production metadata, assets, and routing checks
+reference/                    Historical HTML design exports
+netlify.toml                  Netlify build and SPA fallback
+vercel.json                   Vercel build and SPA fallback
+MIGRATION.md                  Eleventy-to-React migration notes
 ```
 
-The standard Vite entry files are at the root and in `src/`. `components/`,
-`pages/`, and `data/` are ordinary folders organized for this site's needs.
-No Nunjucks, Eleventy data conventions, or global `window.ciren*` scripts remain.
-The migration plan and architectural tradeoffs are recorded in `MIGRATION.md`.
+This project uses Vite's React + TypeScript entry structure. Its previous Eleventy templates are no longer part of the runtime; see [MIGRATION.md](MIGRATION.md) for the migration decisions.
 
-| Change | File |
+## Quick Start
+
+Use **Node.js 22.12 or later within Node 22, or Node.js 24+**, with npm. The `.nvmrc` selects Node 22.
+
+1. Open a terminal in the repository root, alongside `package.json`.
+2. Install the locked dependencies:
+
+   ```sh
+   npm ci
+   ```
+
+3. Start the development server:
+
+   ```sh
+   npm run dev
+   ```
+
+4. Open the URL printed by Vite, normally `http://localhost:5173`. The homepage should load, with changes updating as you edit.
+
+On Windows PowerShell, use `npm.cmd` in place of `npm` if execution policy blocks `npm.ps1`. No environment file or backend service is required to run the current preview.
+
+## How It Works
+
+`src/main.tsx` mounts the application inside `BrowserRouter`. `src/App.tsx` chooses the page, updates page titles, handles section scrolling, and surrounds the routes with shared navigation, footer, newsletter, and the application dialog.
+
+Pages combine JSON content with reusable React sections. Public asset URLs start with `/assets/`; Vite copies the corresponding files from `public/assets/` into the build without changing those paths.
+
+`ContentForm.tsx` renders JSON-defined fields. A field's `showWhen` rule determines whether it is visible. Hidden fields retain their values when switching branches, but are disabled and excluded from validation and submission. Configured forms send multipart `POST` requests and handle pending, success, and error states.
+
+The gallery reads event objects from `src/data/gallery.json`. Each event's first photo becomes its cover; opening the event starts a finite photo stack. The viewer supports horizontal swipes, keyboard navigation when the stack is focused, and explicit next/finish controls. Shared dialogs handle focus trapping, Escape, and returning focus to the opener.
+
+## Results and Limitations
+
+The repository implements four routes and includes automated interaction tests plus a production-output checker. The tests use jsdom: they do not establish screenshot accuracy, cross-browser rendering, or performance benchmarks.
+
+The current site remains a preview in several respects:
+
+- Application and support endpoints are empty. With `demoMode: true`, a form displays a local confirmation without sending data; without demo mode, it reports that the form is not connected.
+- The newsletter displays a local alert and does not subscribe visitors to a mailing list.
+- Payment links require review and configuration before accepting contributions.
+- Member quotations currently contain “Testimony coming soon” text, and papers have not been published on the site.
+- `site.json` sets `noindex: true`, blocking search indexing through metadata and `robots.txt`.
+- Page bodies are client-rendered and require JavaScript. Server rendering and prerendering are not implemented.
+
+## Usage
+
+### Find the right file to edit
+
+| Change | Source |
 | --- | --- |
-| Logo, favicon, search indexing | `src/data/site.json` |
-| Homepage copy and images | `src/data/home.json` |
+| Logo, favicons, search indexing | `src/data/site.json` |
+| Hero, newsletter, and other homepage content | `src/data/home.json` |
+| Overview, benefits, pathways, and FAQ content | `src/data/editorial.json` |
 | Partner names and logos | `src/data/partners.json` |
-| Testimonials | `src/data/testimonials.json` |
-| Programs and case study | `src/data/programs.json` |
-| Event galleries and photo captions | `src/data/gallery.json` |
-| Publications | `src/data/papers.json` |
+| Member names, images, and quotations | `src/data/testimonials.json` |
+| Society and event descriptions | `src/data/programs.json` |
+| Gallery events, photo order, and alt text | `src/data/gallery.json` |
+| Publication status | `src/data/papers.json` |
 | Application fields and endpoint | `src/data/applyForm.json` |
-| Support fields and payment links | `src/data/supportForm.json` |
-| Footer labels and social icon markup | `src/data/footer.json` |
-| Header navigation | `src/components/Header.tsx` |
-| Page layout | Matching `.tsx` file in `src/pages/` |
+| Support priorities, fields, and payment settings | `src/data/supportForm.json` |
+| Navigation and footer links | `src/components/Header.tsx`, `src/components/Footer.tsx` |
+| Page layout and page-specific copy | `src/pages/` and the corresponding section components |
+| Brand and layout styling | `tailwind.config.js`, `src/index.css`, `src/styles/editorial.css` |
 
-Your working-copy `site.json` values were retained at `src/data/site.json`.
-Images now go in `public/assets/images/`, even where older JSON comments
-refer to `src/assets/images/`. Image URLs remain `/assets/images/filename.jpg`.
+Not all copy comes from JSON; sections such as `About.tsx` contain their own text. The retained `footer.json` does not drive the current footer.
 
-Most content is plain JSON text. Some existing home/footer copy contains trusted
-HTML (`<strong>`, `<br>`, SVG, or entities such as `&amp;`). `RichText.tsx` renders
-that repository-authored content. Do not pass user input or external API data to
-it without sanitizing it first.
+### Update the event gallery
 
-## Editing React
+The existing event photos are in `public/assets/images/events/ciren-mini-hackathon-mlh/`, named `mlh-hack1.jpg` through `mlh-hack7.jpg`.
 
-### Event gallery photos
+To add an event, put its photos in a new folder under `public/assets/images/events/` and append an object to the `events` array in `src/data/gallery.json`. Use a unique `id`, an event `name`, and a `photos` array. Each photo requires `src` and descriptive `alt` text; `caption` is optional. Use root-relative `/assets/images/events/...` URLs. Array order controls the cover and viewing order, so component changes are unnecessary. An empty photo array displays “Photos coming soon”.
 
-The Programs page gallery currently contains **CIReN Mini Hackathon x MLH**.
-Its seven event photos are in
-`public/assets/images/events/ciren-mini-hackathon-mlh/` (`mlh-hack1.jpg` through
-`mlh-hack7.jpg`). Update photo paths, alt text, and optional captions in
-`src/data/gallery.json`. The first image is the event cover.
+### Add a page
 
-The homepage Partners strip uses `src/data/partners.json` and the supplied
-logos in `public/assets/`. It scrolls continuously, pauses on hover, and displays
-a static wrapping list when reduced motion is enabled.
+Create a component in `src/pages/`, register its route in `src/App.tsx`, and add its title to `RouteEffects`. Use React Router's `Link` for internal navigation. Shared navigation and dialogs already sit outside the page routes.
 
-Add or remove entries in an event's `photos` array to change its stack. To add
-another event, add an object with a unique `id`, `name`, and `photos` array.
-Each photo uses `{ "src": "/assets/images/events/your-event/photo.jpg", "alt":
-"Describe the photo", "caption": "Optional caption" }`. No component edits are
-needed. Empty events display “Photos coming soon”.
+## Configuration
 
-Opening a card starts at its first photo. Swipe horizontally, use the arrow
-keys while the photo stack is focused, or select Next photo. After the last
-photo the viewer stops and offers View again. Escape and the backdrop close it.
-The former inspiration/case-study section is no longer displayed.
+| Setting | Current behavior and configuration |
+| --- | --- |
+| `site.noindex` | Defaults to `true`. Set to `false` and rebuild when the site is ready for indexing. |
+| `site.logo`, favicon fields | Public image URLs. Empty optional favicon values omit the corresponding tags. |
+| Form `action` | Empty by default. Set to an endpoint accepting browser multipart POST requests with `Accept: application/json`. |
+| Form `demoMode` | Allows a local success preview when no endpoint exists. Set to `false` for launch and configure `action`. |
+| Field `showWhen` | Uses a controlling field name and an `equals` array to select when a field appears. |
+| `notifyEmail` | Provider-configuration information only; it does not itself deliver email. |
 
-### Components and routes
+A form endpoint must permit requests from the site's origin. Client-side JSON is public, so credentials belong in the receiving service, not in these files. Some repository content is rendered as trusted HTML through `RichText.tsx`; do not pass untrusted input to it without sanitization.
 
-A component returns JSX: use `className` for CSS classes, `{value}` for dynamic
-text, and event props such as `onClick` for behavior. Styles use the existing
-Tailwind 3 utilities and `src/index.css`; no Tailwind version migration is needed.
+## Development and Deployment
 
-To add a page, create `src/pages/YourPage.tsx`, import it into `src/App.tsx`, and
-add a `<Route path="/your-page" element={<YourPage />} />`. Add its title to
-`RouteEffects` and link to it with React Router's `<Link to="/your-page/">`.
-The shared header, footer, newsletter, and Apply dialog already surround routes.
-Home-section links use `/#about-us`, so they work from other pages.
+Run commands from the repository root:
 
-## Forms and existing preview content
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server. |
+| `npm run lint` | Check TypeScript and React source with ESLint. |
+| `npm test` | Run Vitest interaction tests. |
+| `npm run test:watch` | Run tests while editing. |
+| `npm run build` | Run TypeScript checks and create `dist/`. |
+| `npm run preview` | Serve the existing production build locally. |
+| `npm run verify` | Run lint, tests, build, and `scripts/check-build.mjs`. |
 
-Application and support forms share `ContentForm.tsx`. Define fields in JSON;
-`showWhen: { "field": "controller_name", "equals": ["value"] }` controls a
-conditional field. Hidden fields are disabled, excluded from validation and
-FormData, and retain their entered values while switching branches.
+Tests cover routes, navigation, dialogs, form branching and submission, and gallery interactions. The output checker checks bundled entry files, favicon paths, robots settings, JSON-referenced assets, and hosting fallback configuration. Run `npm run verify` before delivering code changes.
 
-- A nonempty `action` sends a multipart `POST` with `Accept: application/json`.
-  Use an endpoint that supports browser submissions and the site's CORS origin.
-- With an empty `action` and `demoMode: true`, the current preview shows a local
-  confirmation and sends nothing. Both existing forms retain this setting.
-- With an empty `action` and `demoMode: false`, the form explicitly reports that
-  details were not sent. Configure an endpoint and disable demo mode at launch.
-- `notifyEmail` is a note for configuring your form provider, not an email
-  delivery integration. Client-side JSON is public; do not put secrets in it.
-- The newsletter retains its original local confirmation; it has no backend.
-- Payment URLs and case-study/testimonial content include preview placeholders.
-  Search and several footer/social/legal links are still original placeholders.
-  This migration does not add a search service, payment integration, or mailing list.
+Netlify and Vercel configuration is included. Both use `npm run build` and publish `dist/`, with fallback routing for direct visits to `/programs/`, `/papers/`, and `/support/`. On another static host, serve real files normally and rewrite application routes to `/index.html`.
 
-Dialogs support Escape, backdrop/close buttons, focus trapping and focus return.
-React owns the menu, flip cards, carousel, conditional fields, and status messages.
+The build scripts do not publish the site. Before deployment, configure form delivery and payment destinations, replace preview quotations, review indexing settings, and check the actual layout in desktop and mobile browsers.
 
-## Production and hosting
+## Contributing and License
 
-`npm run build` creates `dist/`. Netlify and Vercel configuration is included,
-with SPA fallback routing so direct visits and refreshes at `/programs/`,
-`/papers/`, and `/support/` load correctly. For another static host, serve real
-files normally and rewrite other page requests to `/index.html`.
+For changes, keep editable content in the relevant data files where supported, reuse shared components, and run the verification command. Describe user-visible changes and validation when submitting work for review.
 
-This is a client-rendered SPA: the page body requires JavaScript. The initial
-HTML includes the default title, description, favicons and preview indexing
-controls; React sets per-page titles. If server-rendered content becomes a
-requirement for search indexing, add prerendering/SSR deliberately.
+No license file is included in this repository. Do not assume an open-source license applies to the code, event photographs, or partner branding.
 
-`src/data/site.json` controls both the initial robots meta tag and `robots.txt`.
-Keep `noindex: true` for previews; set it to false and rebuild at launch. Favicon
-paths are normalized to root-relative URLs, including your existing SVG path.
+## Acknowledgements
 
-No deployment is performed by these scripts. The historical design export
-remains in `reference/original.html` and is not part of the Vite bundle.
+The site represents CIReN and features photography from CIReN Mini Hackathon x MLH. Partner names and logos identify Major League Hacking, AmaliTech, and Central University; their branding remains associated with the respective organizations.
 
-## Validation
-
-Tests exercise routes, links, program cards, all testimonial dialogs, focus and
-keyboard handling, menu dismissal, carousel wiring, form branching and payment
-panels, validation, demo/unconfigured endpoints, POST success, duplicate-submit
-prevention, and error recovery. jsdom does not render pixels; these checks do
-not claim screenshot or cross-browser visual parity.
-
-The project follows the [Vite React TypeScript conventions](https://vite.dev/guide/).
+The page organization was informed by Forge's Launch site while retaining CIReN's story, colors, and event gallery. This README follows the repository's [showcase format](repo_format.md).

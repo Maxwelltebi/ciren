@@ -1,4 +1,4 @@
-﻿# CIReN — Campus Innovation & Research Network
+﻿#Campus Innovation & Research Network (CIReN)
 
 A Vite + React + TypeScript website. The four pages and their existing design
 have been migrated from Eleventy to React components.

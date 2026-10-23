@@ -212,6 +212,8 @@ describe("application rules", () => {
 
   it.each([
     ["ama@school.edu", true],
+    ["csc24011740@central.edu", true],
+    ["s.asante@st.knust.edu.gh", true],
     ["ama@st.school.edu", true],
     ["ama@st.ug.edu.gh", true],
     ["kofi@ashesi.edu.gh", true],
@@ -220,6 +222,9 @@ describe("application rules", () => {
     ["ama@yahoo.co.uk", false],
     ["ama@edu.gh", false],
     ["ama@school.education", false],
+    ["ama@schoolxedu", false],
+    ["ama@school.eduxgh", false],
+    ["ama asante@school.edu", false],
   ])("students: %s accepted=%s", (address, ok) => {
     expect(fieldError(email, { role: "Student", email: address }) === "").toBe(ok);
   });

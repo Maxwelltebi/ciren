@@ -44,7 +44,7 @@
       "placeholder": "you@university.edu.gh",
       "autocomplete": "email",
       "pattern": {
-        "regex": "^[^s@]+@([a-z0-9-]+.)+(edu|edu.[a-z]{2}|ac.[a-z]{2})$",
+        "regex": "^[^\\s@]+@([a-z0-9-]+\\.)+(edu|edu\\.[a-z]{2}|ac\\.[a-z]{2})$",
         "message": "Students must apply with a university email ending in .edu, .edu.<country> (e.g. .edu.gh) or .ac.<country>. Gmail, Yahoo, Outlook and other personal addresses are not accepted.",
         "hint": "Use your student email, e.g. name@st.ug.edu.gh or name@school.edu. Personal addresses such as Gmail are not accepted for students.",
         "when": {

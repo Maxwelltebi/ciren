@@ -5,6 +5,7 @@ export interface CheckInEvent {
   endDate?: string;
   location?: string;
   url: string;
+  code?: string;
   hidden?: boolean;
 }
 

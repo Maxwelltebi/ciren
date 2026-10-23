@@ -1,7 +1,9 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import App from "../App";
+import CheckInPage from "../pages/CheckInPage";
 import { openEvents, type CheckInEvent } from "../lib/checkin";
 
 const event = (overrides: Partial<CheckInEvent>): CheckInEvent => ({
@@ -30,6 +32,30 @@ describe("check-in page", () => {
       ["today", true],
       ["later", false],
     ]);
+  });
+
+  it("hides the check-in code until shown, and copies it either way", async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "clipboard", {
+      value: { writeText },
+      configurable: true,
+    });
+    render(<CheckInPage now={new Date(2026, 9, 28, 9, 0)} />);
+    expect(screen.queryByText("43VT62")).toBeNull();
+    await userEvent.click(screen.getByRole("button", { name: "Show code" }));
+    expect(screen.getByText("43VT62")).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "Hide code" }));
+    expect(screen.queryByText("43VT62")).toBeNull();
+    expect(
+      screen.getByRole("link", {
+        name: "Check in to Hacktoberfest Hack Day 2026",
+      }),
+    ).toHaveAttribute("href", "https://www.mlh.com/check_in");
+    await userEvent.click(screen.getByRole("button", { name: "Copy" }));
+    expect(writeText).toHaveBeenCalledWith("43VT62");
+    expect(
+      await screen.findByRole("button", { name: "Copied!" }),
+    ).toBeInTheDocument();
   });
 
   it("renders without the site chrome and is marked noindex", () => {

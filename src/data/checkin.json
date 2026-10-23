@@ -1,16 +1,16 @@
 {
-  "_comment": "Powers the unlisted /check-in page that the banner QR code points to. The page is not linked anywhere and is marked noindex. Add an entry per event: `date` (and optional `endDate` for multi-day events) are YYYY-MM-DD; an event shows from now until the end of its last day, then drops off by itself. Set `hidden` to true to pull one early. `url` is the event's own check-in form (Google Form, Luma, etc.).",
+  "_comment": "Powers the unlisted /check-in page that the banner QR code points to. The page is not linked anywhere and is marked noindex. Add an entry per event: `date` (and optional `endDate` for multi-day events) are YYYY-MM-DD; an event shows from now until the end of its last day, then drops off by itself. Set `hidden` to true to pull one early. `url` is the event's own check-in form (Google Form, Luma, etc.). Optional `code` is shown with a copy button for check-in pages that ask for one.",
   "heading": "Event Check-In",
   "intro": "Welcome! Choose the event you are attending to check in.",
   "events": [
     {
-      "id": "example-event",
-      "name": "Example Event — replace me",
-      "date": "2026-10-23",
+      "id": "hacktoberfest-hack-day-2026",
+      "name": "Hacktoberfest Hack Day 2026",
+      "date": "2026-10-28",
       "endDate": "",
-      "location": "Central University, Miotso Campus",
-      "url": "https://forms.gle/replace-with-your-check-in-form",
-      "hidden": true
+      "location": "Central University, Accra, Ghana",
+      "url": "https://www.mlh.com/check_in",
+      "code": "43VT62"
     }
   ]
 }

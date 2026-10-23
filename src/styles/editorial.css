@@ -583,13 +583,10 @@
     border-color 0.2s,
     background 0.2s;
 }
-.checkin-event:hover {
-  border-color: #046e00;
-  background: #e8f0e8;
-}
-.checkin-event:focus-visible {
+.checkin-event-action:focus-visible {
   outline: 2px solid #046e00;
-  outline-offset: 3px;
+  outline-offset: 4px;
+  border-radius: 999px 0.75rem 0.75rem 999px;
 }
 .checkin-event.is-live {
   border-color: #40b830;
@@ -615,20 +612,81 @@
   font-size: 0.875rem;
   color: #526157;
 }
+/* Round tick badge overlapping a pill label; the tick draws in on hover/tap. */
 .checkin-event-action {
-  margin-top: 0.6rem;
+  margin-top: 0.85rem;
   justify-self: start;
-  padding: 0.6rem 1.1rem;
-  background: #046e00;
-  color: #fff;
-  font-weight: 700;
-  font-size: 0.875rem;
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
 }
-.checkin-event:not(.is-live) .checkin-event-action {
-  background: transparent;
-  color: #153b21;
-  border: 1px solid #aebdaf;
+.checkin-event-tick {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: #046e00;
+  box-shadow: 0 6px 16px rgba(4, 110, 0, 0.3);
+  transition:
+    transform 0.25s ease,
+    background 0.2s;
+}
+.checkin-event-tick svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 22;
+  stroke-dashoffset: 0;
+}
+.checkin-event-label {
+  margin-left: -1.1rem;
+  padding: 0.7rem 1.4rem 0.7rem 1.75rem;
+  background: #fff;
+  color: #046e00;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  box-shadow: 0 4px 14px rgba(11, 36, 22, 0.12);
+}
+.checkin-event-action:hover .checkin-event-tick,
+.checkin-event-action:focus-visible .checkin-event-tick,
+.checkin-event-action:active .checkin-event-tick {
+  transform: scale(1.08);
+}
+.checkin-event-action:hover .checkin-event-tick svg,
+.checkin-event-action:focus-visible .checkin-event-tick svg,
+.checkin-event-action:active .checkin-event-tick svg {
+  animation: checkin-tick 0.45s ease-out;
+}
+@keyframes checkin-tick {
+  from {
+    stroke-dashoffset: 22;
+  }
+}
+.checkin-event:not(.is-live) .checkin-event-tick {
+  background: #fff;
+  box-shadow: inset 0 0 0 2px #aebdaf;
+}
+.checkin-event:not(.is-live) .checkin-event-tick svg {
+  stroke: #6f8976;
+}
+.checkin-event:not(.is-live) .checkin-event-label {
+  color: #405a44;
+  box-shadow: inset 0 0 0 1px #dbe2db;
+}
+@media (prefers-reduced-motion: reduce) {
+  .checkin-event-tick {
+    transition: none;
+  }
+  .checkin-event .checkin-event-tick svg {
+    animation: none;
+  }
 }
 .checkin-empty {
   border: 1px dashed #aebdaf;
@@ -644,4 +702,82 @@
   color: #526157;
   line-height: 1.7;
   font-size: 0.9375rem;
+}
+/* Code stays masked until asked for; chunky offset-shadow buttons. */
+.checkin-code {
+  margin-top: 1.1rem;
+  padding: 1rem;
+  background: #fffdf7;
+  border: 2px solid #0b2416;
+  border-radius: 0.75rem;
+}
+.checkin-code-hint {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #405a44;
+  margin-bottom: 0.6rem;
+}
+.checkin-code-value {
+  display: block;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 1.625rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #111827;
+  margin-bottom: 0.9rem;
+}
+.checkin-code-value.is-hidden {
+  color: #6f8976;
+}
+.checkin-code-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+.checkin-code-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.9rem;
+  padding: 0.6rem 1.15rem;
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0b2416;
+  background: #fffdf7;
+  border: 2.5px solid #0b2416;
+  border-radius: 0.3rem;
+  box-shadow: 4px 4px 0 #0b2416;
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
+}
+.checkin-code-button.is-primary {
+  background: #83d177;
+}
+.checkin-code-button svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.checkin-code-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #0b2416;
+}
+.checkin-code-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #0b2416;
+}
+.checkin-code-button:focus-visible {
+  outline: 2px solid #046e00;
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .checkin-code-button {
+    transition: none;
+  }
 }

@@ -100,7 +100,6 @@
   position: relative;
   min-height: 32rem;
   margin-block: 2.5rem;
-  border-radius: 1.5rem;
   overflow: hidden;
 }
 .page-intro-photo img {
@@ -240,12 +239,11 @@
   width: 100%;
   aspect-ratio: 5 / 4;
   object-fit: cover;
-  border-radius: 1.5rem;
 }
 .editorial-photo figcaption {
   font-size: 0.75rem;
   color: #647267;
-  margin-top: 0.85rem;
+  margin-top: 1.25rem;
   line-height: 1.6;
 }
 .text-link {
@@ -264,7 +262,6 @@
 }
 .program-feature {
   background: white;
-  border: 1px solid #dfe5df;
 }
 .program-feature img {
   width: 100%;
@@ -779,5 +776,62 @@
 @media (prefers-reduced-motion: reduce) {
   .checkin-code-button {
     transition: none;
+  }
+}
+/* Framed edge for photos and photo cards: square corners, solid border, and a
+   hard offset shadow with no blur. Kept last so it wins over Tailwind's
+   rounded/border utilities. Tune the look here, in one place. */
+:root {
+  --frame-ink: #0b2416;
+  --frame-shadow: #046e00;
+  --frame-offset: 8px;
+}
+@media (max-width: 640px) {
+  :root {
+    --frame-offset: 6px;
+  }
+}
+.frame {
+  border: 2px solid var(--frame-ink);
+  border-radius: 0;
+  box-shadow: var(--frame-offset) var(--frame-offset) 0 var(--frame-shadow);
+}
+/* On dark sections a dark edge disappears, so it turns light with a bright shadow. */
+.frame-on-dark {
+  --frame-ink: #f4f6f3;
+  --frame-shadow: #40b830;
+}
+/* Cards stacked behind another keep the border but drop the shadow. */
+.frame-flat {
+  box-shadow: none;
+}
+/* Clickable frames lift on hover and press in on tap, like a physical button. */
+.frame-lift {
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+}
+@media (hover: hover) {
+  .frame-lift:hover,
+  .group:hover .frame-lift {
+    transform: translate(-2px, -2px);
+    box-shadow: calc(var(--frame-offset) + 2px) calc(var(--frame-offset) + 2px)
+      0 var(--frame-shadow);
+  }
+}
+.frame-lift:active,
+.group:active .frame-lift {
+  transform: translate(calc(var(--frame-offset) - 2px), calc(var(--frame-offset) - 2px));
+  box-shadow: 2px 2px 0 var(--frame-shadow);
+}
+@media (prefers-reduced-motion: reduce) {
+  .frame-lift {
+    transition: none;
+  }
+  .frame-lift:hover,
+  .group:hover .frame-lift,
+  .frame-lift:active,
+  .group:active .frame-lift {
+    transform: none;
   }
 }

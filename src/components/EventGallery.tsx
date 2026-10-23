@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import gallery from "../data/gallery.json";
 import type { GalleryEvent } from "../types/gallery";
 import EventPhotoStack from "./EventPhotoStack";
+import ResponsiveImage from "./ResponsiveImage";
 
 export default function EventGallery() {
   const [selected, setSelected] = useState<GalleryEvent | null>(null);
@@ -27,18 +28,18 @@ export default function EventGallery() {
               onClick={() => setSelected(event)}
               aria-haspopup="dialog"
               aria-label={`View photos from ${event.name}`}
-              className="event-gallery-card group text-left rounded-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#40b830]/60 focus-visible:ring-offset-8"
+              className="event-gallery-card group text-left focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#40b830]/60 focus-visible:ring-offset-8"
             >
               <span className="relative block aspect-[4/3] mx-3 mb-7">
                 {event.photos[2] && (
                   <span
                     aria-hidden="true"
-                    className="absolute inset-0 overflow-hidden rounded-2xl bg-white border border-slate-200 rotate-6 translate-y-2 transition-transform group-hover:rotate-[8deg]"
+                    className="frame frame-flat absolute inset-0 overflow-hidden bg-white rotate-6 translate-y-2 transition-transform group-hover:rotate-[8deg]"
                   >
-                    <img
+                    <ResponsiveImage
                       src={event.photos[2].src}
                       alt=""
-                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                       className="h-full w-full object-cover"
                     />
                   </span>
@@ -46,22 +47,22 @@ export default function EventGallery() {
                 {event.photos[1] && (
                   <span
                     aria-hidden="true"
-                    className="absolute inset-0 overflow-hidden rounded-2xl bg-white border border-slate-200 -rotate-3 translate-y-1"
+                    className="frame frame-flat absolute inset-0 overflow-hidden bg-white -rotate-3 translate-y-1"
                   >
-                    <img
+                    <ResponsiveImage
                       src={event.photos[1].src}
                       alt=""
-                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                       className="h-full w-full object-cover"
                     />
                   </span>
                 )}
-                <span className="absolute inset-0 rounded-2xl overflow-hidden bg-[#0B0F19] shadow-xl border border-white/20">
+                <span className="frame frame-lift absolute inset-0 overflow-hidden bg-[#0B0F19]">
                   {event.photos[0] ? (
-                    <img
+                    <ResponsiveImage
                       src={event.photos[0].src}
                       alt=""
-                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                       className="h-full w-full object-cover"
                     />
                   ) : (

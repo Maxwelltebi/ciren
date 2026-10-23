@@ -32,7 +32,7 @@ export default function Testimonials() {
             ref={deck}
             onScroll={sync}
             id="carousel-deck"
-            className="hide-scrollbar flex items-stretch overflow-x-auto py-3 gap-5 scroll-smooth snap-x snap-mandatory select-none"
+            className="hide-scrollbar flex items-stretch overflow-x-auto pt-3 pb-5 pr-3 gap-5 scroll-smooth snap-x snap-mandatory select-none"
           >
             {testimonials.map((t) => (
               <TestimonialCard key={t.name} t={t} onOpen={setSelected} />

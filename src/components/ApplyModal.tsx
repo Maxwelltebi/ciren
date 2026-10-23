@@ -31,7 +31,7 @@ export default function ApplyModal({
         id="apply"
         definition={applyForm}
         successMessage="Thank you. Your application has been received."
-        submitClassName="bg-[#40b830] hover:bg-[#329e24]"
+        submitClassName="bg-[#0b2416] hover:bg-[#153b21]"
       />
     </Modal>
   );

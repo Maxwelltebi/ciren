@@ -1,15 +1,18 @@
 ﻿import { Link } from "react-router-dom";
 import SectionHeading from "./SectionHeading";
+import ResponsiveImage from "./ResponsiveImage";
+import { HALF_WIDTH } from "../lib/imageSizes";
 
 export default function About() {
   return (
     <section className="editorial-section" id="about-us">
       <div className="site-container editorial-split">
         <figure className="editorial-photo">
-          <img
-            src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3.jpg"
+          <ResponsiveImage
+            src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3.webp"
             alt="Participants collaborating around a laptop at CIReN Mini Hackathon x MLH"
-            loading="lazy"
+            sizes={HALF_WIDTH}
+            className="frame"
           />
           <figcaption>
             Ideas take shape when people work on them together.

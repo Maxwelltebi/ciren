@@ -6,6 +6,8 @@ import SectionNav from "../components/SectionNav";
 import SectionHeading from "../components/SectionHeading";
 import PartnersMarquee from "../components/PartnersMarquee";
 import Questions from "../components/Questions";
+import ResponsiveImage from "../components/ResponsiveImage";
+import { HALF_WIDTH } from "../lib/imageSizes";
 
 export default function SupportPage() {
   return (
@@ -14,7 +16,7 @@ export default function SupportPage() {
         eyebrow="Help the next idea take shape"
         title={supportForm.heading}
         intro="A place to meet. A connection to a mentor. The equipment to try an idea. Your support helps make the practical parts of campus innovation and research possible."
-        image="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.jpg"
+        image="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.webp"
         imageAlt="Students gathered for CIReN Mini Hackathon x MLH"
         caption="The people at the heart of CIReN Mini Hackathon x MLH"
       >
@@ -46,10 +48,11 @@ export default function SupportPage() {
               intro="Campus communities need more than good ideas. These are the areas where support can help students develop, build, and share their work."
             />
             <figure className="editorial-photo">
-              <img
-                src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack7.jpg"
+              <ResponsiveImage
+                src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack7.webp"
                 alt="A participant concentrating on their project at the hackathon"
-                loading="lazy"
+                sizes={HALF_WIDTH}
+                className="frame"
               />
             </figure>
           </div>

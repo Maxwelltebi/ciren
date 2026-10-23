@@ -19,7 +19,7 @@
 
 **CIReN** is the public-facing website for the Campus Innovation & Research Network. Built with **React and TypeScript**, it introduces students and supporters to the network's societies, activities, and opportunities, bringing **program information, event photography, and participation forms** into one place.
 
-The implementation uses **page components and editable JSON content** within a standard Vite application. React Router connects four pages, shared components provide navigation and interactive dialogs, and files in `public/assets/` supply the photographs and partner logos. Vite produces a static bundle for deployment.
+The implementation uses **page components and editable JSON content** within a standard Vite application. React Router connects four pages, shared components provide navigation and interactive dialogs, and photographs and partner logos are served from `public/assets/` as WebP files generated from full-size originals in `assets-src/`. Vite produces a static bundle for deployment.
 
 ## Features
 
@@ -94,10 +94,12 @@ src/
   index.css                   Tailwind entry and shared styles
   styles/editorial.css        Page layout and editorial styles
   test/                       Component and interaction tests
-public/assets/                Partner logos and other public assets
+assets-src/                   Full-size original images (not deployed)
+public/assets/                Generated WebP images, logo, and favicons
   images/                     Site photographs and branding
     events/                   Event gallery photographs
-scripts/check-build.mjs       Production metadata, assets, and routing checks
+scripts/optimize-images.mjs   Generates WebP images and src/data/images.json
+scripts/check-build.mjs       Production metadata, assets, image budget, and routing checks
 reference/                    Historical HTML design exports
 netlify.toml                  Netlify build and SPA fallback
 vercel.json                   Vercel build and SPA fallback
@@ -131,7 +133,7 @@ On Windows PowerShell, use `npm.cmd` in place of `npm` if execution policy block
 
 `src/main.tsx` mounts the application inside `BrowserRouter`. `src/App.tsx` chooses the page, updates page titles, handles section scrolling, and surrounds the routes with shared navigation, footer, newsletter, and the application dialog.
 
-Pages combine JSON content with reusable React sections. Public asset URLs start with `/assets/`; Vite copies the corresponding files from `public/assets/` into the build without changing those paths.
+Pages combine JSON content with reusable React sections. Public asset URLs start with `/assets/`; Vite copies the corresponding files from `public/assets/` into the build without changing those paths. Photos render through `ResponsiveImage`, which reads `src/data/images.json` to add `srcset`, dimensions, and lazy loading; the home hero is preloaded from `index.html`.
 
 `ContentForm.tsx` renders JSON-defined fields. A field's `showWhen` rule determines whether it is visible. Hidden fields retain their values when switching branches, but are disabled and excluded from validation and submission. Configured forms send multipart `POST` requests and handle pending, success, and error states.
 
@@ -172,11 +174,21 @@ The current site remains a preview in several respects:
 
 Not all copy comes from JSON; sections such as `About.tsx` contain their own text. The retained `footer.json` does not drive the current footer.
 
+### Add or replace an image
+
+Put the full-size original (JPEG, PNG, or WebP) in `assets-src/`, mirroring the folder it should be served from, then run:
+
+```sh
+npm run images
+```
+
+This writes a WebP copy, plus smaller widths for phones, into `public/assets/` under the same path with a `.webp` extension, and records their sizes in `src/data/images.json`. Reference the `.webp` path in content JSON, for example `assets-src/images/team.jpg` becomes `/assets/images/team.webp`. Commit the original, the generated files, and `images.json`. `npm run verify` fails if any deployed image exceeds 300 KB.
+
 ### Update the event gallery
 
-The existing event photos are in `public/assets/images/events/ciren-mini-hackathon-mlh/`, named `mlh-hack1.jpg` through `mlh-hack7.jpg`.
+The existing event photos are in `assets-src/images/events/ciren-mini-hackathon-mlh/`, named `mlh-hack1.jpg` through `mlh-hack7.jpg`, and are served as `/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.webp` and so on.
 
-To add an event, put its photos in a new folder under `public/assets/images/events/` and append an object to the `events` array in `src/data/gallery.json`. Use a unique `id`, an event `name`, and a `photos` array. Each photo requires `src` and descriptive `alt` text; `caption` is optional. Use root-relative `/assets/images/events/...` URLs. Array order controls the cover and viewing order, so component changes are unnecessary. An empty photo array displays “Photos coming soon”.
+To add an event, put its photos in a new folder under `assets-src/images/events/`, run `npm run images`, and append an object to the `events` array in `src/data/gallery.json`. Use a unique `id`, an event `name`, and a `photos` array. Each photo requires `src` and descriptive `alt` text; `caption` is optional. Use root-relative `/assets/images/events/....webp` URLs. Array order controls the cover and viewing order, so component changes are unnecessary. An empty photo array displays “Photos coming soon”.
 
 ### Add a page
 

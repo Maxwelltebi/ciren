@@ -7,6 +7,8 @@ import SectionNav from "../components/SectionNav";
 import SectionHeading from "../components/SectionHeading";
 import JoinBanner from "../components/JoinBanner";
 import editorial from "../data/editorial.json";
+import ResponsiveImage from "../components/ResponsiveImage";
+import { HALF_WIDTH } from "../lib/imageSizes";
 
 export default function HomePage({ onApply }: { onApply: () => void }) {
   return (
@@ -49,11 +51,11 @@ export default function HomePage({ onApply }: { onApply: () => void }) {
             intro="Research and innovation belong together. Find a starting point that matches your interests, then learn from the people around you."
           />
           <div className="editorial-grid-two">
-            <article className="program-feature">
-              <img
-                src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6.jpg"
+            <article className="program-feature frame">
+              <ResponsiveImage
+                src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6.webp"
                 alt="A participant discussing an idea beside a laptop"
-                loading="lazy"
+                sizes={HALF_WIDTH}
               />
               <div className="program-feature-copy">
                 <p className="eyebrow">Investigate</p>
@@ -67,11 +69,11 @@ export default function HomePage({ onApply }: { onApply: () => void }) {
                 </Link>
               </div>
             </article>
-            <article className="program-feature">
-              <img
-                src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack2.jpg"
+            <article className="program-feature frame">
+              <ResponsiveImage
+                src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack2.webp"
                 alt="A Central University participant working on code"
-                loading="lazy"
+                sizes={HALF_WIDTH}
               />
               <div className="program-feature-copy">
                 <p className="eyebrow">Create</p>
@@ -116,10 +118,11 @@ export default function HomePage({ onApply }: { onApply: () => void }) {
             title="This is what coming together looks like."
           />
           <div className="event-recap">
-            <img
-              src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.jpg"
+            <ResponsiveImage
+              className="frame"
+              src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.webp"
               alt="The CIReN Mini Hackathon x MLH participants together"
-              loading="lazy"
+              sizes={HALF_WIDTH}
             />
             <div>
               <p className="eyebrow">From our event gallery</p>

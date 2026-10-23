@@ -1,0 +1,112 @@
+{
+  "/assets/amalitech-logo.webp": {
+    "width": 480,
+    "height": 98,
+    "srcset": "/assets/amalitech-logo.webp 480w"
+  },
+  "/assets/central-uni-logo.webp": {
+    "width": 480,
+    "height": 199,
+    "srcset": "/assets/central-uni-logo.webp 480w"
+  },
+  "/assets/images/amina-bello.webp": {
+    "width": 512,
+    "height": 512,
+    "srcset": "/assets/images/amina-bello.webp 512w"
+  },
+  "/assets/images/events/ciren-mini-hackathon-mlh/hp.webp": {
+    "width": 1254,
+    "height": 1254,
+    "srcset": "/assets/images/events/ciren-mini-hackathon-mlh/hp-480.webp 480w, /assets/images/events/ciren-mini-hackathon-mlh/hp-960.webp 960w, /assets/images/events/ciren-mini-hackathon-mlh/hp.webp 1254w"
+  },
+  "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.webp": {
+    "width": 1599,
+    "height": 1066,
+    "srcset": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1-480.webp 480w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1-960.webp 960w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.webp 1599w"
+  },
+  "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack2.webp": {
+    "width": 1599,
+    "height": 1066,
+    "srcset": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack2-480.webp 480w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack2-960.webp 960w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack2.webp 1599w"
+  },
+  "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3.webp": {
+    "width": 1599,
+    "height": 1066,
+    "srcset": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3-480.webp 480w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3-960.webp 960w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3.webp 1599w"
+  },
+  "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack4.webp": {
+    "width": 1599,
+    "height": 1066,
+    "srcset": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack4-480.webp 480w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack4-960.webp 960w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack4.webp 1599w"
+  },
+  "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack5.webp": {
+    "width": 1599,
+    "height": 1066,
+    "srcset": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack5-480.webp 480w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack5-960.webp 960w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack5.webp 1599w"
+  },
+  "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6.webp": {
+    "width": 1599,
+    "height": 1066,
+    "srcset": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6-480.webp 480w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6-960.webp 960w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6.webp 1599w"
+  },
+  "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack7.webp": {
+    "width": 1599,
+    "height": 1066,
+    "srcset": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack7-480.webp 480w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack7-960.webp 960w, /assets/images/events/ciren-mini-hackathon-mlh/mlh-hack7.webp 1599w"
+  },
+  "/assets/images/faith-wanjiku.webp": {
+    "width": 512,
+    "height": 512,
+    "srcset": "/assets/images/faith-wanjiku.webp 512w"
+  },
+  "/assets/images/img1.webp": {
+    "width": 1122,
+    "height": 1402,
+    "srcset": "/assets/images/img1-480.webp 480w, /assets/images/img1.webp 1122w"
+  },
+  "/assets/images/img2.webp": {
+    "width": 1122,
+    "height": 1402,
+    "srcset": "/assets/images/img2-480.webp 480w, /assets/images/img2.webp 1122w"
+  },
+  "/assets/images/img3.webp": {
+    "width": 1122,
+    "height": 1402,
+    "srcset": "/assets/images/img3-480.webp 480w, /assets/images/img3.webp 1122w"
+  },
+  "/assets/images/img4.webp": {
+    "width": 1122,
+    "height": 1402,
+    "srcset": "/assets/images/img4-480.webp 480w, /assets/images/img4.webp 1122w"
+  },
+  "/assets/images/img5.webp": {
+    "width": 1122,
+    "height": 1402,
+    "srcset": "/assets/images/img5-480.webp 480w, /assets/images/img5.webp 1122w"
+  },
+  "/assets/images/img6.webp": {
+    "width": 1122,
+    "height": 1402,
+    "srcset": "/assets/images/img6-480.webp 480w, /assets/images/img6.webp 1122w"
+  },
+  "/assets/images/joseph-ochieng.webp": {
+    "width": 512,
+    "height": 512,
+    "srcset": "/assets/images/joseph-ochieng.webp 512w"
+  },
+  "/assets/images/kofi-mensah.webp": {
+    "width": 512,
+    "height": 512,
+    "srcset": "/assets/images/kofi-mensah.webp 512w"
+  },
+  "/assets/images/students-collaborating.webp": {
+    "width": 512,
+    "height": 341,
+    "srcset": "/assets/images/students-collaborating.webp 512w"
+  },
+  "/assets/mlh-logo.webp": {
+    "width": 480,
+    "height": 203,
+    "srcset": "/assets/mlh-logo.webp 480w"
+  }
+}

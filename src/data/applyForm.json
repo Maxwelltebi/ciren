@@ -37,7 +37,7 @@
       "label": "University / Institution",
       "type": "text",
       "required": true,
-      "placeholder": "e.g. University of Ibadan",
+      "placeholder": "e.g. ABC University",
       "autocomplete": "organization"
     },
     {
@@ -45,7 +45,7 @@
       "label": "Country",
       "type": "text",
       "required": true,
-      "placeholder": "e.g. Nigeria",
+      "placeholder": "e.g. Ghana",
       "autocomplete": "country-name"
     },
     {

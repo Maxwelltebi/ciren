@@ -1,4 +1,5 @@
 import partners from "../data/partners.json";
+import ResponsiveImage from "./ResponsiveImage";
 
 export default function PartnersMarquee() {
   return (
@@ -34,11 +35,11 @@ export default function PartnersMarquee() {
                     key={partner.name}
                     className="flex items-center justify-center w-40 sm:w-48 h-20 shrink-0"
                   >
-                    <img
+                    <ResponsiveImage
                       src={partner.logo}
+                      sizes="192px"
                       alt={duplicate ? "" : partner.name}
                       className="w-full h-14 object-contain"
-                      decoding="async"
                     />
                   </li>
                 ))}

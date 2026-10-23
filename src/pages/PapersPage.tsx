@@ -3,6 +3,8 @@ import papers from "../data/papers.json";
 import PageIntro from "../components/PageIntro";
 import SectionNav from "../components/SectionNav";
 import SectionHeading from "../components/SectionHeading";
+import ResponsiveImage from "../components/ResponsiveImage";
+import { HALF_WIDTH } from "../lib/imageSizes";
 
 export default function PapersPage() {
   return (
@@ -11,7 +13,7 @@ export default function PapersPage() {
         eyebrow="Research at CIReN"
         title={papers.heading}
         intro="Good research begins with a question worth pursuing. We are building a community where students can develop their methods, discuss their findings, and prepare their work for a wider audience."
-        image="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6.jpg"
+        image="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6.webp"
         imageAlt="A hackathon participant discussing an idea"
         caption="A conversation today can become a research question tomorrow."
       >
@@ -92,10 +94,11 @@ export default function PapersPage() {
       <section className="editorial-section">
         <div className="site-container editorial-split">
           <figure className="editorial-photo">
-            <img
-              src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack5.jpg"
+            <ResponsiveImage
+              src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack5.webp"
               alt="Participants reviewing their work together"
-              loading="lazy"
+              sizes={HALF_WIDTH}
+              className="frame"
             />
             <figcaption>
               Thoughtful work benefits from another perspective.

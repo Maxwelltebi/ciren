@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Program } from "../types/content";
+import ResponsiveImage from "./ResponsiveImage";
 
 export default function FlipCard({ c }: { c: Program }) {
   const [flipped, setFlipped] = useState(false);
@@ -9,12 +10,13 @@ export default function FlipCard({ c }: { c: Program }) {
         type="button"
         aria-expanded={flipped}
         onClick={() => setFlipped(!flipped)}
-        className={`${flipped ? "is-flipped " : ""}flip-card group w-full h-80 text-left rounded-[2rem] focus:outline-none focus:ring-4 focus:ring-[#40b830]/60`}
+        className={`${flipped ? "is-flipped " : ""}flip-card group w-full h-80 text-left focus:outline-none focus:ring-4 focus:ring-[#40b830]/60`}
       >
         <span className="flip-card-inner block relative w-full h-full">
-          <span className="flip-face flip-front absolute inset-0 rounded-[2rem] bg-[#0B0F19] border border-white/10 shadow-2xl">
-            <span className="absolute inset-0 overflow-hidden rounded-[2rem]">
-              <img
+          <span className="flip-face flip-front frame absolute inset-0 bg-[#0B0F19]">
+            <span className="absolute inset-0 overflow-hidden">
+              <ResponsiveImage
+                sizes="(max-width: 768px) 100vw, 400px"
                 src={`${c.image}`}
                 alt=""
                 className="absolute inset-0 w-full h-full object-cover object-center"
@@ -41,7 +43,7 @@ export default function FlipCard({ c }: { c: Program }) {
             </span>
           </span>
 
-          <span className="flip-face flip-back absolute inset-0 flex flex-col justify-between rounded-[2rem] bg-white border border-slate-200 shadow-2xl p-7">
+          <span className="flip-face flip-back frame absolute inset-0 flex flex-col justify-between bg-white p-7">
             <span className="block">
               <span className="block text-[11px] font-bold uppercase tracking-widest text-[#046e00]">
                 {c.name}

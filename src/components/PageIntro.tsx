@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import ResponsiveImage from "./ResponsiveImage";
+import { PAGE_INTRO } from "../lib/imageSizes";
 
 interface Props {
   eyebrow: string;
@@ -28,8 +30,13 @@ export default function PageIntro({
           <p className="intro-description">{intro}</p>
           {children && <div className="action-row">{children}</div>}
         </div>
-        <figure className="page-intro-photo">
-          <img src={image} alt={imageAlt} fetchPriority="high" />
+        <figure className="page-intro-photo frame frame-on-dark">
+          <ResponsiveImage
+            src={image}
+            alt={imageAlt}
+            sizes={PAGE_INTRO}
+            priority
+          />
           <figcaption>{caption}</figcaption>
         </figure>
       </div>

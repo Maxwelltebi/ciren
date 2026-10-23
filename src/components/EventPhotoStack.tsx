@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 import type { GalleryEvent } from "../types/gallery";
 import Modal from "./Modal";
+import ResponsiveImage from "./ResponsiveImage";
 
 export default function EventPhotoStack({
   event,
@@ -142,7 +143,7 @@ export default function EventPhotoStack({
               aria-label="Event photo stack"
               aria-describedby="event-gallery-help"
               aria-keyshortcuts="ArrowLeft ArrowRight"
-              className="photo-stack-stage relative aspect-[4/3] max-h-[52vh] mx-2 mb-7 rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68e053]"
+              className="photo-stack-stage relative aspect-[4/3] max-h-[52vh] mx-2 mb-7 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#68e053]"
               onKeyDown={(e) => {
                 if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
                   e.preventDefault();
@@ -154,7 +155,7 @@ export default function EventPhotoStack({
                 <div
                   key={`${event.id}-${index + offset}`}
                   aria-hidden={offset !== 0 ? true : undefined}
-                  className={`photo-stack-image absolute inset-0 rounded-xl bg-white p-2 sm:p-3 shadow-xl ${offset === 0 ? "photo-stack-top" : "pointer-events-none"}`}
+                  className={`photo-stack-image frame frame-on-dark absolute inset-0 bg-slate-100 ${offset === 0 ? "photo-stack-top" : "frame-flat pointer-events-none"}`}
                   style={{
                     zIndex: 3 - offset,
                     transform:
@@ -177,11 +178,13 @@ export default function EventPhotoStack({
                   onPointerCancel={offset === 0 ? cancelDrag : undefined}
                   onLostPointerCapture={offset === 0 ? cancelDrag : undefined}
                 >
-                  <img
+                  <ResponsiveImage
                     src={item.src}
+                    sizes="(max-width: 800px) 100vw, 768px"
+                    loading="eager"
                     alt={offset === 0 ? item.alt : ""}
                     draggable={false}
-                    className="w-full h-full object-contain rounded-md bg-slate-100 pointer-events-none select-none"
+                    className="w-full h-full object-contain pointer-events-none select-none"
                   />
                 </div>
               ))}

@@ -1,5 +1,6 @@
 import type { Testimonial } from "../types/content";
 import Modal from "./Modal";
+import ResponsiveImage from "./ResponsiveImage";
 
 export default function TestimonialModal({
   testimonial,
@@ -18,9 +19,11 @@ export default function TestimonialModal({
     >
       {testimonial && (
         <>
-          <div className="relative h-52 sm:h-64">
-            <img
+          <div className="frame frame-on-dark relative h-52 sm:h-64 m-4 mb-6 sm:m-6 sm:mb-8 overflow-hidden">
+            <ResponsiveImage
               src={testimonial.image}
+              sizes="(max-width: 540px) 100vw, 512px"
+              loading="eager"
               alt={testimonial.alt}
               className="absolute inset-0 w-full h-full object-cover object-center"
             />

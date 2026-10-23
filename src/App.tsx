@@ -30,7 +30,7 @@ function RouteEffects() {
   }, [pathname]);
   useEffect(() => {
     const titles: Record<string, string> = {
-      "/": "CIReN — Campus Innovation & Research Network",
+      "/": "CIReN",
       "/programs": "Programs — CIReN",
       "/papers": "Our Papers — CIReN",
       "/support": "Support Us — CIReN",

@@ -76,7 +76,7 @@ export default function Modal({
       />
       <div
         ref={panel}
-        className={`relative z-10 w-full max-h-[90vh] overflow-y-auto hide-scrollbar rounded-[2rem] shadow-2xl ${className}`}
+        className={`relative z-10 w-full max-h-[90vh] overflow-y-auto hide-scrollbar shadow-2xl ${className}`}
       >
         <button
           onClick={onClose}

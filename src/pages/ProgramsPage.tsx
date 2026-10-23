@@ -16,7 +16,7 @@ export default function ProgramsPage({ onApply }: { onApply: () => void }) {
         eyebrow="Learn together. Build with purpose."
         title={programs.heading}
         intro={programs.intro}
-        image="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack4.jpg"
+        image="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack4.webp"
         imageAlt="Hackathon participants discussing their project at a laptop"
         caption="Learning alongside one another at CIReN Mini Hackathon x MLH"
       >

@@ -1,5 +1,6 @@
 import RichText from "./RichText";
 import type { Testimonial } from "../types/content";
+import ResponsiveImage from "./ResponsiveImage";
 
 export default function TestimonialCard({
   t,
@@ -21,9 +22,10 @@ export default function TestimonialCard({
         }}
         role="button"
         aria-haspopup="dialog"
-        className="focus:outline-none focus:ring-2 focus:ring-[#046e00] carousel-card flex-shrink-0 w-[280px] sm:w-[340px] h-[420px] overflow-hidden relative transition-shadow cursor-pointer snap-start group"
+        className="focus:outline-none focus:ring-2 focus:ring-[#046e00] carousel-card frame frame-lift flex-shrink-0 w-[280px] sm:w-[340px] h-[420px] overflow-hidden relative cursor-pointer snap-start group"
       >
-        <img
+        <ResponsiveImage
+          sizes="340px"
           alt={`${t.alt}`}
           className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
           src={`${t.image}`}

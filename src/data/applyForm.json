@@ -2,8 +2,8 @@
   "title": "Join CIReN",
   "intro": "Apply to join the Campus Innovation & Research Network, or to host a chapter on your campus. We review applications on a rolling basis and reply by email.",
   "submitLabel": "Submit Application",
-  "action": "",
-  "_comment_action": "POST endpoint for the form. While empty, the dialog tells the visitor plainly that the application was not sent, rather than faking a success. Set this to a Formspree/Netlify/Google Forms URL to make it live.",
+  "action": "https://script.google.com/macros/s/AKfycbyoYBUyF36y0f4cGLzx1JWUnT8dBFvLpbrZB9vBVIAxS_tB3Ryx0kV5WVAwUH5g_MKn/exec?form=apply",
+  "_comment_action": "POST endpoint: the Google Apps Script web app that saves entries to the leaders’ workspace spreadsheet and emails alerts (integrations/forms-to-sheets.gs; setup in README, “Form submissions”). Keep the ?form= value: it picks the tab.",
   "_comment_showWhen": "A field with showWhen only appears when the named field holds one of the listed values. While hidden it is also disabled, so it is neither validated nor submitted - a hidden field that is still required blocks submission with no visible error.",
   "fields": [
     {
@@ -96,6 +96,6 @@
       }
     }
   ],
-  "demoMode": true,
+  "demoMode": false,
   "_comment_demoMode": "DEMO ONLY. With no `action` set, submitting shows a success confirmation WITHOUT sending anything anywhere. Set `action` to a real endpoint and demoMode to false before launch, or applicants will believe they applied."
 }

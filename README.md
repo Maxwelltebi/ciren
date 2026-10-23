@@ -190,6 +190,20 @@ The existing event photos are in `assets-src/images/events/ciren-mini-hackathon-
 
 To add an event, put its photos in a new folder under `assets-src/images/events/`, run `npm run images`, and append an object to the `events` array in `src/data/gallery.json`. Use a unique `id`, an event `name`, and a `photos` array. Each photo requires `src` and descriptive `alt` text; `caption` is optional. Use root-relative `/assets/images/events/....webp` URLs. Array order controls the cover and viewing order, so component changes are unnecessary. An empty photo array displays “Photos coming soon”.
 
+### Form submissions
+
+The Join and Support forms post to a Google Apps Script web app, [integrations/forms-to-sheets.gs](integrations/forms-to-sheets.gs), which lives in the CIReN leaders’ workspace spreadsheet. Each entry is added as a row on the **JOIN CIReN** or **SUPPORT CIReN** tab, and an alert email goes to the addresses in the script’s `ALERT_EMAILS` property. Those addresses are kept out of this public repository.
+
+To set it up or move it to another spreadsheet:
+
+1. In the spreadsheet, open **Extensions → Apps Script**, replace the editor contents with `integrations/forms-to-sheets.gs`, and save.
+2. Under **Project Settings → Script properties**, add `ALERT_EMAILS` with a comma-separated list of addresses.
+3. Select `checkSetup` in the toolbar, press **Run**, and approve the permissions. The log should name both tabs and the alert addresses.
+4. Choose **Deploy → New deployment → Web app**, with *Execute as: Me* and *Who has access: Anyone*. Copy the web app URL.
+5. In `src/data/applyForm.json` set `action` to the URL followed by `?form=apply`; in `src/data/supportForm.json` use `?form=support`. Set `demoMode` to `false` in both.
+
+Columns are matched by header name, so leaders can add columns such as Status or Notes; keep row 1 as the header row. After editing the script, use **Deploy → Manage deployments → Edit → New version** so the URL stays the same.
+
 ### Add a page
 
 Create a component in `src/pages/`, register its route in `src/App.tsx`, and add its title to `RouteEffects`. Use React Router's `Link` for internal navigation. Shared navigation and dialogs already sit outside the page routes.
@@ -200,10 +214,9 @@ Create a component in `src/pages/`, register its route in `src/App.tsx`, and add
 | --- | --- |
 | `site.noindex` | Defaults to `true`. Set to `false` and rebuild when the site is ready for indexing. |
 | `site.logo`, favicon fields | Public image URLs. Empty optional favicon values omit the corresponding tags. |
-| Form `action` | Empty by default. Set to an endpoint accepting browser multipart POST requests with `Accept: application/json`. |
-| Form `demoMode` | Allows a local success preview when no endpoint exists. Set to `false` for launch and configure `action`. |
+| Form `action` | The Google Apps Script web app URL plus `?form=apply` or `?form=support` (see Form submissions). Fields are sent as a URL-encoded POST with `Accept: application/json`; a JSON reply of `{"ok": false}` is shown as an error. |
+| Form `demoMode` | `false` in both forms. When `true` and `action` is empty, it shows a local success preview without sending anything. |
 | Field `showWhen` | Uses a controlling field name and an `equals` array to select when a field appears. |
-| `notifyEmail` | Provider-configuration information only; it does not itself deliver email. |
 
 A form endpoint must permit requests from the site's origin. Client-side JSON is public, so credentials belong in the receiving service, not in these files. Some repository content is rendered as trusted HTML through `RichText.tsx`; do not pass untrusted input to it without sanitization.
 

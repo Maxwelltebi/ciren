@@ -19,12 +19,10 @@
       "text": "Compute, datasets and lab equipment that campus budgets do not stretch to."
     }
   ],
-  "action": "",
-  "_comment_action": "POST endpoint for the form. Empty = demo mode (see demoMode). Point this at a form service that emails notifyEmail: Formspree, Web3Forms or FormSubmit all work from a static site with no backend.",
-  "demoMode": true,
+  "action": "https://script.google.com/macros/s/AKfycbyoYBUyF36y0f4cGLzx1JWUnT8dBFvLpbrZB9vBVIAxS_tB3Ryx0kV5WVAwUH5g_MKn/exec?form=support",
+  "_comment_action": "POST endpoint: the Google Apps Script web app that saves entries to the leaders’ workspace spreadsheet and emails alerts (integrations/forms-to-sheets.gs; setup in README, “Form submissions”). Keep the ?form= value: it picks the tab.",
+  "demoMode": false,
   "_comment_demoMode": "DEMO ONLY. With no `action` set, submitting confirms receipt WITHOUT sending anything anywhere. Set `action` and flip this to false before launch, or supporters will believe they have reached you.",
-  "notifyEmail": "admin.cirenet@gmail.com",
-  "_comment_notifyEmail": "Where completed forms should land. Deliberately NOT rendered into the page - a plain mailto in the HTML gets scraped for spam. With Formspree the destination is set in the dashboard; with Web3Forms it is tied to the access key; with FormSubmit it is part of the endpoint URL.",
   "submitLabel": "Send My Details",
   "payment": {
     "_comment_dummy": "DUMMY LINKS - replace both with your real payment pages before production.",

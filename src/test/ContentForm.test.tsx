@@ -128,8 +128,8 @@ describe("form submissions", () => {
     },
   );
 
-  it("posts FormData, blocks duplicate requests, and resets after success", async () => {
-    let finish!: (value: { ok: boolean }) => void;
+  it("posts URL-encoded fields, blocks duplicate requests, and resets after success", async () => {
+    let finish!: (value: { ok: boolean; json: () => Promise<unknown> }) => void;
     const fetch = vi.fn(
       () =>
         new Promise((resolve) => {
@@ -151,23 +151,34 @@ describe("form submissions", () => {
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(fetch).toHaveBeenCalledWith(
       "https://example.com/form",
-      expect.objectContaining({ method: "POST", body: expect.any(FormData) }),
+      expect.objectContaining({
+        method: "POST",
+        body: expect.any(URLSearchParams),
+      }),
     );
-    finish({ ok: true });
+    const body = (fetch.mock.calls[0] as unknown[])[1] as { body: URLSearchParams };
+    expect(body.body.get("email")).toBe("person@example.com");
+    expect(body.body.get("_gotcha")).toBe("");
+    finish({ ok: true, json: async () => ({ ok: true }) });
     await waitFor(() =>
       expect(screen.getByRole("status")).toHaveTextContent("Received"),
     );
     expect(screen.getByLabelText(/Email/)).toHaveValue("");
   });
 
-  it.each(["http", "network"])(
+  it.each(["http", "network", "receiver"])(
     "retains entered data after a %s error",
     async (failure) => {
       vi.stubGlobal(
         "fetch",
         failure === "http"
           ? vi.fn().mockResolvedValue({ ok: false, status: 500 })
-          : vi.fn().mockRejectedValue(new Error("offline")),
+          : failure === "receiver"
+            ? vi.fn().mockResolvedValue({
+                ok: true,
+                json: async () => ({ ok: false, error: "Sheet not found" }),
+              })
+            : vi.fn().mockRejectedValue(new Error("offline")),
       );
       render(
         <ContentForm

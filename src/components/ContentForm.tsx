@@ -41,12 +41,19 @@ export default function ContentForm({
     setSending(true);
     setStatus({ message: "Sending…" });
     try {
+      // URL-encoded rather than multipart: Google Apps Script only parses
+      // this format into fields, and it needs no CORS preflight.
       const response = await fetch(definition.action, {
         method: "POST",
-        body: new FormData(form),
+        body: new URLSearchParams(
+          [...new FormData(form)] as [string, string][],
+        ),
         headers: { Accept: "application/json" },
       });
       if (!response.ok) throw new Error(String(response.status));
+      // A receiver can answer 200 and still report failure in its JSON.
+      const result = await response.json().catch(() => null);
+      if (result && result.ok === false) throw new Error(result.error);
       setValues({});
       setStatus({ message: successMessage });
     } catch {
@@ -68,6 +75,16 @@ export default function ContentForm({
       onSubmit={submit}
       className="px-6 py-7 sm:px-8 space-y-5"
     >
+      {/* Honeypot: invisible to people, but bots fill it in and the receiver
+          drops anything that arrives with it set. */}
+      <input
+        type="text"
+        name="_gotcha"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] w-px h-px opacity-0"
+      />
       {definition.fields.map((field) => {
         const visible = isFieldVisible(field, definition.fields, values);
         const inputClass =

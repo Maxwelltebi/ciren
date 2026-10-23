@@ -7,18 +7,36 @@ import HomePage from "./pages/HomePage";
 import ProgramsPage from "./pages/ProgramsPage";
 import PapersPage from "./pages/PapersPage";
 import SupportPage from "./pages/SupportPage";
+import CheckInPage from "./pages/CheckInPage";
+
+// Unlisted routes: never linked, kept out of search results, shown without site chrome.
+const UNLISTED = new Set(["/check-in"]);
+const normalize = (pathname: string) => pathname.replace(/\/$/, "") || "/";
 
 function RouteEffects() {
   const { pathname, hash } = useLocation();
+  useEffect(() => {
+    // The site-wide preview tag from index.html already covers every page.
+    if (
+      !UNLISTED.has(normalize(pathname)) ||
+      document.querySelector('meta[name="robots"]')
+    )
+      return;
+    const robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex, nofollow";
+    document.head.append(robots);
+    return () => robots.remove();
+  }, [pathname]);
   useEffect(() => {
     const titles: Record<string, string> = {
       "/": "CIReN — Campus Innovation & Research Network",
       "/programs": "Programs — CIReN",
       "/papers": "Our Papers — CIReN",
       "/support": "Support Us — CIReN",
+      "/check-in": "Event Check-In — CIReN",
     };
-    document.title =
-      titles[pathname.replace(/\/$/, "") || "/"] ?? "Page not found — CIReN";
+    document.title = titles[normalize(pathname)] ?? "Page not found — CIReN";
     if (hash && hash !== "#") {
       const frame = requestAnimationFrame(() => {
         try {
@@ -40,6 +58,19 @@ export default function App() {
   const [applyOpen, setApplyOpen] = useState(false);
   const openApply = useCallback(() => setApplyOpen(true), []);
   const closeApply = useCallback(() => setApplyOpen(false), []);
+  const { pathname } = useLocation();
+  if (UNLISTED.has(normalize(pathname))) {
+    return (
+      <>
+        <RouteEffects />
+        <main>
+          <Routes>
+            <Route path="/check-in" element={<CheckInPage />} />
+          </Routes>
+        </main>
+      </>
+    );
+  }
   return (
     <>
       <RouteEffects />

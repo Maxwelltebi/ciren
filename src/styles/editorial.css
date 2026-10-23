@@ -527,3 +527,121 @@
     gap: 0;
   }
 }
+/* Unlisted check-in page behind the banner QR code: phone-first, no site chrome. */
+.checkin-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  background: #0b2416;
+}
+.checkin-card {
+  width: min(100%, 34rem);
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: clamp(1.75rem, 6vw, 3rem);
+  text-align: center;
+}
+.checkin-logo {
+  width: 4.5rem;
+  height: 4.5rem;
+  object-fit: contain;
+  margin: 0 auto 1.5rem;
+  border-radius: 0.75rem;
+}
+.checkin-card .eyebrow {
+  color: #405a44;
+}
+.checkin-card h1 {
+  font-family: "Nichrome", "Inter Tight", "Inter", Arial, sans-serif;
+  font-size: clamp(2.25rem, 9vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+.checkin-intro {
+  color: #526157;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.checkin-list {
+  display: grid;
+  gap: 0.85rem;
+  text-align: left;
+}
+.checkin-event {
+  display: grid;
+  gap: 0.3rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid #dbe2db;
+  border-radius: 1rem;
+  background: #f4f6f3;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.checkin-event:hover {
+  border-color: #046e00;
+  background: #e8f0e8;
+}
+.checkin-event:focus-visible {
+  outline: 2px solid #046e00;
+  outline-offset: 3px;
+}
+.checkin-event.is-live {
+  border-color: #40b830;
+  background: #effaec;
+}
+.checkin-event-status {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #526157;
+}
+.checkin-event.is-live .checkin-event-status {
+  color: #046e00;
+}
+.checkin-event-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.35;
+}
+.checkin-event-meta {
+  font-size: 0.875rem;
+  color: #526157;
+}
+.checkin-event-action {
+  margin-top: 0.6rem;
+  justify-self: start;
+  padding: 0.6rem 1.1rem;
+  background: #046e00;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 999px;
+}
+.checkin-event:not(.is-live) .checkin-event-action {
+  background: transparent;
+  color: #153b21;
+  border: 1px solid #aebdaf;
+}
+.checkin-empty {
+  border: 1px dashed #aebdaf;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+.checkin-empty h2 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+.checkin-empty p {
+  color: #526157;
+  line-height: 1.7;
+  font-size: 0.9375rem;
+}

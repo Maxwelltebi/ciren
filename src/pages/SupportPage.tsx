@@ -114,7 +114,7 @@ export default function SupportPage() {
             <ContentForm
               id="support"
               definition={supportForm}
-              successMessage="Thank you. We have your details and will be in touch shortly."
+              done={{ label: "Back to home", to: "/" }}
             />
           </div>
         </div>

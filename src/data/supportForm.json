@@ -121,5 +121,9 @@
       "placeholder": "Optional, if you would rather we call",
       "autocomplete": "tel"
     }
-  ]
+  ],
+  "success": {
+    "title": "Thank you, {name}!",
+    "message": "We have your details and will be in touch at {email} shortly."
+  }
 }

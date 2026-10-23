@@ -30,7 +30,7 @@ export default function ApplyModal({
       <ContentForm
         id="apply"
         definition={applyForm}
-        successMessage="Thank you. Your application has been received."
+        done={{ label: "Done", onClick: onClose }}
         submitClassName="bg-[#0b2416] hover:bg-[#153b21]"
       />
     </Modal>

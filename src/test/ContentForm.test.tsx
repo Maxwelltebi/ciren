@@ -1,8 +1,8 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import ContentForm from "../components/ContentForm";
-import { isFieldVisible } from "../lib/forms";
+import { countWords, fieldError, isFieldVisible } from "../lib/forms";
 import applyForm from "../data/applyForm.json";
 import supportForm from "../data/supportForm.json";
 import type { FormDefinition } from "../types/content";
@@ -11,7 +11,9 @@ const minimal: FormDefinition = {
   action: "",
   submitLabel: "Send",
   fields: [{ name: "email", label: "Email", type: "email", required: true }],
+  success: { title: "Received", message: "We will write to {email}." },
 };
+const done = { label: "Done", onClick: () => {} };
 
 describe("conditional forms", () => {
   it("disables hidden application fields and retains values when switching branches", async () => {
@@ -19,7 +21,7 @@ describe("conditional forms", () => {
       <ContentForm
         id="apply"
         definition={applyForm}
-        successMessage="Received"
+        done={done}
       />,
     );
     const motivation = screen.getByLabelText(/Why do you want to join/);
@@ -43,7 +45,7 @@ describe("conditional forms", () => {
       <ContentForm
         id="support"
         definition={supportForm}
-        successMessage="Received"
+        done={done}
       />,
     );
     const branch = screen.getByLabelText(/How would you like to support/);
@@ -94,7 +96,7 @@ describe("form submissions", () => {
       <ContentForm
         id="test"
         definition={{ ...minimal, action: "https://example.com/form" }}
-        successMessage="Received"
+        done={done}
       />,
     );
     await userEvent.click(screen.getByRole("button", { name: /Send/ }));
@@ -110,7 +112,7 @@ describe("form submissions", () => {
         <ContentForm
           id="test"
           definition={{ ...minimal, demoMode }}
-          successMessage="Received"
+          done={done}
         />,
       );
       await userEvent.type(
@@ -122,13 +124,12 @@ describe("form submissions", () => {
         demoMode ? "Received" : "Your details have not been sent",
       );
       expect(fetch).not.toHaveBeenCalled();
-      expect(screen.getByLabelText(/Email/)).toHaveValue(
-        demoMode ? "" : "person@example.com",
-      );
+      if (demoMode) expect(screen.queryByLabelText(/Email/)).toBeNull();
+      else expect(screen.getByLabelText(/Email/)).toHaveValue("person@example.com");
     },
   );
 
-  it("posts URL-encoded fields, blocks duplicate requests, and resets after success", async () => {
+  it("posts URL-encoded fields, blocks duplicate requests, and confirms after success", async () => {
     let finish!: (value: { ok: boolean; json: () => Promise<unknown> }) => void;
     const fetch = vi.fn(
       () =>
@@ -141,7 +142,7 @@ describe("form submissions", () => {
       <ContentForm
         id="test"
         definition={{ ...minimal, action: "https://example.com/form" }}
-        successMessage="Received"
+        done={done}
       />,
     );
     await userEvent.type(screen.getByLabelText(/Email/), "person@example.com");
@@ -160,10 +161,12 @@ describe("form submissions", () => {
     expect(body.body.get("email")).toBe("person@example.com");
     expect(body.body.get("_gotcha")).toBe("");
     finish({ ok: true, json: async () => ({ ok: true }) });
-    await waitFor(() =>
-      expect(screen.getByRole("status")).toHaveTextContent("Received"),
-    );
-    expect(screen.getByLabelText(/Email/)).toHaveValue("");
+    expect(
+      await screen.findByRole("heading", { name: "Received" }),
+    ).toHaveFocus();
+    expect(screen.getByText("We will write to person@example.com.")).toBeInTheDocument();
+    expect(screen.queryByLabelText(/Email/)).toBeNull();
+    await userEvent.click(screen.getByRole("button", { name: "Done" }));
   });
 
   it.each(["http", "network", "receiver"])(
@@ -184,7 +187,7 @@ describe("form submissions", () => {
         <ContentForm
           id="test"
           definition={{ ...minimal, action: "https://example.com/form" }}
-          successMessage="Received"
+          done={done}
         />,
       );
       await userEvent.type(
@@ -199,4 +202,53 @@ describe("form submissions", () => {
       expect(screen.getByRole("button", { name: /Send/ })).toBeEnabled();
     },
   );
+});
+
+describe("application rules", () => {
+  const email = applyForm.fields.find((field) => field.name === "email")!;
+  const motivation = applyForm.fields.find((f) => f.name === "motivation")!;
+  const journey = applyForm.fields.find((f) => f.name === "tech_journey")!;
+  const words = (n: number) => Array(n).fill("word").join(" ");
+
+  it.each([
+    ["ama@school.edu", true],
+    ["ama@st.school.edu", true],
+    ["ama@st.ug.edu.gh", true],
+    ["kofi@ashesi.edu.gh", true],
+    ["zola@uni.ac.za", true],
+    ["ama@gmail.com", false],
+    ["ama@yahoo.co.uk", false],
+    ["ama@edu.gh", false],
+    ["ama@school.education", false],
+  ])("students: %s accepted=%s", (address, ok) => {
+    expect(fieldError(email, { role: "Student", email: address }) === "").toBe(ok);
+  });
+
+  it("only restricts the email domain for students", () => {
+    expect(fieldError(email, { role: "Researcher", email: "ama@gmail.com" })).toBe("");
+  });
+
+  it("limits the motivation to 50-200 words and the journey to at least 50", () => {
+    expect(countWords("  one two\nthree  ")).toBe(3);
+    expect(fieldError(motivation, { motivation: words(49) })).toMatch(/at least 50/);
+    expect(fieldError(motivation, { motivation: words(150) })).toBe("");
+    expect(fieldError(motivation, { motivation: words(201) })).toMatch(/200 words or fewer/);
+    expect(fieldError(journey, { tech_journey: words(49) })).toMatch(/at least 50/);
+    expect(fieldError(journey, { tech_journey: words(2000) })).toBe("");
+    expect(journey.label).toBe("Tell us about your tech/research journey so far");
+  });
+
+  it("blocks sending a student application with a personal email", async () => {
+    const fetch = vi.fn();
+    vi.stubGlobal("fetch", fetch);
+    render(<ContentForm id="apply" definition={applyForm} done={done} />);
+    await userEvent.selectOptions(screen.getByLabelText(/I am applying as/), "Student");
+    const input = screen.getByLabelText(/Email Address/);
+    await userEvent.type(input, "ama@gmail.com");
+    expect((input as HTMLInputElement).validationMessage).toMatch(/university email/);
+    expect(screen.getByText(/Use your student email/)).toBeInTheDocument();
+    await userEvent.clear(input);
+    await userEvent.type(input, "ama@st.ug.edu.gh");
+    expect((input as HTMLInputElement).validationMessage).toBe("");
+  });
 });

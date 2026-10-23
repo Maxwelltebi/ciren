@@ -17,6 +17,18 @@
       ]
     },
     {
+      "name": "role",
+      "label": "I am applying as",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Student",
+        "Faculty Advisor",
+        "Researcher",
+        "Campus Lab Lead"
+      ]
+    },
+    {
       "name": "full_name",
       "label": "Full Name",
       "type": "text",
@@ -29,8 +41,19 @@
       "label": "Email Address",
       "type": "email",
       "required": true,
-      "placeholder": "you@university.edu",
-      "autocomplete": "email"
+      "placeholder": "you@university.edu.gh",
+      "autocomplete": "email",
+      "pattern": {
+        "regex": "^[^s@]+@([a-z0-9-]+.)+(edu|edu.[a-z]{2}|ac.[a-z]{2})$",
+        "message": "Students must apply with a university email ending in .edu, .edu.<country> (e.g. .edu.gh) or .ac.<country>. Gmail, Yahoo, Outlook and other personal addresses are not accepted.",
+        "hint": "Use your student email, e.g. name@st.ug.edu.gh or name@school.edu. Personal addresses such as Gmail are not accepted for students.",
+        "when": {
+          "field": "role",
+          "equals": [
+            "Student"
+          ]
+        }
+      }
     },
     {
       "name": "institution",
@@ -49,18 +72,6 @@
       "autocomplete": "country-name"
     },
     {
-      "name": "role",
-      "label": "I am applying as",
-      "type": "select",
-      "required": true,
-      "options": [
-        "Student",
-        "Faculty Advisor",
-        "Researcher",
-        "Campus Lab Lead"
-      ]
-    },
-    {
       "name": "field_of_study",
       "label": "Field of Study or Research",
       "type": "text",
@@ -72,30 +83,38 @@
       "label": "Why do you want to join CIReN?",
       "type": "textarea",
       "required": true,
-      "rows": 4,
+      "rows": 6,
       "placeholder": "What draws you to the network, and what would you hope to get out of it?",
       "showWhen": {
         "field": "application_type",
         "equals": [
           "Join CIReN"
         ]
-      }
+      },
+      "minWords": 50,
+      "maxWords": 200
     },
     {
       "name": "tech_journey",
-      "label": "Tell us about your tech journey so far",
+      "label": "Tell us about your tech/research journey so far",
       "type": "textarea",
       "required": true,
-      "rows": 4,
+      "rows": 6,
       "placeholder": "Where you started, what you have built or researched, and where you stand right now.",
       "showWhen": {
         "field": "application_type",
         "equals": [
           "Join CIReN"
         ]
-      }
+      },
+      "minWords": 50
     }
   ],
   "demoMode": false,
-  "_comment_demoMode": "DEMO ONLY. With no `action` set, submitting shows a success confirmation WITHOUT sending anything anywhere. Set `action` to a real endpoint and demoMode to false before launch, or applicants will believe they applied."
+  "_comment_demoMode": "DEMO ONLY. With no `action` set, submitting shows a success confirmation WITHOUT sending anything anywhere. Set `action` to a real endpoint and demoMode to false before launch, or applicants will believe they applied.",
+  "_comment_validation": "pattern: the value must match `regex` (case-insensitive), only while `when` holds. minWords/maxWords: word limits with a live counter. Both are checked in the browser before sending.",
+  "success": {
+    "title": "Application received!",
+    "message": "Thank you, {name}. We review applications on a rolling basis and will reply to {email}."
+  }
 }

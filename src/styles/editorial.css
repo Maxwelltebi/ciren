@@ -835,3 +835,113 @@
     transform: none;
   }
 }
+/* Confirmation shown in place of a sent form: light panel with a tick badge,
+   a notch pointing down into a CIReN dark green band with the next step. */
+.form-success {
+  text-align: center;
+}
+.form-success-top {
+  position: relative;
+  background: #f4f6f3;
+  padding: 2.5rem 1.5rem 2.25rem;
+}
+.form-success-top::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -0.75rem;
+  transform: translateX(-50%);
+  border: 0.75rem solid transparent;
+  border-bottom: 0;
+  border-top-color: #f4f6f3;
+}
+.form-success-badge {
+  display: grid;
+  place-items: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  background: #0b2416;
+  animation: form-success-pop 0.4s ease-out;
+}
+.form-success-badge svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: none;
+  stroke: #83d177;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 22;
+  animation: form-success-tick 0.45s ease-out 0.2s both;
+}
+.form-success-top h3 {
+  font-family: "Nichrome", "Inter Tight", "Inter", Arial, sans-serif;
+  font-size: clamp(1.75rem, 6vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0b2416;
+  margin-bottom: 0.6rem;
+}
+.form-success-top h3:focus {
+  outline: none;
+}
+.form-success-top p {
+  max-width: 26rem;
+  margin-inline: auto;
+  color: #405a44;
+  line-height: 1.7;
+}
+.form-success-band {
+  background: #0b2416;
+  padding: 2.75rem 1.5rem 2.5rem;
+}
+.form-success-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 11rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.75rem;
+  background: #f4f6f3;
+  color: #0b2416;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  box-shadow: 4px 4px 0 #40b830;
+  transition:
+    transform 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+}
+.form-success-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 #40b830;
+}
+.form-success-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #40b830;
+}
+.form-success-button:focus-visible {
+  outline: 2px solid #83d177;
+  outline-offset: 4px;
+}
+@keyframes form-success-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}
+@keyframes form-success-tick {
+  from {
+    stroke-dashoffset: 22;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .form-success-badge,
+  .form-success-badge svg {
+    animation: none;
+  }
+  .form-success-button {
+    transition: none;
+  }
+}

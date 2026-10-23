@@ -9,6 +9,16 @@ export interface FormFieldDefinition {
   options?: string[];
   group?: string;
   showWhen?: { field: string; equals: string[] };
+  /** Word limits for free-text answers; a counter shows under the box. */
+  minWords?: number;
+  maxWords?: number;
+  /** Value must match `regex` (case-insensitive), optionally only when another field has one of `when.equals`. */
+  pattern?: {
+    regex: string;
+    message: string;
+    hint?: string;
+    when?: { field: string; equals: string[] };
+  };
 }
 
 export interface PaymentOption {
@@ -23,6 +33,8 @@ export interface FormDefinition {
   action: string;
   demoMode?: boolean;
   submitLabel: string;
+  /** Shown in place of the form once it is sent; {name} and {email} are filled in. */
+  success?: { title: string; message: string };
   payment?: { options: PaymentOption[] };
 }
 

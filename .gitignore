@@ -1,3 +1,6 @@
 node_modules/
 dist/
 .cache/
+
+# Banner QR codes and other print files: kept locally, not in the repo.
+print/

@@ -20,13 +20,22 @@ function doPost(e) {
   try {
     const params = (e && e.parameter) || {};
     const form = FORMS[params.form];
-    if (!form) return reply({ ok: false, error: 'Unknown form' });
-    // Honeypot filled in: a bot. Report success so it does not retry.
-    if (params._gotcha) return reply({ ok: true });
+    if (!form) {
+      console.warn(`Rejected: unknown form "${params.form}"`);
+      return reply({ ok: false, error: 'Unknown form' });
+    }
+    // Honeypot filled in: probably a bot, but browser autofill can do it too.
+    // Save the entry flagged rather than drop it, and send no alert email.
+    const suspected = Boolean(params._gotcha);
 
     const fields = Object.keys(params).filter(
       (key) => key !== 'form' && !key.startsWith('_'),
     );
+    if (suspected) {
+      params.spam_check = 'Hidden anti-spam field was filled: check before replying';
+      fields.push('spam_check');
+      console.warn(`Flagged as possible spam (${form.tab})`);
+    }
     // One writer at a time, so two entries never race for the same row or header.
     const lock = LockService.getScriptLock();
     lock.waitLock(20000);
@@ -37,9 +46,10 @@ function doPost(e) {
     } finally {
       lock.releaseLock();
     }
+    console.log(`Saved to ${sheet.getName()}`);
     // The entry is saved by now; a failed email must not fail the submission.
     try {
-      notify(form, sheet, fields, params);
+      if (!suspected) notify(form, sheet, fields, params);
     } catch (err) {
       console.error('Alert email failed', err);
     }

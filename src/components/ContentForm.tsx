@@ -96,16 +96,12 @@ export default function ContentForm({
       onSubmit={submit}
       className="px-6 py-7 sm:px-8 space-y-5"
     >
-      {/* Honeypot: invisible to people, but bots fill it in and the receiver
-          drops anything that arrives with it set. */}
-      <input
-        type="text"
-        name="_gotcha"
-        tabIndex={-1}
-        autoComplete="off"
-        aria-hidden="true"
-        className="absolute -left-[9999px] w-px h-px opacity-0"
-      />
+      {/* Honeypot: bots fill every field in the markup; people never see it.
+          It must be display:none, not just moved off-screen, or browser
+          autofill fills it and real people get flagged as bots. */}
+      <div hidden>
+        <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" />
+      </div>
       {definition.fields.map((field) => {
         const visible = isFieldVisible(field, definition.fields, values);
         const value = values[field.name] ?? "";

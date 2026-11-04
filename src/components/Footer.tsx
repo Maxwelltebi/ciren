@@ -8,6 +8,7 @@ const columns = [
       { label: "Our story", to: "/#about-us" },
       { label: "Programs", to: "/programs/" },
       { label: "Our Papers", to: "/papers/" },
+      { label: "Blog", to: "/blog/" },
       { label: "Support Us", to: "/support/" },
     ],
   },

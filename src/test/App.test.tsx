@@ -6,6 +6,7 @@ import App from "../App";
 import testimonials from "../data/testimonials.json";
 import programs from "../data/programs.json";
 import papers from "../data/papers.json";
+import blog from "../data/blog.json";
 import site from "../data/site.json";
 
 function renderPage(path = "/") {
@@ -21,6 +22,7 @@ describe("pages and navigation", () => {
     ["/", /From campus ideas to global impact/],
     ["/programs/", /What We Do at CIReN/],
     ["/papers/", new RegExp(papers.heading)],
+    ["/blog/", new RegExp(blog.heading)],
     ["/support/", /^Support Us$/],
   ])("renders %s with shared branding and footer", (path, heading) => {
     renderPage(path as string);

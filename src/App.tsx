@@ -6,6 +6,7 @@ import ApplyModal from "./components/ApplyModal";
 import HomePage from "./pages/HomePage";
 import ProgramsPage from "./pages/ProgramsPage";
 import PapersPage from "./pages/PapersPage";
+import BlogPage from "./pages/BlogPage";
 import SupportPage from "./pages/SupportPage";
 import CheckInPage from "./pages/CheckInPage";
 
@@ -33,6 +34,7 @@ function RouteEffects() {
       "/": "CIReN",
       "/programs": "Programs — CIReN",
       "/papers": "Our Papers — CIReN",
+      "/blog": "Blog — CIReN",
       "/support": "Support Us — CIReN",
       "/check-in": "Event Check-In — CIReN",
     };
@@ -83,6 +85,7 @@ export default function App() {
             element={<ProgramsPage onApply={openApply} />}
           />
           <Route path="/papers" element={<PapersPage />} />
+          <Route path="/blog" element={<BlogPage />} />
           <Route path="/support" element={<SupportPage />} />
           <Route
             path="*"

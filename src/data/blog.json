@@ -1,0 +1,195 @@
+{
+  "heading": "Community Blog",
+  "intro": "Stories, lessons, and notes from across the CIReN network. Move through the showroom and choose a post to read it below.",
+  "comingSoonMessage": "Coming Soon...",
+  "_comment": "The newest date (YYYY-MM-DD) opens by default and comes first, whatever the order here. Each post needs a unique slug, which appears in its link: /blog/?post=slug.",
+  "_comment_dummy": "DUMMY CONTENT - replace every post with real writing, dates and authors before production.",
+  "posts": [
+    {
+      "slug": "inside-the-mini-hackathon",
+      "title": "Inside CIReN Mini Hackathon x MLH",
+      "date": "2026-10-28",
+      "author": "CIReN Team",
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.webp",
+      "imageAlt": "Participants posing together at CIReN Mini Hackathon x MLH",
+      "body": [
+        {
+          "paragraphs": [
+            "A hackathon gives an idea two things it rarely gets on an ordinary day: a deadline and an audience. That was the thinking behind CIReN Mini Hackathon x MLH, which brought students together to build, test, and explain their work in one room.",
+            "The photographs from the day tell most of the story. Laptops open on shared tables, people leaning in to read each other's screens, and conversations that started with a bug and ended with a better idea."
+          ]
+        },
+        {
+          "heading": "Why we run build events",
+          "paragraphs": [
+            "We organise hackathons to bring the spirit of innovation and problem solving to university and college communities. Building alongside other people shows you quickly what you know, what you still need to learn, and who you might want to work with next.",
+            "You can browse the full set of photos in the event gallery on our Programs page."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "framing-a-research-question",
+      "title": "How to Frame a Research Question Worth Pursuing",
+      "date": "2026-10-14",
+      "author": "CIReN Team",
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6.webp",
+      "imageAlt": "A participant discussing an idea beside a laptop",
+      "body": [
+        {
+          "paragraphs": [
+            "Good research begins with a question worth pursuing. Finding that question is often harder than answering it, because a topic you care about is not yet a question you can investigate."
+          ]
+        },
+        {
+          "heading": "Start with what is already known",
+          "paragraphs": [
+            "Before you settle on a question, explore the work that already exists around it. You are looking for the gap: the thing people have not tested, the place the evidence runs out, or the context where earlier findings may not apply."
+          ]
+        },
+        {
+          "heading": "Test it with other people",
+          "paragraphs": [
+            "Explain your question to a peer and listen to what they ask back. If they cannot see what your work would contribute, your question may still need sharpening. That conversation is one of the reasons the Researchers Society exists."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "building-with-the-innovators-society",
+      "title": "What It Means to Build With the Innovators Society",
+      "date": "2026-09-30",
+      "author": "CIReN Team",
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack2.webp",
+      "imageAlt": "A participant coding on a laptop in a Central University shirt",
+      "body": [
+        {
+          "paragraphs": [
+            "The Innovators Society is for students who learn best by making something. Members work through software engineering, AI, and applied machine learning, surrounded by builders they can learn from and solve problems with.",
+            "Research and engineering become more useful when you put them into practice, so the focus stays on collaborative projects and working prototypes rather than on theory alone."
+          ]
+        },
+        {
+          "heading": "You do not need to be an expert",
+          "paragraphs": [
+            "Bring what you know and stay curious about what you can learn from others. A good place to start is a problem you want to solve and the willingness to show your work before it feels finished."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "researcher-or-innovator",
+      "title": "Researcher or Innovator? Finding Your Path",
+      "date": "2026-09-16",
+      "author": "CIReN Team",
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack4.webp",
+      "imageAlt": "Two participants discussing their work at a laptop",
+      "body": [
+        {
+          "paragraphs": [
+            "Some ideas call for a research paper. Others need a prototype. CIReN brings researchers and innovators into the same network, so choosing one community does not mean losing touch with the other."
+          ]
+        },
+        {
+          "heading": "Two questions that can help",
+          "paragraphs": [
+            "Ask whether you want to find something out or make something work. If you are drawn to methods, evidence, and communicating findings, look at the Researchers Society. If you would rather build practical solutions through software, AI, and applied machine learning, look at the Innovators Society.",
+            "Your first choice does not need to be perfect. Start with the work that interests you most, and let your projects show you where to go next."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "working-well-in-a-hackathon-team",
+      "title": "Working Well in a Hackathon Team",
+      "date": "2026-09-02",
+      "author": "CIReN Team",
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack5.webp",
+      "imageAlt": "Two participants working together on their hackathon project",
+      "body": [
+        {
+          "paragraphs": [
+            "A short build event leaves little time to get organised, so the habits you bring matter as much as the code you write. A few simple ones can save a team hours."
+          ]
+        },
+        {
+          "heading": "Agree on the smallest useful version",
+          "paragraphs": [
+            "Decide early what you could realistically show at the end, then protect that goal. Extra features are easy to add later and painful to abandon halfway through."
+          ]
+        },
+        {
+          "heading": "Keep explaining your work",
+          "paragraphs": [
+            "Talk through what you are building as you go. It keeps the team aligned, and it means that when it is time to present, you have already practised the explanation."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "peer-feedback-in-research",
+      "title": "Why Research Needs Another Perspective",
+      "date": "2026-08-19",
+      "author": "CIReN Team",
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3.webp",
+      "imageAlt": "Three participants collaborating around a laptop",
+      "body": [
+        {
+          "paragraphs": [
+            "Thoughtful work benefits from another perspective. When you have spent weeks with a project, it becomes hard to see the assumptions you have made or the steps you have skipped in your explanation."
+          ]
+        },
+        {
+          "heading": "Share before you feel ready",
+          "paragraphs": [
+            "Discussing your approach with peers early costs little and can change the direction of a project while changing direction is still easy. Ask specific questions, invite disagreement, and note what confuses people.",
+            "The aim is a clear connection between your question and your evidence, and a reader who can follow it without you in the room."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "bringing-ciren-to-your-campus",
+      "title": "Bringing a CIReN Club to Your Campus",
+      "date": "2026-08-05",
+      "author": "CIReN Team",
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack7.webp",
+      "imageAlt": "A participant working on a laptop at the hackathon",
+      "body": [
+        {
+          "paragraphs": [
+            "Every campus community starts with a few people who want to do more together. If that describes you, you can talk to us about hosting a CIReN club at your institution."
+          ]
+        },
+        {
+          "heading": "How to begin",
+          "paragraphs": [
+            "Open the application form, choose “Host a campus club”, and share your institution and contact details. From there, we can discuss what a community could look like on your campus and how it could connect to the wider network."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ways-to-support-campus-innovation",
+      "title": "More Than Funding: Ways to Support Campus Innovation",
+      "date": "2026-07-22",
+      "author": "CIReN Team",
+      "image": "/assets/images/events/ciren-mini-hackathon-mlh/hp.webp",
+      "imageAlt": "A collage of CIReN students and speakers at campus events",
+      "body": [
+        {
+          "paragraphs": [
+            "Campus communities need more than good ideas. A place to meet, a connection to a mentor, and the equipment to try an idea can all make the difference between a plan and a working project."
+          ]
+        },
+        {
+          "heading": "Bring what you can",
+          "paragraphs": [
+            "Financial contributions are one route. Time, experience, equipment, and connections can matter too, whether that means offering mentorship, helping with a venue, or introducing the network to an opportunity.",
+            "If you have something in mind, our Support Us page is the best place to start the conversation."
+          ]
+        }
+      ]
+    }
+  ]
+}

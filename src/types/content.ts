@@ -38,6 +38,17 @@ export interface FormDefinition {
   payment?: { options: PaymentOption[] };
 }
 
+export interface BlogPost {
+  slug: string;
+  title: string;
+  /** Publication date as YYYY-MM-DD; the newest post opens by default. */
+  date: string;
+  author: string;
+  image: string;
+  imageAlt: string;
+  body: { heading?: string; paragraphs: string[] }[];
+}
+
 export interface Testimonial {
   rotate: string;
   featured: boolean;

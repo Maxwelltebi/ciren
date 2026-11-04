@@ -47,6 +47,7 @@ export default function Header({ onApply }: { onApply: () => void }) {
     { to: "/#about-us", label: "About Us", active: isAboutActive },
     { to: "/programs/", label: "Programs" },
     { to: "/papers/", label: "Our Papers" },
+    { to: "/blog/", label: "Blog" },
   ];
   return (
     <header className="site-header sticky top-0 z-50 bg-white border-b border-slate-200">

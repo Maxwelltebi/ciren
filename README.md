@@ -19,7 +19,7 @@
 
 **CIReN** is the public-facing website for the Campus Innovation & Research Network. Built with **React and TypeScript**, it introduces students and supporters to the network's societies, activities, and opportunities, bringing **program information, event photography, and participation forms** into one place.
 
-The implementation uses **page components and editable JSON content** within a standard Vite application. React Router connects four pages, shared components provide navigation and interactive dialogs, and photographs and partner logos are served from `public/assets/` as WebP files generated from full-size originals in `assets-src/`. Vite produces a static bundle for deployment.
+The implementation uses **page components and editable JSON content** within a standard Vite application. React Router connects five pages, shared components provide navigation and interactive dialogs, and photographs and partner logos are served from `public/assets/` as WebP files generated from full-size originals in `assets-src/`. Vite produces a static bundle for deployment.
 
 ## Features
 
@@ -52,7 +52,7 @@ Versions below reflect `package-lock.json`.
 ## Project Structure
 #Campus Innovation & Research Network (CIReN)
 
-A Vite + React + TypeScript website. The four pages and their existing design
+A Vite + React + TypeScript website. The five pages and their existing design
 have been migrated from Eleventy to React components.
 
 ## Get started
@@ -85,10 +85,10 @@ vite.config.ts                React integration and robots/favicon generation
 src/
   main.tsx                    React entry and BrowserRouter
   App.tsx                     Routes, shared layout, and application dialog
-  pages/                      Home, Programs, Papers, and Support
+  pages/                      Home, Programs, Papers, Blog, and Support
   components/                 Sections, navigation, forms, cards, and dialogs
   data/                       Editable JSON content and configuration
-  hooks/                      Carousel behavior
+  hooks/                      Carousel and blog showroom behavior
   lib/forms.ts                Conditional-field dependency logic
   types/                      Content, form, and gallery interfaces
   index.css                   Tailwind entry and shared styles
@@ -141,7 +141,7 @@ The gallery reads event objects from `src/data/gallery.json`. Each event's first
 
 ## Results and Limitations
 
-The repository implements four routes and includes automated interaction tests plus a production-output checker. The tests use jsdom: they do not establish screenshot accuracy, cross-browser rendering, or performance benchmarks.
+The repository implements five routes and includes automated interaction tests plus a production-output checker. The tests use jsdom: they do not establish screenshot accuracy, cross-browser rendering, or performance benchmarks.
 
 The current site remains a preview in several respects:
 
@@ -166,6 +166,7 @@ The current site remains a preview in several respects:
 | Society and event descriptions | `src/data/programs.json` |
 | Gallery events, photo order, and alt text | `src/data/gallery.json` |
 | Publication status | `src/data/papers.json` |
+| Blog posts, dates, and images | `src/data/blog.json` |
 | Application fields and endpoint | `src/data/applyForm.json` |
 | Support priorities, fields, and payment settings | `src/data/supportForm.json` |
 | Navigation and footer links | `src/components/Header.tsx`, `src/components/Footer.tsx` |

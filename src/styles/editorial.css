@@ -783,7 +783,7 @@
    rounded/border utilities. Tune the look here, in one place. */
 :root {
   --frame-ink: #0b2416;
-  --frame-shadow: #046e00;
+  --frame-shadow: #000000;
   --frame-offset: 8px;
 }
 @media (max-width: 640px) {

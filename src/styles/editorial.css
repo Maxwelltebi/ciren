@@ -799,7 +799,7 @@
 /* On dark sections a dark edge disappears, so it turns light with a bright shadow. */
 .frame-on-dark {
   --frame-ink: #f4f6f3;
-  --frame-shadow: #40b830;
+  --frame-shadow: #ffffff;
 }
 /* Cards stacked behind another keep the border but drop the shadow. */
 .frame-flat {

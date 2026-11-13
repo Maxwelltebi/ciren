@@ -34,7 +34,7 @@ function RouteEffects() {
       "/": "CIReN",
       "/programs": "Programs — CIReN",
       "/papers": "Our Papers — CIReN",
-      "/blog": "Blog — CIReN",
+      "/blog": "Blog",
       "/support": "Support Us — CIReN",
       "/check-in": "Event Check-In — CIReN",
     };

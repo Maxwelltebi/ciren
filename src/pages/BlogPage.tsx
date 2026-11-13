@@ -6,8 +6,9 @@ import BlogShowroom from "../components/BlogShowroom";
 import ResponsiveImage from "../components/ResponsiveImage";
 import { scrollBehavior } from "../hooks/useShowroom";
 
-// ISO dates sort as plain text, so the newest post comes first.
-const posts: BlogPost[] = [...blog.posts].sort((a, b) =>
+// ISO dates sort as plain text, so the newest post comes first. The cast
+// keeps the type when the JSON list is empty (TypeScript reads [] as never[]).
+const posts: BlogPost[] = [...(blog.posts as BlogPost[])].sort((a, b) =>
   b.date.localeCompare(a.date),
 );
 const formatDate = (date: string) =>

@@ -9,8 +9,8 @@ export default function About() {
       <div className="site-container editorial-split">
         <figure className="editorial-photo">
           <ResponsiveImage
-            src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack3.webp"
-            alt="Participants collaborating around a laptop at CIReN Mini Hackathon x MLH"
+            src="/assets/images/events/hacktoberfest-hack-day-accra/hf-87.webp"
+            alt="A team smiling together at their workstation during Hacktoberfest Hack Day Accra"
             sizes={HALF_WIDTH}
             className="frame"
           />

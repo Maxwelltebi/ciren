@@ -16,9 +16,9 @@ export default function SupportPage() {
         eyebrow="Help the next idea take shape"
         title={supportForm.heading}
         intro="A place to meet. A connection to a mentor. The equipment to try an idea. Your support helps make the practical parts of campus innovation and research possible."
-        image="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.webp"
-        imageAlt="Students gathered for CIReN Mini Hackathon x MLH"
-        caption="The people at the heart of CIReN Mini Hackathon x MLH"
+        image="/assets/images/events/hacktoberfest-hack-day-accra/hf-64.webp"
+        imageAlt="Hacktoberfest Hack Day Accra participants together in the event hall"
+        caption="The people at the heart of Hacktoberfest Hack Day Accra"
       >
         <a className="site-button" href="/support/#support-form-section">
           Tell us how you can help
@@ -49,8 +49,8 @@ export default function SupportPage() {
             />
             <figure className="editorial-photo">
               <ResponsiveImage
-                src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack7.webp"
-                alt="A participant concentrating on their project at the hackathon"
+                src="/assets/images/events/hacktoberfest-hack-day-accra/hf-16.webp"
+                alt="A participant working through a Google Cloud quickstart at Hacktoberfest Hack Day Accra"
                 sizes={HALF_WIDTH}
                 className="frame"
               />

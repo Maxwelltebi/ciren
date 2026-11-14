@@ -45,7 +45,7 @@ describe("pages and navigation", () => {
     expect(
       screen.getByRole("heading", { level: 1, name: programs.heading }),
     ).toBeInTheDocument();
-    expect(document.title).toBe("Programs — CIReN");
+    expect(document.title).toBe("Programs");
   });
 
   it("shows Coming Soon instead of dummy publications", () => {

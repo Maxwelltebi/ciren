@@ -24,7 +24,7 @@
       { "question": "Who is CIReN for?", "answer": "CIReN connects university students, researchers, faculty advisors, and campus lab leads across Africa. The application form lets you tell us your background and what you want to explore." },
       { "question": "How are the two societies different?", "answer": "The Researchers Society focuses on research methods, projects, and communicating findings. The Innovators Society focuses on building practical solutions through software engineering, AI, and applied machine learning." },
       { "question": "Can we host a club on our campus?", "answer": "Yes. Choose “Host a campus club” in the application form and share your institution and contact details so we can discuss a campus community." },
-      { "question": "Where can I see past events?", "answer": "The gallery below contains photos from CIReN Mini Hackathon x MLH. Open the event card to browse the full photo stack." }
+      { "question": "Where can I see past events?", "answer": "The gallery below has photos from Hacktoberfest Hack Day Accra and CIReN Mini Hackathon x MLH. Open an event card to browse its full photo stack." }
     ]
   },
   "support": {

@@ -3,6 +3,92 @@
   "intro": "Moments from the events we organise, one photo at a time.",
   "events": [
     {
+      "id": "hacktoberfest-hack-day-accra",
+      "name": "Hacktoberfest Hack Day Accra",
+      "photos": [
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-68.webp",
+          "alt": "Hacktoberfest participants gathered outside the hall with the CIReN and Central University banners"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-64.webp",
+          "alt": "Participants together for a group photo inside the event hall"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-06.webp",
+          "alt": "An organiser opening a session with a microphone"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-30.webp",
+          "alt": "A speaker in a Hacktoberfest shirt addressing the room"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-08.webp",
+          "alt": "Three organisers in Hacktoberfest shirts talking between sessions"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-01.webp",
+          "alt": "Two participants smiling at their table with a laptop open"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-20.webp",
+          "alt": "Four participants discussing their project around a stickered laptop"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-50.webp",
+          "alt": "Two participants working side by side at their laptops"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-22.webp",
+          "alt": "Two participants laughing as they work at a laptop"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-19.webp",
+          "alt": "A mentor talking a participant through an idea"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-16.webp",
+          "alt": "A participant working through a Google Cloud quickstart"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-87.webp",
+          "alt": "A team smiling for the camera at their workstation"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-93.webp",
+          "alt": "A team at their laptops with a volunteer leaning in"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-35.webp",
+          "alt": "A guest speaker addressing participants"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-51.webp",
+          "alt": "A volunteer handing out packs to participants at their tables"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-85.webp",
+          "alt": "A smiling participant at a laptop"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-56.webp",
+          "alt": "Two participants making peace signs in their Hacktoberfest shirts"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-66.webp",
+          "alt": "Friends in Hacktoberfest shirts posing at the hall entrance"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-80.webp",
+          "alt": "A group striking playful poses outside the hall"
+        },
+        {
+          "src": "/assets/images/events/hacktoberfest-hack-day-accra/hf-71.webp",
+          "alt": "Three participants in Hacktoberfest shirts in front of the CIReN banner"
+        }
+      ]
+    },
+    {
       "id": "ciren-mini-hackathon-mlh",
       "name": "CIReN Mini Hackathon x MLH",
       "photos": [

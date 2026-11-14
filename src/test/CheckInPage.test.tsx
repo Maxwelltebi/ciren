@@ -69,7 +69,7 @@ describe("check-in page", () => {
     ).toBeInTheDocument();
     expect(screen.getAllByAltText("CIReN Logo")).toHaveLength(1);
     expect(screen.queryByLabelText("Email Address (Required)")).toBeNull();
-    expect(document.title).toBe("Event Check-In — CIReN");
+    expect(document.title).toBe("Event Check-In");
     expect(
       document.querySelector('meta[name="robots"]')?.getAttribute("content"),
     ).toBe("noindex, nofollow");

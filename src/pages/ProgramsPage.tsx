@@ -16,9 +16,9 @@ export default function ProgramsPage({ onApply }: { onApply: () => void }) {
         eyebrow="Learn together. Build with purpose."
         title={programs.heading}
         intro={programs.intro}
-        image="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack4.webp"
-        imageAlt="Hackathon participants discussing their project at a laptop"
-        caption="Learning alongside one another at CIReN Mini Hackathon x MLH"
+        image="/assets/images/events/hacktoberfest-hack-day-accra/hf-40.webp"
+        imageAlt="Teams building at their tables during Hacktoberfest Hack Day Accra"
+        caption="Learning alongside one another at Hacktoberfest Hack Day Accra"
       >
         <button
           type="button"
@@ -124,9 +124,9 @@ export default function ProgramsPage({ onApply }: { onApply: () => void }) {
             ))}
           </div>
           <p className="section-description max-w-3xl mt-8">
-            Our CIReN Mini Hackathon x MLH brought students together to work on
-            ideas, exchange perspectives, and build. Take a look at the event in
-            the gallery below.
+            Hacktoberfest Hack Day Accra and our CIReN Mini Hackathon x MLH
+            brought students together to work on ideas, exchange perspectives,
+            and build. Take a look at both events in the gallery below.
           </p>
         </div>
       </section>

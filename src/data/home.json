@@ -3,8 +3,13 @@
     "headline": "From campus ideas to global impact.",
     "intro": "A community for African students who want to investigate, build, and make a difference. Find your people through campus societies, hands-on projects, and events that bring ideas to life.",
     "ctaLabel": "Explore our programs",
-    "image": "/assets/images/events/ciren-mini-hackathon-mlh/hp.webp",
-    "imageAlt": "CIReN Mini Hackathon participants collaborating around a laptop"
+    "ctaEyebrow": "Societies, projects and events",
+    "latestEvent": {
+      "label": "Latest event",
+      "title": "Hacktoberfest Hack Day Accra",
+      "linkLabel": "See the photos",
+      "href": "/programs/#gallery"
+    }
   },
   "whatWeDo": {
     "eyebrow": "WHAT WE DO?",

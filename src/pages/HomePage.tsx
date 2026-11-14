@@ -53,8 +53,8 @@ export default function HomePage({ onApply }: { onApply: () => void }) {
           <div className="editorial-grid-two">
             <article className="program-feature frame">
               <ResponsiveImage
-                src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack6.webp"
-                alt="A participant discussing an idea beside a laptop"
+                src="/assets/images/events/hacktoberfest-hack-day-accra/hf-30.webp"
+                alt="A speaker presenting to participants at Hacktoberfest Hack Day Accra"
                 sizes={HALF_WIDTH}
               />
               <div className="program-feature-copy">
@@ -71,8 +71,8 @@ export default function HomePage({ onApply }: { onApply: () => void }) {
             </article>
             <article className="program-feature frame">
               <ResponsiveImage
-                src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack2.webp"
-                alt="A Central University participant working on code"
+                src="/assets/images/events/hacktoberfest-hack-day-accra/hf-23.webp"
+                alt="Participants focused on their code at a sticker-covered laptop"
                 sizes={HALF_WIDTH}
               />
               <div className="program-feature-copy">
@@ -120,21 +120,21 @@ export default function HomePage({ onApply }: { onApply: () => void }) {
           <div className="event-recap">
             <ResponsiveImage
               className="frame"
-              src="/assets/images/events/ciren-mini-hackathon-mlh/mlh-hack1.webp"
-              alt="The CIReN Mini Hackathon x MLH participants together"
+              src="/assets/images/events/hacktoberfest-hack-day-accra/hf-68.webp"
+              alt="Hacktoberfest Hack Day Accra participants together outside the hall"
               sizes={HALF_WIDTH}
             />
             <div>
               <p className="eyebrow">From our event gallery</p>
-              <h3>CIReN Mini Hackathon x MLH</h3>
+              <h3>Hacktoberfest Hack Day Accra</h3>
               <p>
-                Students at their laptops. Teams working through ideas.
-                Conversations that carry a project forward. Our Mini Hackathon
-                brought the CIReN community together to build and learn.
+                Green shirts and open laptops. Speakers sharing what they know.
+                Teams leaning in over the same screen. Hacktoberfest Hack Day
+                Accra brought the CIReN community together to build and learn.
               </p>
               <p className="mt-4">
-                Explore the moments captured during the event, from team
-                discussions to the group photo.
+                Explore the moments captured during the day, from the opening
+                talks to the group photo outside.
               </p>
               <Link className="text-link" to="/programs/#gallery">
                 See the event photos

@@ -32,13 +32,13 @@ function RouteEffects() {
   useEffect(() => {
     const titles: Record<string, string> = {
       "/": "CIReN",
-      "/programs": "Programs — CIReN",
-      "/papers": "Our Papers — CIReN",
+      "/programs": "Programs",
+      "/papers": "Our Papers",
       "/blog": "Blog",
-      "/support": "Support Us — CIReN",
-      "/check-in": "Event Check-In — CIReN",
+      "/support": "Support Us",
+      "/check-in": "Event Check-In",
     };
-    document.title = titles[normalize(pathname)] ?? "Page not found — CIReN";
+    document.title = titles[normalize(pathname)] ?? "Page not found";
     if (hash && hash !== "#") {
       const frame = requestAnimationFrame(() => {
         try {

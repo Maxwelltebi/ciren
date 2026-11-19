@@ -14,6 +14,11 @@
     "height": 512,
     "srcset": "/assets/images/amina-bello.webp 512w"
   },
+  "/assets/images/blog/what-213-students-told-us-about-ciren-hackathons.webp": {
+    "width": 1200,
+    "height": 630,
+    "srcset": "/assets/images/blog/what-213-students-told-us-about-ciren-hackathons-480.webp 480w, /assets/images/blog/what-213-students-told-us-about-ciren-hackathons.webp 1200w"
+  },
   "/assets/images/events/ciren-mini-hackathon-mlh/hp.webp": {
     "width": 1254,
     "height": 1254,

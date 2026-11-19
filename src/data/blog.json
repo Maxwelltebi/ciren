@@ -3,5 +3,113 @@
   "intro": "Stories, lessons, and notes from across the CIReN network. Move through the showroom and choose a post to read it below.",
   "comingSoonMessage": "Coming Soon...",
   "_comment": "The newest date (YYYY-MM-DD) opens by default and comes first, whatever the order here. Each post needs a unique slug, which appears in its link: /blog/?post=slug. New posts arrive from Gmail drafts: see .claude/skills/publish-blog-post/SKILL.md.",
-  "posts": []
+  "posts": [
+    {
+      "slug": "what-213-students-told-us-about-ciren-hackathons",
+      "title": "What 213 Students Told Us About CIReN Hackathons",
+      "date": "2026-11-19",
+      "author": "CIReN Team",
+      "image": "/assets/images/blog/what-213-students-told-us-about-ciren-hackathons.webp",
+      "imageAlt": "CIReN Impact Report graphic: a stick figure coding at a laptop beside another pointing at a rising bar chart",
+      "cardFocus": "76% 50%",
+      "body": [
+        {
+          "paragraphs": [
+            "For two out of three participants, a CIReN event was the first time they built software outside the classroom. Three in four went on to build a project of their own.",
+            "CIReN (Campus Innovation and Research Network) is a student-run network in Ghana. It runs free hackathons, coding bootcamps, and research challenges for university students. Our impact report covers our work from 2025 to 2026 and draws on a survey of 213 past participants. Here is what they told us."
+          ]
+        },
+        {
+          "heading": "At a glance",
+          "paragraphs": [
+            "67% said CIReN was their first hackathon, bootcamp, or research program. 75% built a new project or product after taking part. 25% got an internship after taking part. Teamwork under a deadline rose by 1.2 points on a 5-point scale, the largest gain of the five skills we measured.",
+            "58% said CIReN contributed a lot to what they achieved afterwards, or that it would not have happened without CIReN. Participants rated CIReN 8.1 out of 10 on how likely they are to recommend it to a classmate."
+          ]
+        },
+        {
+          "heading": "The problem",
+          "paragraphs": [
+            "Most university computing courses in Ghana are taught through lectures and written exams. Students learn theory, but many reach their final year without having built a working project, worked in a team to a deadline, or shown their work to anyone outside the classroom.",
+            "Researchers have reached the same conclusion. A 2026 study from the University of Ghana found that universities have been slow to teach the skills the digital economy now asks for, and named this gap as a cause of graduate unemployment (Boateng, 2026). The Ghana Statistical Service put youth unemployment at 22.5% for people aged 15 to 35 in 2024 (MyJoyOnline).",
+            "Our survey shows how wide the gap is for the students we reach. Two out of three participants said a CIReN event was the first hackathon, bootcamp, or research program they had ever joined. Before CIReN, they rated their programming skill at 2.6 out of 5 on average."
+          ]
+        },
+        {
+          "heading": "Why hackathons",
+          "paragraphs": [
+            "A hackathon asks students to do what the classroom rarely does: pick a real problem, build a working solution in a team, and present it to judges, all within a fixed time.",
+            "Research on student hackathons supports this approach. A 2022 systematic review found three main benefits for students: better technical and soft skills, learning new things, and building professional networks (Oyetade, Zuva and Harmse, 2022). A 2024 review of thirty studies by the same authors linked hackathons to teamwork, skill development, positive learning outcomes, and greater student engagement (Oyetade, Zuva and Harmse, 2024).",
+            "A study of college hackathons found that students learn to code by doing it, as problems come up, and from their peers (Warner and Guo, 2017). In South Africa, researchers used the hackathon model to build and keep students’ interest in computer science (Mtsweni and Abdullah, 2015).",
+            "Our participants described the same effects in their own words: learning to work under pressure, building with teammates, and picking up tools they had not used before."
+          ]
+        },
+        {
+          "heading": "What CIReN did",
+          "paragraphs": [
+            "CIReN was founded in 2025. Our volunteer team of students runs every event, and all events are free for participants.",
+            "Hacktoberfest Hack Day Accra x CIReN, on 28 October 2026, drew 57 registrations from at least four universities. Our DSA Bootcamp on data structures and algorithms enrolled 61 students in June 2026. Alongside these, we ran the CIReN Mini Hackathon and our ongoing CIReN campus club.",
+            "Past events have been supported by Major League Hacking, Google Gemini, and AmaliTech. Projects built at CIReN hackathons include ERAS (an emergency response assistant), PropVision AI (a real estate search platform), ScamShield, CampusPay, Nexa, StuBiz, and Ti Dini."
+          ]
+        },
+        {
+          "heading": "CIReN is where most participants get started",
+          "paragraphs": [
+            "67% of respondents said a CIReN event was the first hackathon, bootcamp, or research program they had ever joined. For most of them, CIReN was the first time they built software outside a class assignment."
+          ]
+        },
+        {
+          "heading": "Skills rose in every area measured",
+          "paragraphs": [
+            "Respondents rated themselves before their first CIReN event and again today. Every skill rose: programming and data structures by 0.8 points, building a working project by 0.8, research skills by 0.8, presenting or pitching work by a full point, and working in a team under a deadline by 1.2.",
+            "The largest gain was in teamwork under a deadline, which is the skill a hackathon exercises most directly."
+          ]
+        },
+        {
+          "heading": "Participants kept building after the event",
+          "paragraphs": [
+            "Three in four respondents built a new project or product after taking part, and half kept working on a project they started at a CIReN event. One in four went on to an internship. 17% placed in another competition, 17% went on to teach or mentor other students, and 8% started a venture.",
+            "58% said CIReN contributed a lot to these results, or that they would not have happened without CIReN."
+          ]
+        },
+        {
+          "heading": "Time and equipment hold students back, more than cost",
+          "paragraphs": [
+            "The most common barriers were timing and equipment. A third of respondents said events clashed with classes or exams, and a quarter had no reliable laptop. 17% named the cost of internet data, 17% found the content too advanced, and 8% did not hear about events in time. One in three said nothing made it hard to take part."
+          ]
+        },
+        {
+          "heading": "Participant stories",
+          "paragraphs": [
+            "Daniel Addy Junior Okrah, an undergraduate, took part in Hacktoberfest, where his team built ERAS, an emergency response assistance service. He said CIReN taught him to build useful technology under pressure and in little time. Shortly after, he used the same skill at the NASA Space Apps Challenge:",
+            "“I was able to build more useful projects with minimum time and that ability played a role in the just ended NASA Space Apps where my project made news and it was built in hours.”",
+            "Since taking part, Daniel has kept working on his project, gained an internship, placed in another competition, and begun mentoring other students.",
+            "Nana Ama Serwaa Akoto Djan, a final-year undergraduate, joined Hacktoberfest, the DSA bootcamp, and the campus club, and worked on CampusPay, a campus payments project. She said the most useful thing she gained was “knowledge in IT and how to blend it with my profession.” Since taking part, she has started a venture and placed in a competition. She gave CIReN 10 out of 10.",
+            "A first-year undergraduate who took part in the CIReN Mini Hackathon and Hacktoberfest helped build PropVision AI, a platform that uses AI to make property search easier. It was the student’s first experience applying AI to a real problem:",
+            "“The project introduced me to practical applications of artificial intelligence in solving real-world problems... It was a meaningful learning experience that broadened my knowledge and inspired me to explore more opportunities in technology and AI.”",
+            "This student rated their skills at 3 or 4 out of 5 before CIReN, and 5 out of 5 today in all five areas the survey measured."
+          ]
+        },
+        {
+          "heading": "What’s next",
+          "paragraphs": [
+            "Participants told us what they want from CIReN next. More hackathons came first, chosen by 83% of respondents. Two in three also asked for one-to-one mentorship and for help finding internships and jobs. Half asked for career guidance sessions, and 42% asked for each of more DSA bootcamps, research challenges, and funding or prizes to continue their projects.",
+            "Their written suggestions point the same way: more hackathons on a regular schedule, sessions that start from the basics for beginners, events timed around class schedules, and prizes for second and third place.",
+            "To support CIReN or discuss a partnership, contact admin.cirenet@gmail.com or visit our Support Us page."
+          ]
+        },
+        {
+          "heading": "Sources",
+          "paragraphs": [
+            "Boateng (2026). Technology-driven job market requirements: a look at higher education institutions’ preparation of graduates for jobs in the digital economy. IATED Digital Library.",
+            "Mtsweni, J. and Abdullah, H. (2015). Stimulating and maintaining students’ interest in computer science using the hackathon model. The Independent Journal of Teaching and Learning, 10(1), 85 to 97.",
+            "Oyetade, K., Zuva, T. and Harmse, A. (2022). Educational benefits of hackathon: a systematic literature review. World Journal on Educational Technology, 14, 1668 to 1684.",
+            "Oyetade, K., Zuva, T. and Harmse, A. (2024). Evaluation of the impact of hackathons in education. Cogent Education, 11(1).",
+            "Warner, J. and Guo, P. J. (2017). Hack.edu: examining how college hackathons are perceived by student attendees and non-attendees. ACM ICER 2017.",
+            "Youth unemployment figure from the Ghana Statistical Service, as reported by MyJoyOnline.",
+            "CIReN Impact Survey, November 2026, 213 responses."
+          ]
+        }
+      ]
+    }
+  ]
 }

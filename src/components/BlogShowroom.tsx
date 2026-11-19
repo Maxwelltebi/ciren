@@ -40,6 +40,11 @@ export default function BlogShowroom({
                     alt=""
                     sizes="(max-width: 640px) 70vw, 420px"
                     draggable={false}
+                    style={
+                      post.cardFocus
+                        ? { objectPosition: post.cardFocus }
+                        : undefined
+                    }
                   />
                   {current && <span className="blog-card-badge">Reading</span>}
                   <span className="blog-card-title">{post.title}</span>

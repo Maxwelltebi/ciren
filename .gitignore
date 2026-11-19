@@ -6,3 +6,6 @@ dist/
 print/
 # Playwright CLI output (may contain credentials)
 .playwright-cli/
+
+# Source files for blog posts (thumbnails, reports): kept locally, not in the repo.
+blogs/

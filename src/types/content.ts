@@ -46,6 +46,9 @@ export interface BlogPost {
   author: string;
   image: string;
   imageAlt: string;
+  /** Which part of a wide image the tall showroom card shows, as a CSS
+   * object-position (e.g. "75% 50%"). Defaults to the centre. */
+  cardFocus?: string;
   body: { heading?: string; paragraphs: string[] }[];
 }
 

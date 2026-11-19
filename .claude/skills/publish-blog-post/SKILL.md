@@ -82,6 +82,11 @@ npm run images
 
 `image` in the post is `/assets/images/blog/<slug>.webp`.
 
+The showroom card is tall (3:4), so it shows only the middle of a wide image.
+If that middle is text or empty space, add `"cardFocus": "<x>% 50%"` to the
+post (after `imageAlt`) to move the crop to the subject, e.g. `"76% 50%"` for
+something on the right. Stick-figure drawings need none.
+
 ## 4. Save
 
 1. Append the post to `posts` in `src/data/blog.json` (2-space JSON, keys in
